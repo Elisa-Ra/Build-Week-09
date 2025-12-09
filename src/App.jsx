@@ -1,7 +1,6 @@
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
-import Hero from "./components/Hero"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import SezioneAnalisi from "./components/SezioneAnalisi"
 import RightAside from "./components/RightAside"
@@ -17,7 +16,7 @@ import Interests from "./components/Interests"
 import LicensesSection from "./components/LicensesSection"
 import SezioneLingue from "./components/SezioneLingue"
 import HeroDinamic from "./components/HeroDinamic"
-import SezioneMessaggistica from "./components/SezioneMessaggistica"
+// import SezioneMessaggistica from "./components/SezioneMessaggistica"
 
 function App() {
   return (
@@ -27,7 +26,6 @@ function App() {
         <Row className="mt-6">
           <Col xs={8}>
             <HeroDinamic />
-            <Hero />
             <SezioneAnalisi />
             <SezioneAttivita />
             <SezioneLingue />
@@ -44,7 +42,7 @@ function App() {
         </Row>
         <MyFooter />
       </Container>
-      <SezioneMessaggistica/>
+      {/* <SezioneMessaggistica /> */}
     </>
   )
 }
