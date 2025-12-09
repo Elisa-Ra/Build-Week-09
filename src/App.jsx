@@ -15,6 +15,7 @@ import SuperiorNavBar from "./components/SuperiorNavBar"
 import SkillsSection from "./components/SkillsSection"
 import LicensesSection from "./components/LicensesSection"
 import SezioneLingue from "./components/SezioneLingue"
+import HeroDinamic from "./components/HeroDinamic"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <SuperiorNavBar />
         <Row className="mt-6">
           <Col xs={8}>
+            <HeroDinamic />
             <Hero />
             <SezioneAnalisi />
             <SezioneAttivita />
