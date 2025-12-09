@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image, Button } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 
 const Information = () => {
   return (
