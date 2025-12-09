@@ -5,17 +5,26 @@ import Hero from "./components/Hero"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import RightAside from "./components/RightAside"
 import { Col, Container, Row } from "react-bootstrap"
+import SezioneAnalisi from "./components/SezioneAnalisi"
 
 function App() {
   return (
     <Container>
+       
       <Row>
         <Col xs={8}>
+        
           <Hero />
         </Col>
+        <Container>
+          <SezioneAnalisi/>
+        </Container>
+
         <Col xs={4}>
           <RightAside />
+        
         </Col>
+
       </Row>
     </Container>
   )
