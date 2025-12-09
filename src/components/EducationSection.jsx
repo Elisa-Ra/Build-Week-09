@@ -5,6 +5,7 @@ const EducationSection = () => {
   return (
     <Card className="p-3 mb-3 border-0 shadow-sm rounded-3">
       <h4 className="fw-bold">Formazione</h4>
+      {/* singola formazione */}
       <EducationCard />
       <hr />
       <EducationCard />
