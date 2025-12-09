@@ -4,7 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const SezioneAttivita = () => {
   return (
-    <div className="col-12 col-md-4 border rounded shadow-sm bg-white p-3">
+    <div className="col-12 border rounded bg-white p-3">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2 className="fs-5 fw-bold mb-0">Attività</h2>
         <div className="d-flex align-items-center">
