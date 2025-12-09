@@ -3,10 +3,10 @@ import { Container, Row, Col } from "react-bootstrap"
 const Hero = () => {
   return (
     <>
-      <Container>
+      <Container className="border-3 bg-white">
         <Row>
-          <Col>Sopra</Col>
-          <Col>sotto</Col>
+          <Col xs={12}>Sopra</Col>
+          <Col xs={12}>sotto</Col>
         </Row>
       </Container>
     </>
