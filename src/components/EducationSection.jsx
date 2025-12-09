@@ -9,7 +9,7 @@ const EducationSection = () => {
       <hr />
       <EducationCard />
       <hr />
-      <Button variant="light" className="w-100 mt-2 fw-semibold text-primary">
+      <Button className="text-decoration-none text-black bg-transparent border-0 fw-semibold text-primary">
         Mostra tutti i titoli di studio (4) →
       </Button>
     </Card>
