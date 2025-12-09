@@ -1,7 +1,6 @@
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
-import Hero from "./components/Hero"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import SezioneAnalisi from "./components/SezioneAnalisi"
 import RightAside from "./components/RightAside"
@@ -24,7 +23,11 @@ function App() {
         <SuperiorNavBar />
         <Row className="mt-6">
           <Col xs={8}>
+<<<<<<< Updated upstream
             <Hero />
+=======
+            <HeroDinamic />
+>>>>>>> Stashed changes
             <SezioneAnalisi />
             <SezioneAttivita />
             <SezioneLingue />
