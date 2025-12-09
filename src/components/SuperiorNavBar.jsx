@@ -14,6 +14,7 @@ import { TfiLayoutGrid3Alt } from 'react-icons/tfi';
 import { TbDots } from 'react-icons/tb';
 import MiniHero from './MiniHero';
 import { FaSquare } from 'react-icons/fa6';
+import AziendeDropdownDetails from './AziendeDropdownDetails';
 
 const SuperiorNavBar = () => {
   return (
@@ -148,9 +149,7 @@ const SuperiorNavBar = () => {
               className="fs-7"
             >
               <NavDropdown.Item href="#action3">
-                <Container>
-                  <Row></Row>
-                </Container>
+               <AziendeDropdownDetails/>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
