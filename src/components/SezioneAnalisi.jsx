@@ -5,11 +5,10 @@ import { PiChartLineFill } from "react-icons/pi";
 const SezioneAnalisi = () => {
   return (
     <div 
-      className="analysis-wrapper p-2" 
       style={{
         border: '1px solid #ddd',
         borderRadius: '10px',
-        width: '35%',       
+        width: '100%',       
         minWidth: '250px'     
       }}
     >
