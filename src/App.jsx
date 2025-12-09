@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import RightAside from "./components/RightAside"
 import { Col, Container, Row } from "react-bootstrap"
 import SezioneAnalisi from "./components/SezioneAnalisi"
+import SezioneAttivita from "./components/SezioneAttivita"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Col>
         <Container>
           <SezioneAnalisi/>
+          <SezioneAttivita></SezioneAttivita>
         </Container>
 
         <Col xs={4}>
