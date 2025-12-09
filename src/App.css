@@ -18,6 +18,23 @@
   margin-top: 100px !important;
 }
 
+/* Sezione Interests, buttons */
+.toggle-btn-custom {
+  color: #000 !important; /* testo nero */
+  background-color: white !important; /* sfondo grigio chiaro */
+  border: none !important;
+}
+
+.btn-check:checked + .toggle-btn-custom,
+.toggle-btn-custom.active {
+  color: #000 !important; /* testo nero */
+  background-color: #f4f2ee !important; /* sfondo grigio chiaro */
+  border-bottom: 2px solid black !important;
+}
+.toggle-btn-custom:hover {
+  color: #000 !important; /* testo nero */
+  background-color: #f4f2ee !important; /* sfondo grigio chiaro */
+}
 .dropdown-menu {
   position: absolute !important;
   z-index: 1050;

@@ -1,6 +1,6 @@
 import { Row, Col, Image } from "react-bootstrap"
 
-const SkillItem = () => {
+const SkillCard = () => {
   return (
     <div className="p-2 mb-3">
       <h6 className="fw-semibold mb-1">Analisi dei dati</h6>
@@ -8,7 +8,7 @@ const SkillItem = () => {
       <Row>
         <Col xs={2}>
           <Image
-            src=""
+            src="https://placecats.com/50/50"
             className="rounded overflow-hidden border bg-light"
             style={{ width: "32px", height: "32px" }}
           ></Image>
@@ -24,4 +24,4 @@ const SkillItem = () => {
   )
 }
 
-export default SkillItem
+export default SkillCard
