@@ -15,7 +15,6 @@ import EducationSection from "./components/EducationSection"
 function App() {
   return (
     <>
-      (
       <Container>
         <Row>
           <Col xs={8}>
@@ -32,7 +31,6 @@ function App() {
         </Row>
         <MyFooter />
       </Container>
-      )
     </>
   )
 }
