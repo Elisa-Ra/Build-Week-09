@@ -230,9 +230,7 @@ function Interests() {
             </ToggleButton>
           </ToggleButtonGroup>
         </Col>
-        <Col className="mt-4">
-          <p>{contents[value]}</p>
-        </Col>
+        <Col className="mt-4">{contents[value]}</Col>
       </Row>
     </Container>
   )

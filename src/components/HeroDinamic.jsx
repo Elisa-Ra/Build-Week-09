@@ -61,10 +61,11 @@ const HeroDinamic = () => {
                 style={{ transform: "translateY(-60px)" }}
               >
                 <Image
-                  src="https://placecats.com/100/100"
+                  src={profile.image}
                   alt="Profile"
                   roundedCircle
                   className="border border-3 border-white img-profile"
+                  style={{ height: "100px", width: "100px" }}
                 />
               </div>
             </Col>
