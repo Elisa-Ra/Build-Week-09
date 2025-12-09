@@ -12,7 +12,6 @@ import { BsBriefcaseFill } from 'react-icons/bs';
 import { BsBellFill, BsChatDotsFill } from 'react-icons/bs';
 import { TfiLayoutGrid3Alt } from 'react-icons/tfi';
 import { TbDots } from 'react-icons/tb';
-import InputGroupText from 'react-bootstrap/esm/InputGroupText';
 
 const SuperiorNavBar = () => {
   return (
