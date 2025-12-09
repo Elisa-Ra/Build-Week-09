@@ -17,6 +17,8 @@ import Interests from "./components/Interests"
 import LicensesSection from "./components/LicensesSection"
 import SezioneLingue from "./components/SezioneLingue"
 import HeroDinamic from "./components/HeroDinamic"
+import SezioneMessaggistica from "./components/SezioneMessaggistica"
+
 function App() {
   return (
     <>
@@ -42,6 +44,7 @@ function App() {
         </Row>
         <MyFooter />
       </Container>
+      <SezioneMessaggistica/>
     </>
   )
 }
