@@ -8,7 +8,7 @@ const SkillCard = () => {
       <Row>
         <Col xs={2}>
           <Image
-            src=""
+            src="https://placecats.com/50/50"
             className="rounded overflow-hidden border bg-light"
             style={{ width: "32px", height: "32px" }}
           ></Image>

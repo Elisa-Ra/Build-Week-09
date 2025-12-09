@@ -5,8 +5,7 @@ const RightAside = () => {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const API =
-    "https://striveschool-api.herokuapp.com/api/profile/654df010254e8800183f18a4"
+  const API = "https://striveschool-api.herokuapp.com/api/profile/"
   useEffect(() => {
     fetch(API, {
       headers: {
@@ -65,8 +64,8 @@ const RightAside = () => {
           ) : (
             users.map((user) => {
               return (
-                <>
-                  <Row key={user._id} className="mb-3 d-flex">
+                <div key={user._id}>
+                  <Row className="mb-3 d-flex">
                     <Col className="d-flex me-3" md={2}>
                       <Image
                         src={user.image}
@@ -93,7 +92,7 @@ const RightAside = () => {
                     </Col>
                   </Row>
                   <hr className="my-2 mx-2" />
-                </>
+                </div>
               )
             })
           )}
