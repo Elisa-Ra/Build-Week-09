@@ -12,20 +12,24 @@ import MyFooter from "./components/MyFooter"
 import ExperienceSection from "./components/ExperienceSection"
 import EducationSection from "./components/EducationSection"
 import SuperiorNavBar from "./components/SuperiorNavBar"
+import SkillsSection from "./components/SkillsSection"
+import SezioneLingue from "./components/SezioneLingue"
 
 function App() {
   return (
     <>
       <Container>
-          <SuperiorNavBar/>
+        <SuperiorNavBar />
         <Row className="mt-6">
-          <Col xs={8} >
+          <Col xs={8}>
             <Hero />
             <SezioneAnalisi />
             <SezioneAttivita />
+            <SezioneLingue/>
             <Information />
             <ExperienceSection />
             <EducationSection />
+            <SkillsSection />
           </Col>
           <Col lg={4} xs={12}>
             <RightAside />
@@ -34,8 +38,7 @@ function App() {
         <MyFooter />
       </Container>
     </>
-
   )
 }
 
-export default App;
+export default App
