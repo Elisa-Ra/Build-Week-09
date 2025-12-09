@@ -11,13 +11,15 @@ import Information from "./components/Information"
 import MyFooter from "./components/MyFooter"
 import ExperienceSection from "./components/ExperienceSection"
 import EducationSection from "./components/EducationSection"
+import SuperiorNavBar from "./components/SuperiorNavBar"
 
 function App() {
   return (
     <>
       <Container>
-        <Row>
-          <Col xs={8}>
+          <SuperiorNavBar/>
+        <Row className="mt-6">
+          <Col xs={8} >
             <Hero />
             <SezioneAnalisi />
             <SezioneAttivita />
@@ -32,7 +34,8 @@ function App() {
         <MyFooter />
       </Container>
     </>
+
   )
 }
 
-export default App
+export default App;
