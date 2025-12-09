@@ -13,6 +13,7 @@ import ExperienceSection from "./components/ExperienceSection"
 import EducationSection from "./components/EducationSection"
 import SuperiorNavBar from "./components/SuperiorNavBar"
 import SkillsSection from "./components/SkillsSection"
+import Interests from "./components/Interests"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <ExperienceSection />
             <EducationSection />
             <SkillsSection />
+            <Interests />
           </Col>
           <Col lg={4} xs={12}>
             <RightAside />
