@@ -62,7 +62,7 @@ const SuperiorNavBar = () => {
             <BsBellFill />
             <p className="d-none d-lg-flex fs-7 mb-0">Notifiche</p>
           </Nav.Link>
-          <Nav.Item>
+          <Nav.Item className="d-none d-lg-flex">
             {/* menu a tendina del profilo */}
             <Navbar.Collapse>
               <Nav className=" my-lg-0 flex-column justify-content-center align-items-center mb-0">
@@ -71,11 +71,10 @@ const SuperiorNavBar = () => {
                   className="profile-img-icon"
                   roundedCircle
                 />
-                <NavDropdown title="Tu" align="end" className="fs-7">
+                <NavDropdown title="Tu" align="end" className="fs-7 ">
                   <NavDropdown.Item>
                     <MiniHero />
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#"></NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action5">
                     <Container fluid>
@@ -140,18 +139,83 @@ const SuperiorNavBar = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <TfiLayoutGrid3Alt />
-
-            <NavDropdown
-              title="Per le aziende"
-              id="navbarScrollingDropdown"
-              align="end"
-              className="fs-7"
-            >
-              <NavDropdown.Item href="#action3">
-               <AziendeDropdownDetails/>
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Row>
+              <Col>
+              <NavDropdown
+                title={
+                  <Image
+                    src="https://placecats.com/200/200"
+                    alt="Profile"
+                    roundedCircle
+                    className="img-fluid mini-img"
+                  />
+                }
+                align="end"
+                className="fs-7 d-lg-none"
+              >
+                <NavDropdown.Item>
+                  <MiniHero />
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">
+                  <Container fluid>
+                    <Row className="flex-column">
+                      <Col>
+                        <h6 className="fs-7">Account</h6>
+                        <p className="fs-7">
+                          <FaSquare fill="#E7A33E" className="text-wrap" />{' '}
+                          Riattiva Premium con il 50% di sconto
+                        </p>
+                        <p className=" fs-7 pb-0 mb-1 text-muted">
+                          Impostazioni e privacy
+                        </p>
+                        <p className=" fs-7 pb-0 mb-1 text-muted">Guida</p>
+                        <p className=" fs-7 pb-0 mb-1 text-muted">Lingua</p>
+                      </Col>
+                    </Row>
+                  </Container>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item>
+                  <Container fluid>
+                    <Row className="flex-column">
+                      <Col>
+                        <h6 className="fs-7">Gestisci</h6>
+                        <p className=" fs-7 mb-0 pb-0 text-muted">
+                          Post e attività
+                        </p>
+                        <p className=" fs-7 pb-0 mb-0 text-muted">
+                          Account per la sincronizzazione di off..
+                        </p>
+                      </Col>
+                    </Row>
+                  </Container>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item>
+                  <Container>
+                    <Row>
+                      <Col>
+                        <p className=" fs-7 py-0 my-0 text-muted">Esci</p>
+                      </Col>
+                    </Row>
+                  </Container>
+                </NavDropdown.Item>
+              </NavDropdown>
+              </Col>
+              <Col>
+              <NavDropdown
+                title={<TfiLayoutGrid3Alt />}
+                id="navbarScrollingDropdown"
+                align="end"
+                className="fs-7"
+              >
+                <NavDropdown.Item href="#">
+                  <AziendeDropdownDetails />
+                </NavDropdown.Item>
+              </NavDropdown>
+              </Col>
+            </Row>
           </Nav>
           {/* link per riattivazione premium */}
           <Nav.Link>
