@@ -7,7 +7,7 @@ import RightAside from "./components/RightAside"
 import { Col, Container, Row } from "react-bootstrap"
 import SezioneAnalisi from "./components/SezioneAnalisi"
 import Information from "./components/Information"
-import Footer from "./components/Footer"
+import MyFooter from "./components/MyFooter"
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
           <RightAside />
         </Col>
       </Row>
-      <Footer />
+      <MyFooter />
     </Container>
   )
 }
