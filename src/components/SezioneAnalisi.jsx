@@ -4,7 +4,7 @@ import { PiChartLineFill } from "react-icons/pi";
 
 const SezioneAnalisi = () => {
   return (
-    <div >
+    <div>
       <Card className="mb-0 border-0">
         <Card.Body className="p-3"> 
           <h5 className="fw-bold mb-1">Analisi</h5>

@@ -6,6 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import SezioneAnalisi from "./components/SezioneAnalisi"
 import RightAside from "./components/RightAside"
 import { Col, Container, Row } from "react-bootstrap"
+import SezioneAnalisi from "./components/SezioneAnalisi"
+import SezioneAttivita from "./components/SezioneAttivita"
+import Information from "./components/Information"
+import MyFooter from "./components/MyFooter"
+
 
 function App() {
   return <>(
@@ -14,15 +19,17 @@ function App() {
 
         <Col xs={8}>
           <Hero />
+          <SezioneAnalisi />
+          <SezioneAttivita/>
+          <Information />
         </Col>
-        <Col xs={4}>
+        <Col lg={4} xs={12}>
           <RightAside />
         </Col>
       </Row>
+      <MyFooter />
     </Container>
-  )
-
-</>
+  )</>
 }
 
 export default App

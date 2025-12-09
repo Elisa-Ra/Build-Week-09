@@ -3,12 +3,8 @@ import { Container, Row, Col, Image, Button } from "react-bootstrap"
 const Hero = () => {
   return (
     <>
-      <div className="bg-danger">
-        <h1>CIAO</h1>
-      </div>
-
       {/* Sezione Hero */}
-      <Container className="mx-5 mb-5 mt-5 rounded bg-white p-0 w-100 w-lg-50">
+      <Container className="mx-2 mb-5 mt-5 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle">
         {/* Immagine di copertina */}
         <Row>
           <Col>
