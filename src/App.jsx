@@ -15,6 +15,7 @@ import SkillsSection from "./components/SkillsSection"
 import Interests from "./components/Interests"
 import LicensesSection from "./components/LicensesSection"
 import SezioneLingue from "./components/SezioneLingue"
+import HeroDinamic from "./components/HeroDinamic"
 
 function App() {
   return (
@@ -23,11 +24,7 @@ function App() {
         <SuperiorNavBar />
         <Row className="mt-6">
           <Col xs={8}>
-<<<<<<< Updated upstream
-            <Hero />
-=======
             <HeroDinamic />
->>>>>>> Stashed changes
             <SezioneAnalisi />
             <SezioneAttivita />
             <SezioneLingue />
