@@ -14,32 +14,39 @@ const SezioneAnalisi = () => {
             Solo per te
           </p>
 
-          <Row className="mb-2">
-            <Col xs="auto" className="pe-0">
-              <PiChartLineFill style={{ fontSize: "1.2rem" }} />
-            </Col>
-            <Col>
-              <span className="fw-bold me-1">0</span>
-              <span className="text-dark small">
-                visualizzazioni del profilo
-              </span>
-              <p className="mt-1">
-                Aggiorna il tuo profilo per attrarre visitatori.
-              </p>
-            </Col>
-          </Row>
+          <Row>
+            <Col xs={6} className="d-flex align-items-start">
+              <div>
+                <PiChartLineFill
+                  style={{ fontSize: "1.2rem" }}
+                  className="me-2 mt-1"
+                />
+              </div>
 
-          <hr className="my-2" />
-
-          <Row className="mb-2">
-            <Col xs="auto" className="pe-0">
-              <IoBarChartOutline style={{ fontSize: "1.2rem" }} />
+              <div>
+                <span className="fw-bold mb-0">0</span>
+                <span className="text-muted small">
+                  visualizzazioni del profilo
+                </span>
+                <p className="mt-1">
+                  Aggiorna il tuo profilo per attrarre visitatori.
+                </p>
+              </div>
             </Col>
-            <Col>
-              <span className="fw-bold me-1">0</span>
-              <span className="text-dark small">impressioni del post</span>
-              <p className="mb-0">Crea un post per aumentare l'interesse.</p>
-              <p className="text-muted small mt-1 mb-0">Ultimi 7 giorni</p>
+
+            <Col xs={6} className="d-flex align-items-start">
+              <div>
+                <IoBarChartOutline
+                  style={{ fontSize: "1.2rem" }}
+                  className="me-2 mt-1"
+                />
+              </div>
+              <div>
+                <span className="fw-bold me-1">0</span>
+                <span className="text-muted small">impressioni del post</span>
+                <p className="mb-0">Crea un post per aumentare l'interesse.</p>
+                <p className="text-muted small mt-1 mb-0">Ultimi 7 giorni</p>
+              </div>
             </Col>
           </Row>
         </Card.Body>
