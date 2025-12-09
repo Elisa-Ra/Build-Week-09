@@ -13,13 +13,13 @@ function App() {
   return (
     <Container>
       <Row>
-        <Col xs={8}>
+        <Col lg={8} xs={12}>
           <Hero />
           <SezioneAnalisi />
           <Information />
         </Col>
 
-        <Col xs={4}>
+        <Col lg={4} xs={12}>
           <RightAside />
         </Col>
       </Row>
