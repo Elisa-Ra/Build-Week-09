@@ -79,7 +79,9 @@ const Footer = function () {
               </span>
               <a href="#" className="text-decoration-none">
                 <strong className="text-dark">Domande</strong>
-                <p className="mb-0 small">Visita il nostro Centro assistenza</p>
+                <p className="mb-0 small text-muted">
+                  Visita il nostro Centro assistenza
+                </p>
               </a>
             </div>
             <div className="d-flex align-items-start text-muted mb-3">
@@ -89,7 +91,7 @@ const Footer = function () {
                   <strong className="text-dark">
                     Gestisci il tuo account e la tua privacy
                   </strong>
-                  <p className="mb-0 small">Vai alle impostazioni</p>
+                  <p className="mb-0 small text-muted">Vai alle impostazioni</p>
                 </a>
               </span>
             </div>
@@ -101,17 +103,36 @@ const Footer = function () {
                 <strong className="text-dark">
                   Trasparenza sui contenuti consigliati
                 </strong>
-                <p className="mb-0 small">
+                <p className="mb-0 small text-muted">
                   Scopri di più sui contenuti consigliati
                 </p>
               </a>
             </div>
           </Col>
-          <Col lg={2} md={4} sm={6} xs={12} className="mb-3">
-            <h3>Colonna 1</h3>
-            <ul>...</ul>
+          <Col lg={2} md={4} sm={6} xs={12} className="mb-4">
+            <strong className="text-dark ">Seleziona lingua</strong>
+            <Dropdown>
+              <Dropdown.Toggle
+                variant="light"
+                id="dropdown-language"
+                className="w-100 text-start"
+              >
+                Italiano (italiano)
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#">Italiano(Italiano)</Dropdown.Item>
+                <Dropdown.Item href="#">English(English)</Dropdown.Item>
+                <Dropdown.Item href="#">Deutsch(Tedesco)</Dropdown.Item>
+                <Dropdown.Item href="#">Français(Français)</Dropdown.Item>
+                <Dropdown.Item href="#">Nederlands(Olandese)</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Col>
         </Row>
+        <p className="text-muted">
+          LinkedIn Corporation <i class="bi bi-c-circle"></i> 2025
+        </p>
       </Container>
     </>
   )
