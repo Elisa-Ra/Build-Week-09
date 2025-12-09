@@ -9,19 +9,21 @@ import SezioneAnalisi from "./components/SezioneAnalisi"
 import SezioneAttivita from "./components/SezioneAttivita"
 import Information from "./components/Information"
 import MyFooter from "./components/MyFooter"
+import SuperiorNavBar from "./components/SuperiorNavBar"
 
 
 function App() {
   return (
     <Container>
-      <Row>
-        <Col lg={8} xs={12}>
+      <SuperiorNavBar/>
+      <Row className="mt-6">
+        <Col lg={8} xs={12} >
           <Hero />
           <SezioneAnalisi />
           <SezioneAttivita/>
           <Information />
         </Col>
-        <Col lg={4} xs={12}>
+        <Col lg={4} xs={12} >
           <RightAside />
         </Col>
       </Row>

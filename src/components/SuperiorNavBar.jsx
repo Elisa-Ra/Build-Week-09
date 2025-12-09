@@ -15,7 +15,7 @@ import { TbDots } from 'react-icons/tb';
 
 const SuperiorNavBar = () => {
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg" className="fixed-top bg-light">
       <Container fluid className="justify-content-between">
         <Navbar.Brand href="#">
           <FaLinkedin fill="#0A65C0" />
@@ -38,28 +38,28 @@ const SuperiorNavBar = () => {
         <div className="d-flex flex-nowrap justify-content-evenly flex-grow-1">
           <Nav.Link className="text-center">
             <AiFillHome />
-            <p className="d-none d-lg-flex fs-7">Home</p>
+            <p className="d-none d-lg-flex fs-7 mb-0">Home</p>
           </Nav.Link>
 
           <Nav.Link className="text-center">
             <HiUsers />
-            <p className="d-none d-lg-flex fs-7">Rete</p>
+            <p className="d-none d-lg-flex fs-7 mb-0">Rete</p>
           </Nav.Link>
           <Nav.Link className="text-center">
             <BsBriefcaseFill />
-            <p className="d-none d-lg-flex fs-7">Lavoro</p>
+            <p className="d-none d-lg-flex fs-7 mb-0">Lavoro</p>
           </Nav.Link>
           <Nav.Link className="text-center">
             <BsChatDotsFill />
-            <p className="d-none d-lg-flex fs-7">Messaggistica</p>
+            <p className="d-none d-lg-flex fs-7 mb-0">Messaggistica</p>
           </Nav.Link>
           <Nav.Link className="text-center">
             <BsBellFill />
-            <p className="d-none d-lg-flex fs-7">Notifiche</p>
+            <p className="d-none d-lg-flex fs-7 mb-0">Notifiche</p>
           </Nav.Link>
           <Nav.Item>
             <Navbar.Collapse>
-              <Nav className=" my-lg-0 flex-column justify-content-center align-items-center">
+              <Nav className=" my-lg-0 flex-column justify-content-center align-items-center mb-0">
                 <Image
                   src="https://placebear.com/200/200"
                   className="profile-img-icon"
@@ -113,7 +113,7 @@ const SuperiorNavBar = () => {
             </NavDropdown>
           </Nav>
           <Nav.Link>
-            <p className="premium-link w-50 fs-7 text-decoration-underline">
+            <p className="premium-link w-50 fs-7 text-decoration-underline mb-0">
               Riattiva Premium con il 50% di sconto
             </p>
           </Nav.Link>
