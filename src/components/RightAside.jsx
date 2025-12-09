@@ -64,8 +64,8 @@ const RightAside = () => {
           ) : (
             users.map((user) => {
               return (
-                <>
-                  <Row key={user._id} className="mb-3 d-flex">
+                <div key={user._id}>
+                  <Row className="mb-3 d-flex">
                     <Col className="d-flex me-3" md={2}>
                       <Image
                         src={user.image}
@@ -92,7 +92,7 @@ const RightAside = () => {
                     </Col>
                   </Row>
                   <hr className="my-2 mx-2" />
-                </>
+                </div>
               )
             })
           )}

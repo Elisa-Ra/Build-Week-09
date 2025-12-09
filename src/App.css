@@ -30,4 +30,7 @@
 .toggle-btn-custom:hover {
   color: #000 !important; /* testo nero */
   background-color: #f4f2ee !important; /* sfondo grigio chiaro */
+.dropdown-menu {
+  position: absolute !important;
+  z-index: 1050;
 }

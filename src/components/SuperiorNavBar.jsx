@@ -1,4 +1,4 @@
-import { Container, InputGroup } from 'react-bootstrap';
+import { Container, InputGroup, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,6 +12,8 @@ import { BsBriefcaseFill } from 'react-icons/bs';
 import { BsBellFill, BsChatDotsFill } from 'react-icons/bs';
 import { TfiLayoutGrid3Alt } from 'react-icons/tfi';
 import { TbDots } from 'react-icons/tb';
+import MiniHero from './MiniHero';
+import { FaSquare } from 'react-icons/fa6';
 
 const SuperiorNavBar = () => {
   return (
@@ -20,10 +22,11 @@ const SuperiorNavBar = () => {
         <Navbar.Brand href="#">
           <FaLinkedin fill="#0A65C0" />
         </Navbar.Brand>
+        {/* icona search su mobile */}
         <Navbar.Toggle className="border-0 ps-0">
           <IoSearch />
         </Navbar.Toggle>
-
+        {/* barra search su desktop */}
         <InputGroup className="w-25 d-none d-lg-flex">
           <InputGroup.Text className="bg-white border-1 rounded-start-pill">
             <IoSearch />
@@ -35,6 +38,7 @@ const SuperiorNavBar = () => {
             aria-label="Search"
           />
         </InputGroup>
+        {/* set di icone */}
         <div className="d-flex flex-nowrap justify-content-evenly flex-grow-1">
           <Nav.Link className="text-center">
             <AiFillHome />
@@ -58,6 +62,7 @@ const SuperiorNavBar = () => {
             <p className="d-none d-lg-flex fs-7 mb-0">Notifiche</p>
           </Nav.Link>
           <Nav.Item>
+            {/* menu a tendina del profilo */}
             <Navbar.Collapse>
               <Nav className=" my-lg-0 flex-column justify-content-center align-items-center mb-0">
                 <Image
@@ -65,30 +70,69 @@ const SuperiorNavBar = () => {
                   className="profile-img-icon"
                   roundedCircle
                 />
-                <NavDropdown
-                  title="Tu"
-                  id="navbarScrollingDropdown"
-                  className="fs-7"
-                >
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
+                <NavDropdown title="Tu" align="end" className="fs-7">
+                  <NavDropdown.Item>
+                    <MiniHero />
                   </NavDropdown.Item>
-
+                  <NavDropdown.Item href="#"></NavDropdown.Item>
+                  <NavDropdown.Divider />
                   <NavDropdown.Item href="#action5">
-                    Something else here
+                    <Container fluid>
+                      <Row className="flex-column">
+                        <Col>
+                          <h6 className="fs-7">Account</h6>
+                          <p className="fs-7">
+                            <FaSquare fill="#E7A33E" className="text-wrap" />{' '}
+                            Riattiva Premium con il 50% di sconto
+                          </p>
+                          <p className=" fs-7 pb-0 mb-1 text-muted">
+                            Impostazioni e privacy
+                          </p>
+                          <p className=" fs-7 pb-0 mb-1 text-muted">Guida</p>
+                          <p className=" fs-7 pb-0 mb-1 text-muted">Lingua</p>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item>
+                    <Container fluid>
+                      <Row className="flex-column">
+                        <Col>
+                          <h6 className="fs-7">Gestisci</h6>
+                          <p className=" fs-7 mb-0 pb-0 text-muted">
+                            Post e attività
+                          </p>
+                          <p className=" fs-7 pb-0 mb-0 text-muted">
+                            Account per la sincronizzazione di off..
+                          </p>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item>
+                    <Container>
+                      <Row>
+                        <Col>
+                          <p className=" fs-7 py-0 my-0 text-muted">Esci</p>
+                        </Col>
+                      </Row>
+                    </Container>
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
           </Nav.Item>
         </div>
+        {/* panino per mobile */}
         <Navbar.Toggle
           aria-controls="navbarScroll"
           className="border-0 justify-content-center align-items-center"
         >
           <TbDots />
         </Navbar.Toggle>
+        {/* menu a tendina per aziende */}
         <Navbar.Collapse className="flex-grow-0">
           <Nav
             className="me-auto my-2 my-lg-0 flex-column justify-content-center align-items-center border-start"
@@ -100,18 +144,17 @@ const SuperiorNavBar = () => {
             <NavDropdown
               title="Per le aziende"
               id="navbarScrollingDropdown"
+              align="end"
               className="fs-7"
             >
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-
-              <NavDropdown.Item href="#action5">
-                Something else here
+              <NavDropdown.Item href="#action3">
+                <Container>
+                  <Row></Row>
+                </Container>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+          {/* link per riattivazione premium */}
           <Nav.Link>
             <p className="premium-link w-50 fs-7 text-decoration-underline mb-0">
               Riattiva Premium con il 50% di sconto
