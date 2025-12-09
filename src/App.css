@@ -11,6 +11,10 @@
 }
 
 .mt-6 {
-    margin-top: 100px !important;
+  margin-top: 100px !important;
 }
 
+.dropdown-menu {
+  position: absolute !important;
+  z-index: 1050;
+}
