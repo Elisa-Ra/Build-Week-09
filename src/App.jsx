@@ -13,6 +13,7 @@ import ExperienceSection from "./components/ExperienceSection"
 import EducationSection from "./components/EducationSection"
 import SuperiorNavBar from "./components/SuperiorNavBar"
 import SkillsSection from "./components/SkillsSection"
+import Interests from "./components/Interests"
 import LicensesSection from "./components/LicensesSection"
 import SezioneLingue from "./components/SezioneLingue"
 import HeroDinamic from "./components/HeroDinamic"
@@ -33,6 +34,7 @@ function App() {
             <ExperienceSection />
             <EducationSection />
             <SkillsSection />
+            <Interests />
             <LicensesSection />
           </Col>
           <Col lg={4} xs={12}>
