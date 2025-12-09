@@ -5,7 +5,8 @@ const RightAside = () => {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const API = "https://striveschool-api.herokuapp.com/api/profile/"
+  const API =
+    "https://striveschool-api.herokuapp.com/api/profile/654df010254e8800183f18a4"
   useEffect(() => {
     fetch(API, {
       headers: {

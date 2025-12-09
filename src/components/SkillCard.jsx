@@ -1,6 +1,6 @@
 import { Row, Col, Image } from "react-bootstrap"
 
-const SkillItem = () => {
+const SkillCard = () => {
   return (
     <div className="p-2 mb-3">
       <h6 className="fw-semibold mb-1">Analisi dei dati</h6>
@@ -24,4 +24,4 @@ const SkillItem = () => {
   )
 }
 
-export default SkillItem
+export default SkillCard
