@@ -27,14 +27,15 @@ function App() {
           <Col xs={8}>
             <HeroDinamic />
             <SezioneAnalisi />
+            <Information />
             <SezioneAttivita />
             <SezioneLingue />
-            <Information />
+
             <ExperienceSection />
             <EducationSection />
             <SkillsSection />
-            <Interests />
             <LicensesSection />
+            <Interests />
           </Col>
           <Col lg={4} xs={12}>
             <RightAside />
