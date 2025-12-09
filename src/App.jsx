@@ -14,6 +14,7 @@ import EducationSection from "./components/EducationSection"
 import SuperiorNavBar from "./components/SuperiorNavBar"
 import SkillsSection from "./components/SkillsSection"
 import LicensesSection from "./components/LicensesSection"
+import SezioneLingue from "./components/SezioneLingue"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Hero />
             <SezioneAnalisi />
             <SezioneAttivita />
+            <SezioneLingue />
             <Information />
             <ExperienceSection />
             <EducationSection />
