@@ -86,7 +86,7 @@ const RightAside = () => {
                         size="sm"
                         className="rounded-pill text-center mt-1"
                       >
-                        <i class="bi bi-person-plus me-2"></i>
+                        <i className="bi bi-person-plus me-2"></i>
                         Collegati
                       </Button>
                     </Col>
