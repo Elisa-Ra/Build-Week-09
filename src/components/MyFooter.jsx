@@ -2,7 +2,7 @@ import React from "react"
 import { Container, Row, Col, Dropdown } from "react-bootstrap"
 import { IoShieldHalf } from "react-icons/io5"
 
-const Footer = function () {
+const MyFooter = function () {
   return (
     <>
       <Container>
@@ -75,7 +75,7 @@ const Footer = function () {
           <Col lg={2} md={4} sm={6} xs={12} className="mb-4">
             <div className="d-flex align-items-start text-muted mb-3">
               <span>
-                <i class="bi bi-question-circle-fill"></i>
+                <i className="bi bi-question-circle-fill"></i>
               </span>
               <a href="#" className="text-decoration-none">
                 <strong className="text-dark">Domande</strong>
@@ -86,7 +86,7 @@ const Footer = function () {
             </div>
             <div className="d-flex align-items-start text-muted mb-3">
               <span>
-                <i class="bi bi-gear-fill"></i>
+                <i className="bi bi-gear-fill"></i>
                 <a href="#" className="text-decoration-none">
                   <strong className="text-dark">
                     Gestisci il tuo account e la tua privacy
@@ -131,11 +131,11 @@ const Footer = function () {
           </Col>
         </Row>
         <p className="text-muted">
-          LinkedIn Corporation <i class="bi bi-c-circle"></i> 2025
+          LinkedIn Corporation <i className="bi bi-c-circle"></i> 2025
         </p>
       </Container>
     </>
   )
 }
 
-export default Footer
+export default MyFooter
