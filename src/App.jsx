@@ -7,27 +7,25 @@ import RightAside from "./components/RightAside"
 import { Col, Container, Row } from "react-bootstrap"
 import SezioneAnalisi from "./components/SezioneAnalisi"
 import SezioneAttivita from "./components/SezioneAttivita"
+import Information from "./components/Information"
+import MyFooter from "./components/MyFooter"
+
 
 function App() {
   return (
     <Container>
-       
       <Row>
-        <Col xs={8}>
-        
+        <Col lg={8} xs={12}>
           <Hero />
+          <SezioneAnalisi />
+          <SezioneAttivita/>
+          <Information />
         </Col>
-        <Container>
-          <SezioneAnalisi/>
-          <SezioneAttivita></SezioneAttivita>
-        </Container>
-
-        <Col xs={4}>
+        <Col lg={4} xs={12}>
           <RightAside />
-        
         </Col>
-
       </Row>
+      <MyFooter />
     </Container>
   )
 }
