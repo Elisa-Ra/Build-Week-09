@@ -10,6 +10,7 @@ import ExperienceSection from "./ExperienceSection"
 import Interests from "./Interests"
 import Information from "./Information"
 import RightAside from "./RightAside"
+import MyFooter from "./MyFooter"
 
 const ProfileSections = () => {
   return (
@@ -31,6 +32,7 @@ const ProfileSections = () => {
           <RightAside />
         </Col>
       </Row>
+      <MyFooter />
     </>
   )
 }

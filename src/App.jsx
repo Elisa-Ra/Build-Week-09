@@ -14,7 +14,6 @@ function App() {
       <Container>
         <SuperiorNavBar />
         <ProfileSections />
-        <MyFooter />
       </Container>
 
       <SezioneMessaggistica />
