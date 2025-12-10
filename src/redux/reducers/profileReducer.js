@@ -2,7 +2,7 @@ import {
   PROFILE_LOADING,
   PROFILE_ERROR,
   PROFILE_SUCCESS,
-} from "../actions/profileActions"
+} from "../actions/profilesAction"
 
 const initialState = {
   data: null,
