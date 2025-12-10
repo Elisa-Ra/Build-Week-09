@@ -44,3 +44,9 @@
   width: 15px;
   height: 15px;
 }
+
+.badge-oro {
+  background-color: #fce3bc !important;
+  font-size: 0.6rem !important;
+  border: none !important;
+}
