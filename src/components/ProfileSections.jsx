@@ -10,6 +10,7 @@ import ExperienceSection from "./ExperienceSection"
 import Interests from "./Interests"
 import Information from "./Information"
 import RightAside from "./RightAside"
+import MyFooter from "./MyFooter"
 
 const ProfileSections = () => {
   return (
@@ -26,6 +27,7 @@ const ProfileSections = () => {
           <SkillsSection />
           <LicensesSection />
           <Interests />
+          <MyFooter />
         </Col>
         <Col lg={4} xs={12}>
           <RightAside />
