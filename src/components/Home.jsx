@@ -4,22 +4,24 @@ import CreaPost from "./CreaPost"
 
 const Home = () => {
   return (
-    <>
-      <Container className="mt-6">
-        <Row>
-          {/* Sinistra */}
-          <Col xs={3}>
-            <LeftBar />
-          </Col>
-          {/* Centro */}
-          <Col xs={5}>
-            <CreaPost />
-          </Col>
-          {/* Destra */}
-          <Col xs={4}></Col>
-        </Row>
-      </Container>
-    </>
+    <Container className="mt-6">
+      <Row>
+        {/* Sinistra */}
+        <Col xs={12} md={3}>
+          <LeftBar />
+        </Col>
+
+        {/* Centro */}
+        <Col xs={12} md={5}>
+          <CreaPost />
+        </Col>
+
+        {/* Destra */}
+        <Col xs={12} md={4}>
+          {/* Qui puoi mettere suggerimenti, pubblicità, ecc. */}
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
