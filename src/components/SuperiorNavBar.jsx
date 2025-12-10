@@ -15,6 +15,7 @@ import { TbDots } from "react-icons/tb"
 import MiniHero from "./MiniHero"
 import { FaSquare } from "react-icons/fa6"
 import AziendeDropdownDetails from "./AziendeDropdownDetails"
+import { Link } from "react-router-dom"
 
 const SuperiorNavBar = () => {
   return (
@@ -41,10 +42,10 @@ const SuperiorNavBar = () => {
         </InputGroup>
         {/* set di icone */}
         <div className="d-flex flex-nowrap justify-content-evenly flex-grow-1">
-          <Nav.Link className="text-center">
+          <Link to="/" className="nav-link text-center">
             <AiFillHome />
             <p className="d-none d-lg-flex fs-7 mb-0">Home</p>
-          </Nav.Link>
+          </Link>
 
           <Nav.Link className="text-center">
             <HiUsers />
@@ -72,9 +73,9 @@ const SuperiorNavBar = () => {
                   roundedCircle
                 />
                 <NavDropdown title="Tu" align="end" className="fs-7 ">
-                  <NavDropdown.Item>
-                    <MiniHero />
-                  </NavDropdown.Item>
+                  {/* <NavDropdown.Item> */}
+                  <MiniHero />
+                  {/* </NavDropdown.Item> */}
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action5">
                     <Container fluid>

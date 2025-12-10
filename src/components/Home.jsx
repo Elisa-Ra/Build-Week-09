@@ -1,10 +1,15 @@
-import { Container } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 
 const Home = () => {
   return (
     <>
-      <Container fluid>
-        <h1>HOME</h1>
+      <Container className="mt-6">
+        <Row>
+          <Col>
+            {" "}
+            <h1>HOME</h1>
+          </Col>
+        </Row>
       </Container>
     </>
   )
