@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap"
+import CreaPost from "./CreaPost"
 
 const Home = () => {
   return (
@@ -6,6 +7,7 @@ const Home = () => {
       <Container fluid>
         <h1>HOME</h1>
       </Container>
+      <CreaPost/>
     </>
   )
 }
