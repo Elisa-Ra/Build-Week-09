@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap"
 import { useSelector } from "react-redux"
 
