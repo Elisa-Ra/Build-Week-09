@@ -161,7 +161,7 @@ const SuperiorNavBar = () => {
                 <NavDropdown
                   title={
                     <Image
-                      src="https://placecats.com/200/200"
+                      src={profile?.image}
                       alt="Profile"
                       roundedCircle
                       className="img-fluid mini-img"
