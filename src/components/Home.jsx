@@ -1,18 +1,14 @@
 import { Container } from "react-bootstrap"
 import CreaPost from "./CreaPost"
-
+import Consigliati from "./Consigliati"
 const Home = () => {
   return (
     <>
-      <Container className="mt-6">
-        <Row>
-          <Col>
-            {" "}
-            <h1>HOME</h1>
-          </Col>
-        </Row>
+      <Container fluid>
+        <h1>HOME</h1>
       </Container>
       <CreaPost/>
+      <Consigliati/>
     </>
   )
 }
