@@ -1,5 +1,6 @@
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
-import { HiOutlineShieldCheck } from 'react-icons/hi';
+import { Container, Row, Col, Image, Button } from "react-bootstrap"
+import { HiOutlineShieldCheck } from "react-icons/hi"
+import { Link } from "react-router-dom"
 
 const MiniHero = () => {
   return (
@@ -39,6 +40,8 @@ const MiniHero = () => {
         <Row className="px-0">
           <Col className="justify-content-center">
             <Button
+              as={Link}
+              to="/profile"
               variant="outline-primary"
               size="sm"
               className="rounded-pill w-100 p-0 fs-7"
@@ -49,7 +52,7 @@ const MiniHero = () => {
         </Row>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default MiniHero;
+export default MiniHero
