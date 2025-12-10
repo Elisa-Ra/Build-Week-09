@@ -20,8 +20,8 @@ import { Link } from "react-router-dom"
 const SuperiorNavBar = () => {
   return (
     <Navbar expand="lg" className="fixed-top bg-light">
-      <Container fluid className="justify-content-between">
-        <Navbar.Brand href="#">
+      <Container className="justify-content-between">
+        <Navbar.Brand as={Link} to="/">
           <FaLinkedin fill="#0A65C0" />
         </Navbar.Brand>
         {/* icona search su mobile */}
