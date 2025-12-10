@@ -14,6 +14,7 @@ const HeroDinamic = () => {
     return state.profile.error
   })
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(fetchMyProfile())
   }, [])
