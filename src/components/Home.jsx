@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap"
 import LeftBar from "./LeftBar"
+import CreaPost from "./CreaPost"
 
 const Home = () => {
   return (
@@ -11,7 +12,9 @@ const Home = () => {
             <LeftBar />
           </Col>
           {/* Centro */}
-          <Col xs={5}></Col>
+          <Col xs={5}>
+            <CreaPost />
+          </Col>
           {/* Destra */}
           <Col xs={4}></Col>
         </Row>
