@@ -16,8 +16,11 @@ import MiniHero from "./MiniHero"
 import { FaSquare } from "react-icons/fa6"
 import AziendeDropdownDetails from "./AziendeDropdownDetails"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 const SuperiorNavBar = () => {
+  const profile = useSelector((state) => state.profile.data)
+
   return (
     <Navbar expand="lg" className="fixed-top bg-light">
       <Container className="justify-content-between">
@@ -68,7 +71,7 @@ const SuperiorNavBar = () => {
             <Navbar.Collapse>
               <Nav className=" my-lg-0 flex-column justify-content-center align-items-center mb-0">
                 <Image
-                  src="https://placebear.com/200/200"
+                  src={profile?.image}
                   className="profile-img-icon"
                   roundedCircle
                 />

@@ -1,8 +1,10 @@
 import { Container, Row, Col, Image } from "react-bootstrap"
 import { HiOutlineShieldCheck } from "react-icons/hi"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 const MiniHero = () => {
+  const profile = useSelector((state) => state.profile.data)
   return (
     <>
       {/* Sezione MiniHero, serve per il menu a tendina della navbar */}
@@ -10,7 +12,7 @@ const MiniHero = () => {
         <Row className="flex-nowrap align-items-center justify-content-center py-1">
           <Col xs={4}>
             <Image
-              src="https://placecats.com/500/500"
+              src={profile?.image}
               alt="Profile"
               roundedCircle
               className="img-fluid"
@@ -22,14 +24,14 @@ const MiniHero = () => {
                 <Row className="flex-column">
                   <Col xs={12}>
                     <h6 className="fs-7 m-0">
-                      Nome Cognome
+                      {profile.name} {profile.surname}
                       <strong>
                         <HiOutlineShieldCheck className="ps-1 fs-6" />
                       </strong>
                     </h6>
                   </Col>
                   <Col xs={12}>
-                    <p className="fs-7 m-0">Professione</p>
+                    <p className="fs-7 m-0">{profile?.title}</p>
                   </Col>
                 </Row>
               </Col>
