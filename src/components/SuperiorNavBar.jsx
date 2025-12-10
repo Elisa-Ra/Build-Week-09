@@ -246,6 +246,7 @@ const SuperiorNavBar = () => {
                 </NavDropdown>
               </Col>
               <Col xs={6}>
+                   {/* link per riattivazione premium */}
                 <Nav.Link>
                   <p className="premium-link w-100 fs-7 text-decoration-underline mb-0">
                     Riattiva Premium con il 50% di sconto
@@ -254,7 +255,7 @@ const SuperiorNavBar = () => {
               </Col>
             </Row>
           </Nav>
-          {/* link per riattivazione premium */}
+     
         </Navbar.Collapse>
       </Container>
     </Navbar>

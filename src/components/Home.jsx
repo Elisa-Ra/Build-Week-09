@@ -1,7 +1,9 @@
-import { Container, Row, Col } from "react-bootstrap"
-import LeftBar from "./LeftBar"
-import CreaPost from "./CreaPost"
-import Consigliati from "./Consigliati"
+import { Container, Row, Col } from 'react-bootstrap';
+import LeftBar from './LeftBar';
+import CreaPost from './CreaPost';
+import Consigliati from './Consigliati';
+import AsideNotizieDx from './AsideNotizieDx';
+
 const Home = () => {
   return (
     <Container className="mt-6">
@@ -20,11 +22,11 @@ const Home = () => {
 
         {/* Destra */}
         <Col xs={12} md={4}>
-          {/* Qui puoi mettere suggerimenti, pubblicità, ecc. */}
+          <AsideNotizieDx />
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
