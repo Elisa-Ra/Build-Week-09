@@ -8,12 +8,13 @@ const RightAside = () => {
     return state.user.users
   })
   const loading = useSelector((state) => state.user.loading)
-  const error = useSelector((state) => state.user.error)
+  // const error = useSelector((state) => state.user.error)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchUser())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
