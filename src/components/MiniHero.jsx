@@ -24,7 +24,7 @@ const MiniHero = () => {
                 <Row className="flex-column">
                   <Col xs={12}>
                     <h6 className="fs-7 m-0">
-                      {profile.name} {profile.surname}
+                      {profile?.name} {profile?.surname}
                       <strong>
                         <HiOutlineShieldCheck className="ps-1 fs-6" />
                       </strong>
