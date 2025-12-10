@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image } from "react-bootstrap"
+import { Container, Row, Col, Image, Button } from "react-bootstrap"
 import { HiOutlineShieldCheck } from "react-icons/hi"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -9,7 +9,7 @@ const MiniHero = () => {
     <>
       {/* Sezione MiniHero, serve per il menu a tendina della navbar */}
       <Container className="bg-white w-100 p-0 flex-column" fluid>
-        <Row className="flex-nowrap align-items-center justify-content-center py-1">
+        <Row className="flex-nowrap align-items-center justify-content-center py-1 ms-1">
           <Col xs={4}>
             <Image
               src={profile?.image}
@@ -39,11 +39,16 @@ const MiniHero = () => {
           </Col>
         </Row>
 
-        <Row className="px-0">
+        <Row className="px-0 ms-1">
           <Col className="justify-content-center">
-            <Link className="btn-button" to="/profile">
+            <Button
+              as={Link}
+              to="/profile"
+              variant="outline-primary"
+              className="rounded-pill"
+            >
               Visualizza profilo
-            </Link>
+            </Button>
           </Col>
         </Row>
       </Container>
