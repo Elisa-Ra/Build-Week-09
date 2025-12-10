@@ -1,8 +1,9 @@
-import { Container, Row, Col } from 'react-bootstrap';
-import LeftBar from './LeftBar';
-import CreaPost from './CreaPost';
-import Consigliati from './Consigliati';
-import AsideNotizieDx from './AsideNotizieDx';
+import { Container, Row, Col } from "react-bootstrap"
+import LeftBar from "./LeftBar"
+import CreaPost from "./CreaPost"
+import Consigliati from "./Consigliati"
+import AsideNotizieDx from "./AsideNotizieDx"
+import FormExperiences from "./FormExperiences"
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         {/* Centro */}
         <Col xs={12} md={5}>
           <CreaPost />
+          <FormExperiences />
           <Consigliati />
         </Col>
 
@@ -26,7 +28,7 @@ const Home = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
