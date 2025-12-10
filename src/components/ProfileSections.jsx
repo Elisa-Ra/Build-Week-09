@@ -33,6 +33,7 @@ const ProfileSections = () => {
           <RightAside />
         </Col>
       </Row>
+      <MyFooter />
     </>
   )
 }

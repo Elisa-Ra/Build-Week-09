@@ -14,7 +14,6 @@ function App() {
       <Container>
         <BrowserRouter>
           <SuperiorNavBar />
-
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<ProfileSections />} />
