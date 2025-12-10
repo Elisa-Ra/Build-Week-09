@@ -42,15 +42,6 @@ const MiniHero = () => {
             <Link className="btn-button" to="/profile">
               Visualizza profilo
             </Link>
-            {/* <Dropdown.Menu className="p-2 border-0 shadow-sm">
-              <Dropdown.Item
-                as={NavLink}
-                to="/profile"
-                className="rounded-pill w-100 p-0 fs-7"
-              >
-                Visualizza profilo
-              </Dropdown.Item>
-            </Dropdown.Menu> */}
           </Col>
         </Row>
       </Container>
