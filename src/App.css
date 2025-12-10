@@ -44,3 +44,23 @@
   width: 15px;
   height: 15px;
 }
+.icon-hover {
+  color: #6c757d;
+}
+
+.icon-hover.active {
+  color: #000 !important;
+  fill: #000 !important;
+}
+
+/* Hover: icona nera */
+.nav-link:hover .icon-hover {
+  color: #000 !important;
+  fill: #000 !important;
+}
+
+/* Active: icona nera */
+.toggle-btn-custom.active .icon-hover {
+  color: #000 !important;
+  fill: #000 !important;
+}
