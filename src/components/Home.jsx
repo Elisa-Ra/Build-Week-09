@@ -4,8 +4,13 @@ import CreaPost from "./CreaPost"
 const Home = () => {
   return (
     <>
-      <Container fluid>
-        <h1>HOME</h1>
+      <Container className="mt-6">
+        <Row>
+          <Col>
+            {" "}
+            <h1>HOME</h1>
+          </Col>
+        </Row>
       </Container>
       <CreaPost/>
     </>

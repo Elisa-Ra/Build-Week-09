@@ -111,7 +111,7 @@ const HeroDinamic = () => {
           </Row>
 
           {/* Row sotto: unica colonna */}
-          <Row className="text-start ps-3 align-items-start pb-5">
+          <Row className="text-start ps-3 align-items-start pb-5 w-100">
             <Col className="d-flex gap-2 justify-content-start ps-3">
               <Button variant="primary" size="sm" className="rounded-pill">
                 Disponibile per

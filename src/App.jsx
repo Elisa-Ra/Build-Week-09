@@ -11,16 +11,16 @@ import Home from "./components/Home"
 function App() {
   return (
     <>
-      <Container>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Container>
           <SuperiorNavBar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<ProfileSections />} />
           </Routes>
-        </BrowserRouter>
-        <SezioneMessaggistica />
-      </Container>
+          <SezioneMessaggistica />
+        </Container>
+      </BrowserRouter>
     </>
   )
 }
