@@ -43,8 +43,8 @@ const MiniHero = () => {
           <Col className="justify-content-center">
             <Button
               as={Link}
-              to="/profile"
-              variant="outline-primary"
+              to={`/profile/${profile?._id}`}
+              vari2ant="outline-primary"
               className="rounded-pill"
             >
               Visualizza profilo

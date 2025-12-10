@@ -5,11 +5,10 @@ import { getExpAction } from "../redux/actions/experiencesAction"
 import { Container, Card, Button, Row, Col, Spinner } from "react-bootstrap"
 
 import FormExperiences from "./FormExperiences"
+import { useParams } from "react-router-dom"
 
-// const queryParams = new URLSearchParams(location.search)
-// const userId = queryParams.get("userId")
-
-const ExperienceSection = ({ userId }) => {
+const ExperienceSection = () => {
+  const params = useParams()
   const dispatch = useDispatch()
   const data = useSelector((state) => {
     return state.experiences.data
@@ -18,9 +17,9 @@ const ExperienceSection = ({ userId }) => {
     return state.experiences.loading
   })
   useEffect(() => {
-    dispatch(getExpAction(userId))
+    dispatch(getExpAction(params.userId))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId])
+  }, [params.userId])
   return (
     <Container className=" mx-2 mb-5 mt-0 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle">
       <Card className="p-3 mb-3 border-0 shadow-sm rounded-3">

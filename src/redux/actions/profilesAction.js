@@ -2,6 +2,7 @@ export const PROFILE_LOADING = "PROFILE_LOADING"
 export const PROFILE_SUCCESS = "PROFILE_SUCCESS"
 export const PROFILE_ERROR = "PROFILE_ERROR"
 
+// PER IL NOSTRO PROFILO
 const API_ME = "https://striveschool-api.herokuapp.com/api/profile/me"
 const TOKEN =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZGIwN2QzMjJmNTAwMTUxMDc2YTAiLCJpYXQiOjE3NjUyNjgyMzEsImV4cCI6MTc2NjQ3NzgzMX0.xpmE3XKHeFyn9woNxPxv0Fs_cK7s5T7gtcpLwDMBGII"
