@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchMyProfile } from "../redux/actions/profileActions"
+import { fetchMyProfile } from "../redux/actions/profilesAction"
 
 const HeroDinamic = () => {
   const profile = useSelector((state) => {
