@@ -5,6 +5,7 @@ import Consigliati from "./Consigliati"
 const Home = () => {
   return (
     <Container className="mt-6">
+      <title>LinkedIn</title>
       <Row>
         {/* Sinistra */}
         <Col xs={12} md={3}>
@@ -14,7 +15,7 @@ const Home = () => {
         {/* Centro */}
         <Col xs={12} md={5}>
           <CreaPost />
-          <Consigliati/>
+          <Consigliati />
         </Col>
 
         {/* Destra */}
