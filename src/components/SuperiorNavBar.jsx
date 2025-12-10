@@ -1,20 +1,20 @@
-import { Container, InputGroup, Row, Col } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Image } from 'react-bootstrap';
-import { FaLinkedin } from 'react-icons/fa';
-import { AiFillHome } from 'react-icons/ai';
-import { IoSearch } from 'react-icons/io5';
-import { HiUsers } from 'react-icons/hi2';
-import { BsBriefcaseFill } from 'react-icons/bs';
-import { BsBellFill, BsChatDotsFill } from 'react-icons/bs';
-import { TfiLayoutGrid3Alt } from 'react-icons/tfi';
-import { TbDots } from 'react-icons/tb';
-import MiniHero from './MiniHero';
-import { FaSquare } from 'react-icons/fa6';
-import AziendeDropdownDetails from './AziendeDropdownDetails';
+import { Container, InputGroup, Row, Col } from "react-bootstrap"
+import Form from "react-bootstrap/Form"
+import Nav from "react-bootstrap/Nav"
+import Navbar from "react-bootstrap/Navbar"
+import NavDropdown from "react-bootstrap/NavDropdown"
+import { Image } from "react-bootstrap"
+import { FaLinkedin } from "react-icons/fa"
+import { AiFillHome } from "react-icons/ai"
+import { IoSearch } from "react-icons/io5"
+import { HiUsers } from "react-icons/hi2"
+import { BsBriefcaseFill } from "react-icons/bs"
+import { BsBellFill, BsChatDotsFill } from "react-icons/bs"
+import { TfiLayoutGrid3Alt } from "react-icons/tfi"
+import { TbDots } from "react-icons/tb"
+import MiniHero from "./MiniHero"
+import { FaSquare } from "react-icons/fa6"
+import AziendeDropdownDetails from "./AziendeDropdownDetails"
 
 const SuperiorNavBar = () => {
   return (
@@ -82,7 +82,7 @@ const SuperiorNavBar = () => {
                         <Col>
                           <h6 className="fs-7">Account</h6>
                           <p className="fs-7">
-                            <FaSquare fill="#E7A33E" className="text-wrap" />{' '}
+                            <FaSquare fill="#E7A33E" className="text-wrap" />{" "}
                             Riattiva Premium con il 50% di sconto
                           </p>
                           <p className=" fs-7 pb-0 mb-1 text-muted">
@@ -160,7 +160,7 @@ const SuperiorNavBar = () => {
                         <Col>
                           <h6 className="fs-7">Account</h6>
                           <p className="fs-7">
-                            <FaSquare fill="#E7A33E" className="text-wrap" />{' '}
+                            <FaSquare fill="#E7A33E" className="text-wrap" />{" "}
                             Riattiva Premium con il 50% di sconto
                           </p>
                           <p className=" fs-7 pb-0 mb-1 text-muted">
@@ -238,7 +238,7 @@ const SuperiorNavBar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default SuperiorNavBar;
+export default SuperiorNavBar
