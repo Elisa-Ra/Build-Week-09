@@ -18,7 +18,7 @@ const Home = () => {
         {/* Centro */}
         <Col xs={12} md={5}>
           <CreaPost />
-          <FormExperiences />
+
           <Consigliati />
         </Col>
 
