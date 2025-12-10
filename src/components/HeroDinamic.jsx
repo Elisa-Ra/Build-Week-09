@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
+import { fetchMyProfile } from "../redux/actions/profileActions"
 
 const HeroDinamic = () => {
   const profile = useSelector((state) => {
@@ -12,9 +13,10 @@ const HeroDinamic = () => {
   const error = useSelector((state) => {
     return state.profile.error
   })
-
   const dispatch = useDispatch()
-
+  useEffect(() => {
+    dispatch(fetchMyProfile())
+  }, [])
   return (
     <>
       {/* loading */}

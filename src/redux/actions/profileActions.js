@@ -17,7 +17,7 @@ export const fetchMyProfile = () => {
       .then((res) => {
         if (res.ok) {
           return res.json()
-        } else throw new Error("Errore Fetch Profilo", res.status)
+        } else throw new Error("Errore Fetch Profilo" + res.status)
       })
       .then((data) => {
         dispatch({ type: PROFILE_SUCCESS, payload: data })

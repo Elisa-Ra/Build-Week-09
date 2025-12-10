@@ -13,9 +13,9 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case PROFILE_LOADING:
-      return { ...state, loading: true }
+      return { ...state, loading: true, error: null }
     case PROFILE_SUCCESS:
-      return { ...state, loading: false, data: action.payload }
+      return { ...state, loading: false, data: action.payload, error: null }
     case PROFILE_ERROR:
       return { ...state, loading: false, error: action.payload }
 
