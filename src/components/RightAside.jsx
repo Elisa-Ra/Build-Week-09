@@ -1,31 +1,20 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Button, Card, Col, Image, Row, Spinner } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchUser } from "../redux/actions/userActions"
 
 const RightAside = () => {
-  const [users, setUsers] = useState([])
-  const [loading, setLoading] = useState(true)
+  const users = useSelector((state) => {
+    return state.user.users
+  })
+  const loading = useSelector((state) => state.user.loading)
+  // const error = useSelector((state) => state.user.error)
 
-  const API = "https://striveschool-api.herokuapp.com/api/profile/"
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    fetch(API, {
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZGIwN2QzMjJmNTAwMTUxMDc2YTAiLCJpYXQiOjE3NjUyNjgyMzEsImV4cCI6MTc2NjQ3NzgzMX0.xpmE3XKHeFyn9woNxPxv0Fs_cK7s5T7gtcpLwDMBGII`,
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        } else throw new Error("Errore Fetch", res.status)
-      })
-      .then((data) => {
-        setUsers(data.slice(0, 5))
-        setLoading(false)
-        console.log(data.slice(0, 5))
-      })
-      .catch((err) => {
-        console.log("Errore nel fetch", err)
-        setLoading(false)
-      })
+    dispatch(fetchUser())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -62,7 +51,7 @@ const RightAside = () => {
               <Spinner animation="border" />
             </div>
           ) : (
-            users.map((user) => {
+            users.slice(0, 5).map((user) => {
               return (
                 <div key={user._id}>
                   <Row className="mb-3 d-flex">

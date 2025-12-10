@@ -15,14 +15,17 @@ import { TbDots } from "react-icons/tb"
 import MiniHero from "./MiniHero"
 import { FaSquare } from "react-icons/fa6"
 import AziendeDropdownDetails from "./AziendeDropdownDetails"
-import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { NavLink, Link } from "react-router-dom"
 
 const SuperiorNavBar = () => {
+  const profile = useSelector((state) => state.profile.data)
+
   return (
-    <Navbar expand="lg" className="fixed-top bg-light">
-      <Container fluid className="justify-content-between">
-        <Navbar.Brand href="#">
-          <FaLinkedin fill="#0A65C0" />
+    <Navbar expand="lg" className="fixed-top bg-light pb-0">
+      <Container className="justify-content-between">
+        <Navbar.Brand as={Link} to="/">
+          <FaLinkedin fill="#0A65C0" className="fs-1" />
         </Navbar.Brand>
         {/* icona search su mobile */}
         <Navbar.Toggle className="border-0 ps-0">
@@ -42,33 +45,49 @@ const SuperiorNavBar = () => {
         </InputGroup>
         {/* set di icone */}
         <div className="d-flex flex-nowrap justify-content-evenly flex-grow-1">
-          <Link to="/" className="nav-link text-center">
-            <AiFillHome />
+          <NavLink to="/" className="nav-link text-center toggle-btn-custom">
+            <AiFillHome className=" icon-hover fs-5" />
             <p className="d-none d-lg-flex fs-7 mb-0">Home</p>
-          </Link>
+          </NavLink>
 
-          <Nav.Link className="text-center">
-            <HiUsers />
+          <NavLink
+            to="/rete"
+            className="nav-link text-center toggle-btn-custom"
+          >
+            <HiUsers className="text-secondary icon-hover fs-5" />
             <p className="d-none d-lg-flex fs-7 mb-0">Rete</p>
-          </Nav.Link>
-          <Nav.Link className="text-center">
-            <BsBriefcaseFill />
+          </NavLink>
+
+          <NavLink
+            to="/lavoro"
+            className="nav-link text-center toggle-btn-custom"
+          >
+            <BsBriefcaseFill className="text-secondary icon-hover fs-5" />
             <p className="d-none d-lg-flex fs-7 mb-0">Lavoro</p>
-          </Nav.Link>
-          <Nav.Link className="text-center">
-            <BsChatDotsFill />
+          </NavLink>
+
+          <NavLink
+            to="/messaggistica"
+            className="nav-link text-center toggle-btn-custom"
+          >
+            <BsChatDotsFill className="text-secondary icon-hover fs-5" />
             <p className="d-none d-lg-flex fs-7 mb-0">Messaggistica</p>
-          </Nav.Link>
-          <Nav.Link className="text-center">
-            <BsBellFill />
+          </NavLink>
+
+          <NavLink
+            to="/notifiche"
+            className="nav-link text-center toggle-btn-custom"
+          >
+            <BsBellFill className="text-secondary icon-hover fs-5" />
             <p className="d-none d-lg-flex fs-7 mb-0">Notifiche</p>
-          </Nav.Link>
+          </NavLink>
+
           <Nav.Item className="d-none d-lg-flex">
             {/* menu a tendina del profilo */}
             <Navbar.Collapse>
               <Nav className=" my-lg-0 flex-column justify-content-center align-items-center mb-0">
                 <Image
-                  src="https://placebear.com/200/200"
+                  src={profile?.image}
                   className="profile-img-icon"
                   roundedCircle
                 />
@@ -142,7 +161,7 @@ const SuperiorNavBar = () => {
                 <NavDropdown
                   title={
                     <Image
-                      src="https://placecats.com/200/200"
+                      src={profile?.image}
                       alt="Profile"
                       roundedCircle
                       className="img-fluid mini-img"
@@ -229,7 +248,7 @@ const SuperiorNavBar = () => {
               <Col xs={6}>
                    {/* link per riattivazione premium */}
                 <Nav.Link>
-                  <p className="premium-link w-50 fs-7 text-decoration-underline mb-0">
+                  <p className="premium-link w-100 fs-7 text-decoration-underline mb-0">
                     Riattiva Premium con il 50% di sconto
                   </p>
                 </Nav.Link>
