@@ -1,4 +1,5 @@
-import { Container, Row, Col } from "react-bootstrap"
+import { Container } from "react-bootstrap"
+import CreaPost from "./CreaPost"
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+      <CreaPost/>
     </>
   )
 }
