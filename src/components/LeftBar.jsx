@@ -43,7 +43,7 @@ const LeftBar = () => {
       {!error && !loading && profile && (
         <>
           {/* Mini Hero della homepage VERSIONE DESKTOP */}
-          <Container className="mx-2 mb-2 mt-4 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle d-none d-md-block">
+          <Container className="mx-2 mb-2 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle d-none d-md-block">
             <Row>
               <Col>
                 <Image
@@ -148,7 +148,7 @@ const LeftBar = () => {
             </Row>
           </Container>
           {/* LEFTBAR PER MOBILE */}
-          <Container className="mx-2 mb-2 mt-4 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle d-block d-md-none">
+          <Container className="mx-2 mb-2 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle d-block d-md-none">
             {/* Mobile Hero della homepage  */}
             <Row>
               <Col>
