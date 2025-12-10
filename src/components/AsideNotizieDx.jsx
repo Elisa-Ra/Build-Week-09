@@ -34,7 +34,7 @@ const AsideNotizieDx = () => {
       <title>Profile Page</title>
       <Card className="mb-2">
         <Card.Body>
-          <Card.Text className="fw-bold fs-5">Linkedin Notizie</Card.Text>
+          <Card.Text className="fw-bold fs-6">Linkedin Notizie</Card.Text>
           <Card.Text className="text-muted">Storie principali</Card.Text>
 
           <div className="d-flex justify-content-between">
@@ -43,10 +43,10 @@ const AsideNotizieDx = () => {
               {arrayNotizie.map((articolo, index) => {
                 return (
                   <div key={index}>
-                    <Card.Text className="fw-bold fs-7 mb-0">
+                    <Card.Text className="fw-bold fs-6 mb-0">
                       {articolo}
                     </Card.Text>
-                    <Card.Text className="text-muted fs-7 mb-2">
+                    <Card.Text className="text-muted fs-6 mb-2">
                       {arrayDate[index]}
                     </Card.Text>
                   </div>
@@ -59,7 +59,7 @@ const AsideNotizieDx = () => {
               <Card.Text className="text-muted fs-6 mt-2">
                 I giochi di oggi
               </Card.Text>
-              <Container>
+              <Container className="mb-2">
                 <Row className="flex-column">
                   <Col xs={12}>
                     <Row className="align-items-center justify-content-start">
@@ -70,10 +70,10 @@ const AsideNotizieDx = () => {
                         ></Image>
                       </Col>
                       <Col xs={7}>
-                        <Card.Text className="fw-bold fs-7 mb-0">
+                        <Card.Text className="fw-bold fs-6 mb-0">
                           {'Zip #268'}
                         </Card.Text>
-                        <Card.Text className="text-muted fs-8 text-nowrap">
+                        <Card.Text className="text-muted fs-7 text-nowrap">
                           Completa il percorso
                         </Card.Text>
                       </Col>
@@ -91,10 +91,10 @@ const AsideNotizieDx = () => {
                         ></Image>
                       </Col>
                       <Col xs={7}>
-                        <Card.Text className="fw-bold fs-7 mb-0">
+                        <Card.Text className="fw-bold fs-6 mb-0">
                           {'Mini Sudoku #121'}
                         </Card.Text>
-                        <Card.Text className="text-muted fs-8 text-nowrap">
+                        <Card.Text className="text-muted fs-7 text-nowrap">
                           Il gioco classico in versione mini
                         </Card.Text>
                       </Col>
@@ -112,7 +112,7 @@ const AsideNotizieDx = () => {
                         ></Image>
                       </Col>
                       <Col xs={7}>
-                        <Card.Text className="fw-bold fs-8 mb-0">
+                        <Card.Text className="fw-bold fs-6 mb-0">
                           {'Tango #429'}
                         </Card.Text>
                         <Card.Text className="text-muted fs-7 text-nowrap">
@@ -133,10 +133,10 @@ const AsideNotizieDx = () => {
                         ></Image>
                       </Col>
                       <Col xs={7}>
-                        <Card.Text className="fw-bold fs-7 mb-0">
+                        <Card.Text className="fw-bold fs-6 mb-0">
                           {'Queens #589'}
                         </Card.Text>
-                        <Card.Text className="text-muted fs-8 text-nowrap">
+                        <Card.Text className="text-muted fs-7 text-nowrap">
                           Incorona ogni regione
                         </Card.Text>
                       </Col>
@@ -186,7 +186,7 @@ const AsideNotizieDx = () => {
         </Card.Body>
       </Card>
       {/* sezione Prova Windows */}
-      <Card className='mb-3'>
+      <Card className="mb-3">
         <Card.Body>
           <Container fluid>
             <Row className="justify-content-between align-items-center">
