@@ -18,7 +18,7 @@ function FormExperiences() {
   return (
     <>
       {/* Bottone per aprire il modal */}
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="outline-primary rounded-pill" onClick={handleShow}>
         Aggiungi esperienza
       </Button>
 
