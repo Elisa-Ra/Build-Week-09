@@ -7,7 +7,7 @@ const ExperienceCard = (props) => {
         <Col xs={2}>
           {/* Logo azienda */}
           <Image
-            src={img}
+            src={props.img}
             className="rounded overflow-hidden border bg-light"
             style={{ width: "48px", height: "48px" }}
           ></Image>
