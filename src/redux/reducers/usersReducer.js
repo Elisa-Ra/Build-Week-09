@@ -1,4 +1,4 @@
-import { USER_LOADING, USER_ERROR, USER_SUCCESS } from "../actions/usersActions"
+import { USER_LOADING, USER_ERROR, USER_SUCCESS } from "../actions/usersAction"
 
 const initialState = {
   users: [],
