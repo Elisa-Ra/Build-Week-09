@@ -51,6 +51,7 @@ const ExperienceSection = (props) => {
                   area={exp.area}
                   key={index}
                   description={exp.description}
+                  expID={exp._id}
                 />
               ))
             ) : (

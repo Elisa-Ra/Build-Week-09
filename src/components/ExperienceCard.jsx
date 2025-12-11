@@ -1,4 +1,5 @@
 import { Row, Col, Image } from 'react-bootstrap';
+import EditExperienceForm from './EditExperienceForm';
 
 const ExperienceCard = (props) => {
   // const startDConverted = props.startD.toLocaleDateString('it-IT', {
@@ -39,7 +40,7 @@ const ExperienceCard = (props) => {
           ></Image>
         </Col>
 
-        <Col xs={10}>
+        <Col xs={8}>
           <h6 className="fw-bold mb-0">{props.role}</h6>
           <p className="mb-0  text-muted">{props.company}</p>
           <p className="mb-0 small text-muted">
@@ -49,6 +50,18 @@ const ExperienceCard = (props) => {
           <p className="mb-2 small text-muted">{props.area}</p>
 
           <p className="small fw-semibold">{props.description}</p>
+        </Col>
+        <Col xs={2}>
+          <EditExperienceForm
+            img={props.image}
+            role={props.role}
+            company={props.company}
+            startD={props.startDate}
+            endD={props.endDate}
+            area={props.area}
+            description={props.description}
+            expID={props._id}
+          />
         </Col>
       </Row>
     </div>
