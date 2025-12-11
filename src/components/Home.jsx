@@ -1,11 +1,13 @@
-import { Container, Row, Col } from "react-bootstrap"
-import LeftBar from "./LeftBar"
-import CreaPost from "./CreaPost"
-import Consigliati from "./Consigliati"
-import AsideNotizieDx from "./AsideNotizieDx"
-import FormExperiences from "./FormExperiences"
+import { Container, Row, Col } from 'react-bootstrap';
+import LeftBar from './LeftBar';
+import CreaPost from './CreaPost';
+import Consigliati from './Consigliati';
+import AsideNotizieDx from './AsideNotizieDx';
+
+
 
 const Home = () => {
+ 
   return (
     <Container className="mt-6">
       <title>LinkedIn</title>
@@ -28,7 +30,7 @@ const Home = () => {
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

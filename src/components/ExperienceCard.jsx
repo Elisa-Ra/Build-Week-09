@@ -17,7 +17,7 @@ const ExperienceCard = (props) => {
           <h6 className="fw-bold mb-0">{props.role}</h6>
           <p className="mb-0  text-muted">{props.company}</p>
           <p className="mb-0 small text-muted">
-            {props.startD} – {props.endD ? props.endD : "Presente"}
+            {props.startD} '-' {props.endD ? props.endD : "Presente"}
             {/* · 2 anni 3 mesi */}
           </p>
           <p className="mb-2 small text-muted">{props.area}</p>

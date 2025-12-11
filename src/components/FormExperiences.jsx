@@ -17,17 +17,28 @@ function FormExperiences(props) {
       company: formData.get('company'),
       endDate: formData.get('endDate'),
       startDate: formData.get('startDate'),
-      location: formData.get('location'),
-      description: formData.get('description'),
-      media: formData.get('media')
+      area: formData.get('location'),
+      description: formData.get('description')
     };
+
+    //  "role": "Full Stack Web Developer",
+    //   "company": "FizzBuzz",
+    //   "startDate": "2022-06-16",
+    //   "endDate": "2023-06-16", // può essere null
+    //   "description": "Implementing new features",
+    //   "area": "Milan",
+    //   "username": "mario88", // SERVER GENERATED
+    //   "image": ..., // SERVER GENERATED, inizialmente null, modificabile
+    //   "createdAt": 2023-06-16T19:58:31.019Z", // SERVER GENERATED
+    //   "updatedAt": "2023-06-16T19:58:31.019Z", // SERVER GENERATED
+    //   "__v": 0 // SERVER GENERATED
+    //   "_id": "5d925e677360c41e0046d1f5" // SERVER GENERATED
 
     dispatch(postExpAction(props.ID, newExp));
 
     // Qua bisogna dire cosa fare con i dati del form ->  POST https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
 
     console.log('Form da inviare:', newExp);
-
 
     handleClose();
   }
@@ -84,6 +95,7 @@ function FormExperiences(props) {
                 type="text"
                 placeholder="Esempio: Retail Sales Manager"
                 name="role"
+                required
               />
             </Form.Group>
 
@@ -93,17 +105,18 @@ function FormExperiences(props) {
                 type="text"
                 placeholder="Esempio: Microsoft"
                 name="company"
+                required
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formStartDate">
               <Form.Label>Data di inizio*</Form.Label>
-              <Form.Control type="month" name="startDate" />
+              <Form.Control type="month" name="startDate" required />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formEndDate">
               <Form.Label>Data di fine*</Form.Label>
-              <Form.Control type="month" name="endDate" />
+              <Form.Control type="month" name="endDate" required />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formarea">
@@ -138,7 +151,7 @@ function FormExperiences(props) {
                 </strong>
                 .
               </p>
-              <div className="d-flex align-items-center">
+              {/* <div className="d-flex align-items-center">
                 <Form.Group controlId="formFile" className="mb-3">
                   <Form.Label
                     className="btn btn-outline-primary rounded-pill py-0"
@@ -148,7 +161,7 @@ function FormExperiences(props) {
                   </Form.Label>
                   <Form.Control type="file" name="media" hidden />
                 </Form.Group>
-              </div>
+              </div> */}
             </Form.Group>
           </Modal.Body>
 
@@ -164,15 +177,3 @@ function FormExperiences(props) {
 }
 
 export default FormExperiences;
-
-// Modello dell'EXPERIENCE:
-// {
-//
-//
-//
-//
-//
-//   "username": "mario88", // SERVER GENERATED
-//   "image": ..., // SERVER GENERATED, inizialmente null, modificabile
-
-// }

@@ -1,11 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { HiOutlineShieldCheck } from 'react-icons/hi';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchMyProfile } from '../redux/actions/MyProfileAction';
+import { useEffect } from 'react';
 
 const MiniHero = () => {
-  const profile = useSelector((state) => state.profile.data);
-  console.log('id profilo corrente', profile._id);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchMyProfile());
+  }, []);
+
+  const profile = useSelector((state) => {
+    return state.profile.data;
+  });
   return (
     <>
       {/* Sezione MiniHero, serve per il menu a tendina della navbar */}
