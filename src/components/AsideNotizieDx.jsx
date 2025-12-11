@@ -8,30 +8,30 @@ import {
   Container,
   Col,
   Row,
-  Nav,
-} from "react-bootstrap"
-import { MdArrowForwardIos } from "react-icons/md"
-import { TbDots } from "react-icons/tb"
-import { FaSquare } from "react-icons/fa6"
-import Dropdown from "react-bootstrap/Dropdown"
-import { CaretDownFill } from "react-bootstrap-icons"
-import React from "react"
+  Nav
+} from 'react-bootstrap';
+import { MdArrowForwardIos } from 'react-icons/md';
+import { TbDots } from 'react-icons/tb';
+import { FaSquare } from 'react-icons/fa6';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { CaretDownFill } from 'react-bootstrap-icons';
+import React from 'react';
 
 const AsideNotizieDx = () => {
   const arrayNotizie = [
-    "Netflix compra Warner Bros.",
-    "In malattia con la televisita",
-    "Mediaset acquisisce Radio Norba",
-    "La Bei finanzia Scalapay",
-    "Com'è andato alla fine il Black Friday",
-  ]
+    'Netflix compra Warner Bros.',
+    'In malattia con la televisita',
+    'Mediaset acquisisce Radio Norba',
+    'La Bei finanzia Scalapay',
+    "Com'è andato alla fine il Black Friday"
+  ];
   const arrayDate = [
-    "1 giorno fa",
-    "17 ore fa",
-    "17 ore fa",
-    "3 ore fa",
-    "23 ore fa",
-  ]
+    '1 giorno fa',
+    '17 ore fa',
+    '17 ore fa',
+    '3 ore fa',
+    '23 ore fa'
+  ];
 
   return (
     <>
@@ -54,7 +54,7 @@ const AsideNotizieDx = () => {
                       {arrayDate[index]}
                     </Card.Text>
                   </div>
-                )
+                );
               })}
               <DropdownButton size="sm" title="Mostra altro" variant="light">
                 <DropdownItem>Ti piacerebbe!!</DropdownItem>
@@ -75,7 +75,7 @@ const AsideNotizieDx = () => {
                       </Col>
                       <Col xs={7}>
                         <Card.Text className="fw-bold fs-6 mb-0">
-                          {"Zip #268"}
+                          {'Zip #268'}
                         </Card.Text>
                         <Card.Text className="text-muted fs-7 text-nowrap">
                           Completa il percorso
@@ -96,7 +96,7 @@ const AsideNotizieDx = () => {
                       </Col>
                       <Col xs={7}>
                         <Card.Text className="fw-bold fs-6 mb-0">
-                          {"Mini Sudoku #121"}
+                          {'Mini Sudoku #121'}
                         </Card.Text>
                         <Card.Text className="text-muted fs-7 text-nowrap">
                           Il gioco classico in versione mini
@@ -117,7 +117,7 @@ const AsideNotizieDx = () => {
                       </Col>
                       <Col xs={7}>
                         <Card.Text className="fw-bold fs-6 mb-0">
-                          {"Tango #429"}
+                          {'Tango #429'}
                         </Card.Text>
                         <Card.Text className="text-muted fs-7 text-nowrap">
                           Armonizza la griglia
@@ -138,7 +138,7 @@ const AsideNotizieDx = () => {
                       </Col>
                       <Col xs={7}>
                         <Card.Text className="fw-bold fs-6 mb-0">
-                          {"Queens #589"}
+                          {'Queens #589'}
                         </Card.Text>
                         <Card.Text className="text-muted fs-7 text-nowrap">
                           Incorona ogni regione
@@ -167,7 +167,7 @@ const AsideNotizieDx = () => {
             <TbDots className="ms-2" />
           </Card.Text>
           <Card.Text className="text-muted fs-7 mb-2">
-            {"nome utente"}, enjoy 50% off 2 months of Linkedin Premium
+            {'nome utente'}, enjoy 50% off 2 months of Linkedin Premium
           </Card.Text>
           <Container>
             <Row className="flex-nowrap justify-content-center align-items-center">
@@ -269,7 +269,7 @@ const AsideNotizieDx = () => {
                 className="text-muted text-decoration-none small p-0 m-0"
                 id="business-dropdown"
               >
-                Servizi alle aziende{" "}
+                Servizi alle aziende{' '}
                 <CaretDownFill size={10} className="ms-1" />
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -296,9 +296,9 @@ const AsideNotizieDx = () => {
             <div className="d-flex align-items-center small">
               <span
                 className="fw-bold me-1"
-                style={{ color: "#0A66C2", fontSize: "14px" }}
+                style={{ color: '#0A66C2', fontSize: '14px' }}
               >
-                Linked<i class="bi bi-linkedin"></i>
+                Linked<i className="bi bi-linkedin"></i>
               </span>
               <span>LinkedIn Corporation &copy; 2025</span>
             </div>
@@ -306,7 +306,7 @@ const AsideNotizieDx = () => {
         </Row>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default AsideNotizieDx
+export default AsideNotizieDx;
