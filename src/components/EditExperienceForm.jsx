@@ -15,15 +15,13 @@ function EditExperienceForm(props) {
   const expID = props.expID;
   const dispatch = useDispatch();
 
-  console.log(props.ID);
-
   const [values, setValues] = useState({
-    role: props.role,
-    company: props.company,
-    endDate: props.endD,
-    startDate: props.startD,
-    area: props.area,
-    description: props.description
+    role: props.role || null,
+    company: props.company || null,
+    endDate: props.endD || null,
+    startDate: props.startD || null,
+    area: props.area || null,
+    description: props.description || null
   });
 
   function editForm(formData) {
@@ -194,6 +192,7 @@ function EditExperienceForm(props) {
               type="button"
               onClick={() => {
                 dispatch(deleteExpAction(props.ID, expID));
+                console.log('esperianza cancellata');
                 dispatch(getExpAction(props.ID));
               }}
             >

@@ -16,7 +16,6 @@ const ExperienceCard = (props) => {
     .reverse()
     .join('/');
 
-  console.log(startDConverted);
 
   return (
     <div className="p-2 mb-3">

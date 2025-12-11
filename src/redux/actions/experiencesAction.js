@@ -123,12 +123,11 @@ export const deleteExpAction = (ID, expId) => {
     })
       .then((res) => {
         if (res.ok) {
-          return res.json();
+          return;
         } else throw new Error('Errore Fetch Profilo' + res.status);
       })
       .then((deletedData) => {
         dispatch({ type: DELETE_EXP_SUCCESS, payload: deletedData });
-        console.log(deletedData);
       })
       .catch((err) => {
         console.log('Errore nel fetch' + typeof err);
