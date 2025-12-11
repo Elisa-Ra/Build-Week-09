@@ -1,6 +1,32 @@
-import { Row, Col, Image } from "react-bootstrap"
+import { Row, Col, Image } from 'react-bootstrap';
 
 const ExperienceCard = (props) => {
+  // const startDConverted = props.startD.toLocaleDateString('it-IT', {
+  //   day: '2-digit',
+  //   month: '2-digit',
+  //   year: 'numeric'
+  // });
+
+  // const startDConverted = new Intl.DateTimeFormat('it-IT', {
+  //   day: 'numeric',
+  //   month: 'long',
+  //   year: 'numeric'
+  // }).format(props.startD);
+
+  const startDConverted = props.startD
+    .slice(0, 10)
+    .split('-')
+    .reverse()
+    .join('/');
+
+  const endDConverted = props.startD
+    .slice(0, 10)
+    .split('-')
+    .reverse()
+    .join('/');
+
+  console.log(startDConverted);
+
   return (
     <div className="p-2 mb-3">
       <Row>
@@ -9,7 +35,7 @@ const ExperienceCard = (props) => {
           <Image
             src={props.img}
             className="rounded overflow-hidden border bg-light"
-            style={{ width: "48px", height: "48px" }}
+            style={{ width: '48px', height: '48px' }}
           ></Image>
         </Col>
 
@@ -17,7 +43,7 @@ const ExperienceCard = (props) => {
           <h6 className="fw-bold mb-0">{props.role}</h6>
           <p className="mb-0  text-muted">{props.company}</p>
           <p className="mb-0 small text-muted">
-            {props.startD} '-' {props.endD ? props.endD : "Presente"}
+            {startDConverted} - {endDConverted ? endDConverted : 'Presente'}
             {/* · 2 anni 3 mesi */}
           </p>
           <p className="mb-2 small text-muted">{props.area}</p>
@@ -26,7 +52,7 @@ const ExperienceCard = (props) => {
         </Col>
       </Row>
     </div>
-  )
-}
+  );
+};
 
-export default ExperienceCard
+export default ExperienceCard;
