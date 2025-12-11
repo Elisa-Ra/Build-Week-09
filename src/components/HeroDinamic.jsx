@@ -75,6 +75,7 @@ const HeroDinamic = () => {
                   href="#"
                   className="text-decoration-none text-primary fw-bold"
                 >
+                  {" "}
                   Informazioni di contatto
                 </a>
               </p>
