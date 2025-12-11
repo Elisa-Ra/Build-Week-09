@@ -298,7 +298,7 @@ const AsideNotizieDx = () => {
                 className="fw-bold me-1"
                 style={{ color: "#0A66C2", fontSize: "14px" }}
               >
-                Linked<i class="bi bi-linkedin"></i>
+                Linked<i className="bi bi-linkedin"></i>
               </span>
               <span>LinkedIn Corporation &copy; 2025</span>
             </div>
