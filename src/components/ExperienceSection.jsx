@@ -20,7 +20,7 @@ const ExperienceSection = (props) => {
   }, [props.ID]);
   return (
     <Container className=" mx-2 mb-5 mt-0 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle">
-      <Card className="p-3 mb-3 border-0 shadow-sm rounded-3">
+      <Card className="p-3 mb-3 border-0  rounded-3">
         <Row>
           <Col xs={12} md={8}>
             <h4 className="fw-bold">Esperienza</h4>
