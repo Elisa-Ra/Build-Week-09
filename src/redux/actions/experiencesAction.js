@@ -70,7 +70,7 @@ export const putExpAction = (ID, expId) => {
         console.log("Errore nel fetch" + typeof err)
         dispatch({
           type: PUT_EXP_ERROR,
-          payload: JSON.stringify(err, Object.getOwnPropertyNames(err)),
+          payload: err.message,
         })
       })
   }
