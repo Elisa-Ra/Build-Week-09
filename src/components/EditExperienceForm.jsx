@@ -7,17 +7,15 @@ import {
   putExpAction
 } from '../redux/actions/experiencesAction';
 
-import { useParams } from 'react-router-dom';
-
 function EditExperienceForm(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { ID } = useParams('userID');
-
   const expID = props.expID;
   const dispatch = useDispatch();
+
+  console.log(props.ID);
 
   const [values, setValues] = useState({
     role: props.role,
@@ -40,8 +38,8 @@ function EditExperienceForm(props) {
 
     console.log('Form da inviare:', editExp);
 
-    dispatch(putExpAction(ID, expID, editExp));
-    dispatch(getExpAction(ID));
+    dispatch(putExpAction(props.ID, expID, editExp));
+    dispatch(getExpAction(props.ID));
 
     handleClose();
   }
@@ -195,8 +193,8 @@ function EditExperienceForm(props) {
               variant=" rounded-pill py-0 bg-danger text-white"
               type="button"
               onClick={() => {
-                dispatch(deleteExpAction(ID, expID));
-                dispatch(getExpAction(ID));
+                dispatch(deleteExpAction(props.ID, expID));
+                dispatch(getExpAction(props.ID));
               }}
             >
               <i className="bi bi-x-octagon text-white"></i> Elimina esperienza

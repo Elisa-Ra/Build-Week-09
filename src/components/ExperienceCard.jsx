@@ -2,17 +2,7 @@ import { Row, Col, Image } from 'react-bootstrap';
 import EditExperienceForm from './EditExperienceForm';
 
 const ExperienceCard = (props) => {
-  // const startDConverted = props.startD.toLocaleDateString('it-IT', {
-  //   day: '2-digit',
-  //   month: '2-digit',
-  //   year: 'numeric'
-  // });
 
-  // const startDConverted = new Intl.DateTimeFormat('it-IT', {
-  //   day: 'numeric',
-  //   month: 'long',
-  //   year: 'numeric'
-  // }).format(props.startD);
 
   const startDConverted = props.startD
     .slice(0, 10)
@@ -61,6 +51,7 @@ const ExperienceCard = (props) => {
             area={props.area}
             description={props.description}
             expID={props.expID}
+            ID={props.ID}
           />
         </Col>
       </Row>
