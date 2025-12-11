@@ -28,7 +28,7 @@ export const fetchMyProfile = () => {
         console.log("Errore nel fetch" + typeof err)
         dispatch({
           type: PROFILE_ERROR,
-          payload: JSON.stringify(err, Object.getOwnPropertyNames(err)),
+          payload: err.message,
         })
       })
   }
