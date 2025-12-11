@@ -1,31 +1,45 @@
-import { useState } from 'react';
-import { Button, Form, Modal, Row, Col } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { putExpAction } from '../redux/actions/experiencesAction';
+import { useState } from "react"
+import { Button, Form, Modal, Row, Col } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import {
+  // deleteExpAction,
+  putExpAction,
+} from "../redux/actions/experiencesAction"
 
 function EditExperienceForm(props) {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   //   const thisExperience = useSelector((state) => {
   //     return state.experiences.data
   //   })
 
-  const expID = props.expID;
+  const expID = props.expID
+  const dispatch = useDispatch()
 
-  const dispatch = useDispatch();
+  const [values, setValues] = useState({
+    role: "",
+    company: "",
+    endDate: "",
+    startDate: "",
+    area: "",
+    description: "",
+  })
+
+  // function handleChange(event) {
+  //   setValues({ [e.target.name]: e.target.value });
+  // }
 
   function editForm(formData) {
     const editExp = {
-      role: formData.get('role'),
-      company: formData.get('company'),
-      endDate: formData.get('endDate'),
-      startDate: formData.get('startDate'),
-      area: formData.get('location'),
-      description: formData.get('description')
-    };
+      role: formData.get("role"),
+      company: formData.get("company"),
+      endDate: formData.get("endDate"),
+      startDate: formData.get("startDate"),
+      area: formData.get("location"),
+      description: formData.get("description"),
+    }
 
     //  "role": "Full Stack Web Developer",
     //   "company": "FizzBuzz",
@@ -40,14 +54,18 @@ function EditExperienceForm(props) {
     //   "__v": 0 // SERVER GENERATED
     //   "_id": "5d925e677360c41e0046d1f5" // SERVER GENERATED
 
-    dispatch(putExpAction(props.ID, expID, editExp));
+    dispatch(putExpAction(props.ID, expID, editExp))
 
     // Qua bisogna dire cosa fare con i dati del form ->  POST https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
 
-    console.log('Form da inviare:', editExp);
+    console.log("Form da inviare:", editExp)
 
-    handleClose();
+    handleClose()
   }
+
+  // function deleteExperience(id, expID) {
+  //   dispatch(deleteExpAction(id, expID))
+  // }
 
   return (
     <>
@@ -64,9 +82,9 @@ function EditExperienceForm(props) {
 
         <Form
           onSubmit={(e) => {
-            e.preventDefault(); // evita il refresh della pagina
-            const formData = new FormData(e.target);
-            editForm(formData);
+            e.preventDefault() // evita il refresh della pagina
+            const formData = new FormData(e.target)
+            editForm(formData)
           }}
         >
           <Modal.Body>
@@ -77,7 +95,7 @@ function EditExperienceForm(props) {
                   Attiva l'opzione per informare la tua rete delle principali
                   modifiche al profilo (ad esempio un nuovo lavoro) e degli
                   anniversari lavorativi. Gli aggiornamenti possono richiedere
-                  fino a 2 ore. Scopri di più sulla{' '}
+                  fino a 2 ore. Scopri di più sulla{" "}
                   <strong className="text-primary">
                     condivisione delle modifiche del profilo
                   </strong>
@@ -103,6 +121,9 @@ function EditExperienceForm(props) {
                 name="role"
                 value={props.role}
                 required
+                onChange={(e) => {
+                  setValues({ ...values, [e.target.name]: e.target.value })
+                }}
               />
             </Form.Group>
 
@@ -114,6 +135,9 @@ function EditExperienceForm(props) {
                 name="company"
                 value={props.company}
                 required
+                onChange={(e) => {
+                  setValues({ ...values, [e.target.name]: e.target.value })
+                }}
               />
             </Form.Group>
 
@@ -124,6 +148,9 @@ function EditExperienceForm(props) {
                 name="startDate"
                 value={props.startD}
                 required
+                onChange={(e) => {
+                  setValues({ ...values, [e.target.name]: e.target.value })
+                }}
               />
             </Form.Group>
 
@@ -134,6 +161,9 @@ function EditExperienceForm(props) {
                 name="endDate"
                 value={props.endD}
                 required
+                onChange={(e) => {
+                  setValues({ ...values, [e.target.name]: e.target.value })
+                }}
               />
             </Form.Group>
 
@@ -144,6 +174,9 @@ function EditExperienceForm(props) {
                 placeholder="Esempio: Milano, Italia"
                 name="location"
                 value={props.area}
+                onChange={(e) => {
+                  setValues({ ...values, [e.target.name]: e.target.value })
+                }}
               />
             </Form.Group>
 
@@ -156,6 +189,9 @@ function EditExperienceForm(props) {
                 placeholder=""
                 name="description"
                 value={props.description}
+                onChange={(e) => {
+                  setValues({ ...values, [e.target.name]: e.target.value })
+                }}
               />
             </Form.Group>
 
@@ -165,7 +201,7 @@ function EditExperienceForm(props) {
               </p>
               <p className="text-muted fs-7">
                 Aggiungi contenuti multimediali come immagini, documenti, siti o
-                presentazioni. Scopri di più sui{' '}
+                presentazioni. Scopri di più sui{" "}
                 <strong className="text-primary">
                   tipi di file multimediali supportati
                 </strong>
@@ -174,15 +210,27 @@ function EditExperienceForm(props) {
             </Form.Group>
           </Modal.Body>
 
-          <Modal.Footer>
-            <Button variant="primary rounded-pill py-0" type="submit">
-              Salva
+          <Modal.Footer className="justify-content-between">
+            <Button
+              className="no-wrap"
+              variant=" rounded-pill py-0 bg-danger text-white"
+              type="submit"
+            >
+              <i className="bi bi-x-octagon text-white"></i> Elimina esperienza
+            </Button>
+
+            <Button
+              className="no-wrap"
+              variant="primary rounded-pill py-0"
+              type="submit"
+            >
+              Salva modifiche
             </Button>
           </Modal.Footer>
         </Form>
       </Modal>
     </>
-  );
+  )
 }
 
-export default EditExperienceForm;
+export default EditExperienceForm
