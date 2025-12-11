@@ -14,7 +14,7 @@ import {
 } from "../actions/experiencesAction"
 
 const initialState = {
-  data: null,
+  data: [],
   loading: false,
   error: null,
 }
@@ -45,22 +45,22 @@ const experienceReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: null,
-        data: state.data.map((exp, index) => {
-          return exp[index] === action.payload
-            ? (exp[index] = action.payload)
-            : exp
-        }),
+        data: state.data.map((exp) =>
+          exp._id === action.payload._id ? action.payload : exp
+        ),
       }
     case POST_EXP_SUCCESS:
-      return { ...(state + action.payload) }
+      return {
+        ...state,
+        loading: false,
+        data: [...state.data, action.payload],
+      }
     case DELETE_EXP_SUCCESS:
       return {
         ...state,
         loading: false,
         error: null,
-        data: state.data.filter((exp) => {
-          exp._id !== action.payload
-        }),
+        data: state.data.filter((exp) => exp._id !== action.payload),
       }
 
     // ERROR

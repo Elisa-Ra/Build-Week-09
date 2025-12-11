@@ -18,17 +18,17 @@ export const fetchUser = () => {
       .then((res) => {
         if (res.ok) {
           return res.json()
-        } else throw new Error("Errore Fetch Profilo", res.status)
+        } else throw new Error("Errore Fetch Profilo" + res.status)
       })
       .then((data) => {
         dispatch({ type: USER_SUCCESS, payload: data })
         console.log(data)
       })
       .catch((err) => {
-        console.log("Errore nel fetch" + typeof err)
+        console.log("Errore nel fetch" + err.message)
         dispatch({
           type: USER_ERROR,
-          payload: JSON.stringify(err, Object.getOwnPropertyNames(err)),
+          payload: err.message,
         })
       })
   }
