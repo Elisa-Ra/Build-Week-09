@@ -17,6 +17,7 @@ import { useParams } from 'react-router-dom';
 
 const ProfileSections = () => {
    const params = useParams()
+   console.log(params.userId)
   return (
     <>
       <Container className="ps-0" fluid>

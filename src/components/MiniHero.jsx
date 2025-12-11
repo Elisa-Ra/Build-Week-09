@@ -1,10 +1,11 @@
-import { Container, Row, Col, Image, Button } from "react-bootstrap"
-import { HiOutlineShieldCheck } from "react-icons/hi"
-import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { HiOutlineShieldCheck } from 'react-icons/hi';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const MiniHero = () => {
-  const profile = useSelector((state) => state.profile.data)
+  const profile = useSelector((state) => state.profile.data);
+  console.log('id profilo corrente', profile._id);
   return (
     <>
       {/* Sezione MiniHero, serve per il menu a tendina della navbar */}
@@ -53,7 +54,7 @@ const MiniHero = () => {
         </Row>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default MiniHero
+export default MiniHero;

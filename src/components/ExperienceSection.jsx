@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import ExperienceCard from './ExperienceCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -7,6 +8,7 @@ import { Container, Card, Button, Row, Col, Spinner } from 'react-bootstrap';
 import FormExperiences from './FormExperiences';
 
 const ExperienceSection = (props) => {
+  console.log('id passato da profilesection: ', props.ID);
   const dispatch = useDispatch();
   const data = useSelector((state) => {
     return state.experiences.data;
@@ -16,7 +18,6 @@ const ExperienceSection = (props) => {
   });
   useEffect(() => {
     dispatch(getExpAction(props.ID));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.ID]);
   return (
     <Container className=" mx-2 mb-5 mt-0 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle">
@@ -26,7 +27,7 @@ const ExperienceSection = (props) => {
             <h4 className="fw-bold">Esperienza</h4>
           </Col>
           <Col xs={12} md={4}>
-            <FormExperiences />
+            <FormExperiences ID={props.ID} />
           </Col>
         </Row>
         <Row>

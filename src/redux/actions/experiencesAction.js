@@ -19,10 +19,10 @@ const TOKEN =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZGIwN2QzMjJmNTAwMTUxMDc2YTAiLCJpYXQiOjE3NjUyNjgyMzEsImV4cCI6MTc2NjQ3NzgzMX0.xpmE3XKHeFyn9woNxPxv0Fs_cK7s5T7gtcpLwDMBGII';
 
 //   GET
-export const getExpAction = (userId) => {
+export const getExpAction = (ID) => {
   return (dispatch) => {
     dispatch({ type: GET_EXP_REQUEST });
-    fetch(`${API_USER}6937db07d322f500151076a0/experiences`, {
+    fetch(`${API_USER}${ID}/experiences`, {
       headers: {
         Authorization: TOKEN
       }
@@ -47,10 +47,10 @@ export const getExpAction = (userId) => {
 };
 
 // PUT
-export const putExpAction = (userId, expId, exp) => {
+export const putExpAction = (ID, expId, exp) => {
   return (dispatch) => {
     dispatch({ type: PUT_EXP_REQUEST });
-    fetch(`${API_USER}${userId}/experiences/${expId}`, {
+    fetch(`${API_USER}${ID}/experiences/${expId}`, {
       method: 'PUT',
       headers: {
         Authorization: TOKEN,
@@ -79,10 +79,10 @@ export const putExpAction = (userId, expId, exp) => {
 
 // POST
 
-export const postExpAction = (userId, exp) => {
+export const postExpAction = (ID, exp) => {
   return (dispatch) => {
     dispatch({ type: POST_EXP_REQUEST });
-    fetch(`${API_USER}${userId}/experiences`, {
+    fetch(`${API_USER}${ID}/experiences`, {
       method: 'POST',
       headers: {
         Authorization: TOKEN,
@@ -111,10 +111,10 @@ export const postExpAction = (userId, exp) => {
 
 // DELETE
 
-export const deleteExpAction = (userId, expId) => {
+export const deleteExpAction = (ID, expId) => {
   return (dispatch) => {
     dispatch({ type: DELETE_EXP_REQUEST });
-    fetch(`${API_USER}${userId}/experiences/${expId}`, {
+    fetch(`${API_USER}${ID}/experiences/${expId}`, {
       method: 'DELETE',
       headers: {
         Authorization: TOKEN,

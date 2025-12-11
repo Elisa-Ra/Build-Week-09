@@ -1,24 +1,35 @@
-import { useState } from "react"
-import { Button, Form, Modal, Row, Col } from "react-bootstrap"
+import { useState } from 'react';
+import { Button, Form, Modal, Row, Col } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { postExpAction } from '../redux/actions/experiencesAction';
 
-function FormExperiences() {
-  const [show, setShow] = useState(false)
+function FormExperiences(props) {
+  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const dispatch = useDispatch();
 
   function getForm(formData) {
-    const role = formData.get("role")
-    const company = formData.get("company")
-    const endDate = formData.get("endDate")
-    const startDate = formData.get("startDate")
-    const location = formData.get("location")
-    const description = formData.get("description")
-    const media = formData.get("media")
+    const newExp = {
+      role: formData.get('role'),
+      company: formData.get('company'),
+      endDate: formData.get('endDate'),
+      startDate: formData.get('startDate'),
+      location: formData.get('location'),
+      description: formData.get('description'),
+      media: formData.get('media')
+    };
+
+    dispatch(postExpAction(props.ID, newExp));
+
     // Qua bisogna dire cosa fare con i dati del form ->  POST https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
-    alert(
-      `Dati del form '${role}''${company}''${endDate}''${startDate}''${location}''${description}''${media}'`
-    )
+
+    console.log('Form da inviare:', newExp);
+
+
+    handleClose();
   }
 
   return (
@@ -36,9 +47,9 @@ function FormExperiences() {
 
         <Form
           onSubmit={(e) => {
-            e.preventDefault() // evita il refresh della pagina
-            const formData = new FormData(e.target)
-            getForm(formData)
+            e.preventDefault(); // evita il refresh della pagina
+            const formData = new FormData(e.target);
+            getForm(formData);
           }}
         >
           <Modal.Body>
@@ -49,7 +60,7 @@ function FormExperiences() {
                   Attiva l'opzione per informare la tua rete delle principali
                   modifiche al profilo (ad esempio un nuovo lavoro) e degli
                   anniversari lavorativi. Gli aggiornamenti possono richiedere
-                  fino a 2 ore. Scopri di più sulla{" "}
+                  fino a 2 ore. Scopri di più sulla{' '}
                   <strong className="text-primary">
                     condivisione delle modifiche del profilo
                   </strong>
@@ -121,7 +132,7 @@ function FormExperiences() {
               </p>
               <p className="text-muted fs-7">
                 Aggiungi contenuti multimediali come immagini, documenti, siti o
-                presentazioni. Scopri di più sui{" "}
+                presentazioni. Scopri di più sui{' '}
                 <strong className="text-primary">
                   tipi di file multimediali supportati
                 </strong>
@@ -131,7 +142,7 @@ function FormExperiences() {
                 <Form.Group controlId="formFile" className="mb-3">
                   <Form.Label
                     className="btn btn-outline-primary rounded-pill py-0"
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: 'pointer' }}
                   >
                     + Aggiungi media
                   </Form.Label>
@@ -149,10 +160,10 @@ function FormExperiences() {
         </Form>
       </Modal>
     </>
-  )
+  );
 }
 
-export default FormExperiences
+export default FormExperiences;
 
 // Modello dell'EXPERIENCE:
 // {
