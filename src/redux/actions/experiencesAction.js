@@ -47,15 +47,16 @@ export const getExpAction = (ID) => {
 }
 
 // PUT
-export const putExpAction = (ID, expId) => {
+export const putExpAction = (ID, expId, exp) => {
   return (dispatch) => {
     dispatch({ type: PUT_EXP_REQUEST })
     fetch(`${API_USER}${ID}/experiences/${expId}`, {
       method: "PUT",
       headers: {
         Authorization: TOKEN,
+        "Content-Type": "application/json",
       },
-      body: FormData,
+      body: JSON.stringify(exp),
     })
       .then((res) => {
         if (res.ok) {

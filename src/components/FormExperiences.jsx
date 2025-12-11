@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import { Button, Form, Modal, Row, Col } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { postExpAction } from '../redux/actions/experiencesAction';
+import { useState } from "react"
+import { Button, Form, Modal, Row, Col } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { postExpAction } from "../redux/actions/experiencesAction"
 
 function FormExperiences(props) {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   function getForm(formData) {
     const newExp = {
-      role: formData.get('role'),
-      company: formData.get('company'),
-      endDate: formData.get('endDate'),
-      startDate: formData.get('startDate'),
-      area: formData.get('location'),
-      description: formData.get('description')
-    };
+      role: formData.get("role"),
+      company: formData.get("company"),
+      endDate: formData.get("endDate"),
+      startDate: formData.get("startDate"),
+      area: formData.get("location"),
+      description: formData.get("description"),
+    }
 
     //  "role": "Full Stack Web Developer",
     //   "company": "FizzBuzz",
@@ -34,13 +34,13 @@ function FormExperiences(props) {
     //   "__v": 0 // SERVER GENERATED
     //   "_id": "5d925e677360c41e0046d1f5" // SERVER GENERATED
 
-    dispatch(postExpAction(props.ID, newExp));
+    dispatch(postExpAction(props.ID, newExp))
 
     // Qua bisogna dire cosa fare con i dati del form ->  POST https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
 
-    console.log('Form da inviare:', newExp);
+    console.log("Form da inviare:", newExp)
 
-    handleClose();
+    handleClose()
   }
 
   return (
@@ -58,9 +58,9 @@ function FormExperiences(props) {
 
         <Form
           onSubmit={(e) => {
-            e.preventDefault(); // evita il refresh della pagina
-            const formData = new FormData(e.target);
-            getForm(formData);
+            e.preventDefault() // evita il refresh della pagina
+            const formData = new FormData(e.target)
+            getForm(formData)
           }}
         >
           <Modal.Body>
@@ -71,7 +71,7 @@ function FormExperiences(props) {
                   Attiva l'opzione per informare la tua rete delle principali
                   modifiche al profilo (ad esempio un nuovo lavoro) e degli
                   anniversari lavorativi. Gli aggiornamenti possono richiedere
-                  fino a 2 ore. Scopri di più sulla{' '}
+                  fino a 2 ore. Scopri di più sulla{" "}
                   <strong className="text-primary">
                     condivisione delle modifiche del profilo
                   </strong>
@@ -119,12 +119,12 @@ function FormExperiences(props) {
               <Form.Control type="date" name="endDate" required />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formarea">
+            <Form.Group className="mb-3" controlId="formArea">
               <Form.Label>Località</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Esempio: Milano, Italia"
-                name="location"
+                name="area"
               />
             </Form.Group>
 
@@ -145,7 +145,7 @@ function FormExperiences(props) {
               </p>
               <p className="text-muted fs-7">
                 Aggiungi contenuti multimediali come immagini, documenti, siti o
-                presentazioni. Scopri di più sui{' '}
+                presentazioni. Scopri di più sui{" "}
                 <strong className="text-primary">
                   tipi di file multimediali supportati
                 </strong>
@@ -173,7 +173,7 @@ function FormExperiences(props) {
         </Form>
       </Modal>
     </>
-  );
+  )
 }
 
-export default FormExperiences;
+export default FormExperiences

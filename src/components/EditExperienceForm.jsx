@@ -1,143 +1,85 @@
 import { useState } from "react"
 import { Button, Form, Modal, Row, Col } from "react-bootstrap"
 import { useDispatch } from "react-redux"
-import {
-  // deleteExpAction,
-  putExpAction,
-} from "../redux/actions/experiencesAction"
-
-function EditExperienceForm(props) {
+import { putExpAction, getExpAction } from "../redux/actions/experiencesAction"
+function EditExperienceForm({
+  ID,
+  expID,
+  role,
+  company,
+  startDate,
+  endDate,
+  area,
+  description,
+}) {
   const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
-
-  //   const thisExperience = useSelector((state) => {
-  //     return state.experiences.data
-  //   })
-
-  const expID = props.expID
   const dispatch = useDispatch()
 
   const [values, setValues] = useState({
-    role: "",
-    company: "",
-    endDate: "",
-    startDate: "",
-    area: "",
-    description: "",
+    role: role || "",
+    company: company || "",
+    startDate: startDate || "",
+    endDate: endDate || "",
+    area: area || "",
+    description: description || "",
   })
 
-  // function handleChange(event) {
-  //   setValues({ [e.target.name]: e.target.value });
-  // }
-
-  function editForm(formData) {
-    const editExp = {
-      role: formData.get("role"),
-      company: formData.get("company"),
-      endDate: formData.get("endDate"),
-      startDate: formData.get("startDate"),
-      area: formData.get("location"),
-      description: formData.get("description"),
-    }
-
-    //  "role": "Full Stack Web Developer",
-    //   "company": "FizzBuzz",
-    //   "startDate": "2022-06-16",
-    //   "endDate": "2023-06-16", // può essere null
-    //   "description": "Implementing new features",
-    //   "area": "Milan",
-    //   "username": "mario88", // SERVER GENERATED
-    //   "image": ..., // SERVER GENERATED, inizialmente null, modificabile
-    //   "createdAt": 2023-06-16T19:58:31.019Z", // SERVER GENERATED
-    //   "updatedAt": "2023-06-16T19:58:31.019Z", // SERVER GENERATED
-    //   "__v": 0 // SERVER GENERATED
-    //   "_id": "5d925e677360c41e0046d1f5" // SERVER GENERATED
-
-    dispatch(putExpAction(props.ID, expID, editExp))
-
-    // Qua bisogna dire cosa fare con i dati del form ->  POST https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
-
-    console.log("Form da inviare:", editExp)
-
-    handleClose()
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value })
   }
 
-  // function deleteExperience(id, expID) {
-  //   dispatch(deleteExpAction(id, expID))
+  const handleSave = (e) => {
+    e.preventDefault()
+    // aggiorna sul server
+    dispatch(putExpAction(ID, expID, values))
+    // ricarica la lista aggiornata
+    dispatch(getExpAction(ID))
+
+    console.log("Form da inviare:", values)
+    setShow(false)
+  }
+
+  // const handleDelete = () => {
+  //   dispatch(deleteExpAction(props.ID, expID, editExp))
+  //   setShow(false)
   // }
 
   return (
     <>
-      {/* Bottone per aprire il modal */}
-      <Button variant="outline-primary rounded-pill" onClick={handleShow}>
+      <Button
+        variant="outline-primary rounded-pill"
+        onClick={() => setShow(true)}
+      >
         <i className="bi bi-pencil fs-5 text-muted"></i>
       </Button>
 
-      {/* Modal vero e proprio */}
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Modifica esperienza</Modal.Title>
         </Modal.Header>
 
-        <Form
-          onSubmit={(e) => {
-            e.preventDefault() // evita il refresh della pagina
-            const formData = new FormData(e.target)
-            editForm(formData)
-          }}
-        >
+        <Form onSubmit={handleSave}>
           <Modal.Body>
-            <p className="mb-0">Informa la rete</p>
-            <Row>
-              <Col md={10}>
-                <p className="text-muted fs-7">
-                  Attiva l'opzione per informare la tua rete delle principali
-                  modifiche al profilo (ad esempio un nuovo lavoro) e degli
-                  anniversari lavorativi. Gli aggiornamenti possono richiedere
-                  fino a 2 ore. Scopri di più sulla{" "}
-                  <strong className="text-primary">
-                    condivisione delle modifiche del profilo
-                  </strong>
-                  .
-                </p>
-              </Col>
-              <Col md={2}>
-                <Form.Group
-                  className="mb-3 d-inline-flex"
-                  controlId="formSwitch"
-                >
-                  <span className="me-2">Si</span>
-                  <Form.Check type="switch" id="custom-switch" label="" />
-                </Form.Group>
-              </Col>
-            </Row>
-
+            {/* Campi del form */}
             <Form.Group className="mb-3" controlId="formRole">
               <Form.Label>Qualifica*</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Esempio: Retail Sales Manager"
                 name="role"
-                value={props.role}
+                value={values.role}
+                onChange={handleChange}
                 required
-                onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }}
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formCompany">
-              <Form.Label>Azienda o organizzazione*</Form.Label>
+              <Form.Label>Azienda*</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Esempio: Microsoft"
                 name="company"
-                value={props.company}
+                value={values.company}
+                onChange={handleChange}
                 required
-                onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }}
               />
             </Form.Group>
 
@@ -146,37 +88,29 @@ function EditExperienceForm(props) {
               <Form.Control
                 type="date"
                 name="startDate"
-                value={props.startD}
+                value={values.startDate}
+                onChange={handleChange}
                 required
-                onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }}
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formEndDate">
-              <Form.Label>Data di fine*</Form.Label>
+              <Form.Label>Data di fine</Form.Label>
               <Form.Control
                 type="date"
                 name="endDate"
-                value={props.endD}
-                required
-                onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }}
+                value={values.endDate}
+                onChange={handleChange}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formarea">
+            <Form.Group className="mb-3" controlId="formArea">
               <Form.Label>Località</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Esempio: Milano, Italia"
-                name="location"
-                value={props.area}
-                onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }}
+                name="area"
+                value={values.area}
+                onChange={handleChange}
               />
             </Form.Group>
 
@@ -185,45 +119,20 @@ function EditExperienceForm(props) {
               <Form.Control
                 as="textarea"
                 rows={3}
-                maxLength={2000}
-                placeholder=""
                 name="description"
-                value={props.description}
-                onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }}
+                value={values.description}
+                onChange={handleChange}
               />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formMedia">
-              <p className="mb-0">
-                <strong>Media</strong>
-              </p>
-              <p className="text-muted fs-7">
-                Aggiungi contenuti multimediali come immagini, documenti, siti o
-                presentazioni. Scopri di più sui{" "}
-                <strong className="text-primary">
-                  tipi di file multimediali supportati
-                </strong>
-                .
-              </p>
             </Form.Group>
           </Modal.Body>
 
           <Modal.Footer className="justify-content-between">
-            <Button
-              className="no-wrap"
-              variant=" rounded-pill py-0 bg-danger text-white"
-              type="submit"
-            >
+            <Button variant="danger rounded-pill py-0">
+              {/* onClick={handleDelete} */}
               <i className="bi bi-x-octagon text-white"></i> Elimina esperienza
             </Button>
 
-            <Button
-              className="no-wrap"
-              variant="primary rounded-pill py-0"
-              type="submit"
-            >
+            <Button variant="primary rounded-pill py-0" type="submit">
               Salva modifiche
             </Button>
           </Modal.Footer>
