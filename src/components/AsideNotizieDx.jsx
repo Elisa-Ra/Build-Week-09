@@ -269,7 +269,7 @@ const AsideNotizieDx = () => {
                 className="text-muted text-decoration-none small p-0 m-0"
                 id="business-dropdown"
               >
-                Servizi alle aziende{" "}
+                Servizi alle aziende
                 <CaretDownFill size={10} className="ms-1" />
               </Dropdown.Toggle>
               <Dropdown.Menu>
