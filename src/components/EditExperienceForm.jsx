@@ -1,71 +1,50 @@
-import { useState } from "react"
-import { Button, Form, Modal, Row, Col } from "react-bootstrap"
-import { useDispatch } from "react-redux"
+import { useState } from 'react';
+import { Button, Form, Modal, Row, Col } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import {
-  // deleteExpAction,
-  putExpAction,
-} from "../redux/actions/experiencesAction"
+  deleteExpAction,
+  getExpAction,
+  putExpAction
+} from '../redux/actions/experiencesAction';
+
+import { useParams } from 'react-router-dom';
 
 function EditExperienceForm(props) {
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-  //   const thisExperience = useSelector((state) => {
-  //     return state.experiences.data
-  //   })
+  const { ID } = useParams('userID');
 
-  const expID = props.expID
-  const dispatch = useDispatch()
+  const expID = props.expID;
+  const dispatch = useDispatch();
 
   const [values, setValues] = useState({
-    role: "",
-    company: "",
-    endDate: "",
-    startDate: "",
-    area: "",
-    description: "",
-  })
-
-  // function handleChange(event) {
-  //   setValues({ [e.target.name]: e.target.value });
-  // }
+    role: props.role,
+    company: props.company,
+    endDate: props.endD,
+    startDate: props.startD,
+    area: props.area,
+    description: props.description
+  });
 
   function editForm(formData) {
     const editExp = {
-      role: formData.get("role"),
-      company: formData.get("company"),
-      endDate: formData.get("endDate"),
-      startDate: formData.get("startDate"),
-      area: formData.get("location"),
-      description: formData.get("description"),
-    }
+      role: formData.get('role'),
+      company: formData.get('company'),
+      endDate: formData.get('endDate'),
+      startDate: formData.get('startDate'),
+      area: formData.get('area'),
+      description: formData.get('description')
+    };
 
-    //  "role": "Full Stack Web Developer",
-    //   "company": "FizzBuzz",
-    //   "startDate": "2022-06-16",
-    //   "endDate": "2023-06-16", // può essere null
-    //   "description": "Implementing new features",
-    //   "area": "Milan",
-    //   "username": "mario88", // SERVER GENERATED
-    //   "image": ..., // SERVER GENERATED, inizialmente null, modificabile
-    //   "createdAt": 2023-06-16T19:58:31.019Z", // SERVER GENERATED
-    //   "updatedAt": "2023-06-16T19:58:31.019Z", // SERVER GENERATED
-    //   "__v": 0 // SERVER GENERATED
-    //   "_id": "5d925e677360c41e0046d1f5" // SERVER GENERATED
+    console.log('Form da inviare:', editExp);
 
-    dispatch(putExpAction(props.ID, expID, editExp))
+    dispatch(putExpAction(ID, expID, editExp));
+    dispatch(getExpAction(ID));
 
-    // Qua bisogna dire cosa fare con i dati del form ->  POST https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
-
-    console.log("Form da inviare:", editExp)
-
-    handleClose()
+    handleClose();
   }
-
-  // function deleteExperience(id, expID) {
-  //   dispatch(deleteExpAction(id, expID))
-  // }
 
   return (
     <>
@@ -82,9 +61,9 @@ function EditExperienceForm(props) {
 
         <Form
           onSubmit={(e) => {
-            e.preventDefault() // evita il refresh della pagina
-            const formData = new FormData(e.target)
-            editForm(formData)
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            editForm(formData);
           }}
         >
           <Modal.Body>
@@ -95,7 +74,7 @@ function EditExperienceForm(props) {
                   Attiva l'opzione per informare la tua rete delle principali
                   modifiche al profilo (ad esempio un nuovo lavoro) e degli
                   anniversari lavorativi. Gli aggiornamenti possono richiedere
-                  fino a 2 ore. Scopri di più sulla{" "}
+                  fino a 2 ore. Scopri di più sulla{' '}
                   <strong className="text-primary">
                     condivisione delle modifiche del profilo
                   </strong>
@@ -119,10 +98,10 @@ function EditExperienceForm(props) {
                 type="text"
                 placeholder="Esempio: Retail Sales Manager"
                 name="role"
-                value={props.role}
+                value={values.role}
                 required
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
+                  setValues({ ...values, [e.target.name]: e.target.value });
                 }}
               />
             </Form.Group>
@@ -133,10 +112,10 @@ function EditExperienceForm(props) {
                 type="text"
                 placeholder="Esempio: Microsoft"
                 name="company"
-                value={props.company}
+                value={values.company}
                 required
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
+                  setValues({ ...values, [e.target.name]: e.target.value });
                 }}
               />
             </Form.Group>
@@ -146,10 +125,10 @@ function EditExperienceForm(props) {
               <Form.Control
                 type="date"
                 name="startDate"
-                value={props.startD}
+                value={values.startD}
                 required
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
+                  setValues({ ...values, [e.target.name]: e.target.value });
                 }}
               />
             </Form.Group>
@@ -159,10 +138,10 @@ function EditExperienceForm(props) {
               <Form.Control
                 type="date"
                 name="endDate"
-                value={props.endD}
+                value={values.endD}
                 required
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
+                  setValues({ ...values, [e.target.name]: e.target.value });
                 }}
               />
             </Form.Group>
@@ -173,9 +152,9 @@ function EditExperienceForm(props) {
                 type="text"
                 placeholder="Esempio: Milano, Italia"
                 name="location"
-                value={props.area}
+                value={values.area}
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
+                  setValues({ ...values, [e.target.name]: e.target.value });
                 }}
               />
             </Form.Group>
@@ -188,9 +167,9 @@ function EditExperienceForm(props) {
                 maxLength={2000}
                 placeholder=""
                 name="description"
-                value={props.description}
+                value={values.description}
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value })
+                  setValues({ ...values, [e.target.name]: e.target.value });
                 }}
               />
             </Form.Group>
@@ -201,7 +180,7 @@ function EditExperienceForm(props) {
               </p>
               <p className="text-muted fs-7">
                 Aggiungi contenuti multimediali come immagini, documenti, siti o
-                presentazioni. Scopri di più sui{" "}
+                presentazioni. Scopri di più sui{' '}
                 <strong className="text-primary">
                   tipi di file multimediali supportati
                 </strong>
@@ -214,7 +193,11 @@ function EditExperienceForm(props) {
             <Button
               className="no-wrap"
               variant=" rounded-pill py-0 bg-danger text-white"
-              type="submit"
+              type="button"
+              onClick={() => {
+                dispatch(deleteExpAction(ID, expID));
+                dispatch(getExpAction(ID));
+              }}
             >
               <i className="bi bi-x-octagon text-white"></i> Elimina esperienza
             </Button>
@@ -230,7 +213,7 @@ function EditExperienceForm(props) {
         </Form>
       </Modal>
     </>
-  )
+  );
 }
 
-export default EditExperienceForm
+export default EditExperienceForm;

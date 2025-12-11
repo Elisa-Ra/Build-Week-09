@@ -119,12 +119,12 @@ function FormExperiences(props) {
               <Form.Control type="date" name="endDate" required />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formarea">
+            <Form.Group className="mb-3" controlId="formArea">
               <Form.Label>Località</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Esempio: Milano, Italia"
-                name="location"
+                name="area"
               />
             </Form.Group>
 

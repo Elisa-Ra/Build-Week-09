@@ -60,7 +60,7 @@ const ExperienceCard = (props) => {
             endD={props.endDate}
             area={props.area}
             description={props.description}
-            expID={props._id}
+            expID={props.expID}
           />
         </Col>
       </Row>
