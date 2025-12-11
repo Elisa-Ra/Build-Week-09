@@ -71,3 +71,7 @@
   color: #000 !important;
   fill: #000 !important;
 }
+.toggle-btn-custom,
+.nav-link {
+  background-color: transparent !important;
+}

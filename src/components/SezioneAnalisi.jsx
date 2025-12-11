@@ -25,7 +25,7 @@ const SezioneAnalisi = () => {
                 </div>
 
                 <div>
-                  <span className="fw-bold mb-0">0</span>
+                  <span className="fw-bold mb-0">0</span>{" "}
                   <span className="text-muted small">
                     visualizzazioni del profilo
                   </span>
