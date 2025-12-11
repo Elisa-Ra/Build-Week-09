@@ -1,13 +1,11 @@
 import { useEffect } from "react"
 import { Button, Card, Col, Image, Row, Spinner } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchUser } from "../redux/actions/userActions"
+import { fetchUser } from "../redux/actions/usersAction"
 
 const RightAside = () => {
-  const users = useSelector((state) => {
-    return state.user.users
-  })
-  const loading = useSelector((state) => state.user.loading)
+  const users = useSelector((state) => state.users.users || [])
+  const loading = useSelector((state) => state.users.loading)
   // const error = useSelector((state) => state.user.error)
 
   const dispatch = useDispatch()

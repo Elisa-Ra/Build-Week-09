@@ -1,19 +1,25 @@
 import { useState } from "react"
-import {
-  Button,
-  Form,
-  Modal,
-  Row,
-  Col,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "react-bootstrap"
+import { Button, Form, Modal, Row, Col } from "react-bootstrap"
 
 function FormExperiences() {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
+  function getForm(formData) {
+    const role = formData.get("role")
+    const company = formData.get("company")
+    const endDate = formData.get("endDate")
+    const startDate = formData.get("startDate")
+    const location = formData.get("location")
+    const description = formData.get("description")
+    const media = formData.get("media")
+    // Qua bisogna dire cosa fare con i dati del form ->  POST https://striveschool-api.herokuapp.com/api/profile/:userId/experiences
+    alert(
+      `Dati del form '${role}''${company}''${endDate}''${startDate}''${location}''${description}''${media}'`
+    )
+  }
 
   return (
     <>
@@ -28,56 +34,74 @@ function FormExperiences() {
           <Modal.Title>Aggiungi esperienza</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
-          <p className="mb-0">Informa la rete</p>
-          <Row>
-            <Col md={10}>
-              {" "}
-              <p className="text-muted fs-7">
-                Attiva l'opzione per informare la tua rete delle principali
-                modifiche al profilo (ad esempio un nuovo lavoro) e degli
-                anniversari lavorativi. Gli aggiornamenti possono richiedere
-                fino a 2 ore. Scopri di più sulla{" "}
-                <strong className="text-primary">
-                  condivisione delle modifiche del profilo
-                </strong>
-                .
-              </p>{" "}
-            </Col>
-            <Col md={2}>
-              <Form.Group className="mb-3 d-inline-flex" controlId="formSwitch">
-                <span className="me-2">Si</span>
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault() // evita il refresh della pagina
+            const formData = new FormData(e.target)
+            getForm(formData)
+          }}
+        >
+          <Modal.Body>
+            <p className="mb-0">Informa la rete</p>
+            <Row>
+              <Col md={10}>
+                <p className="text-muted fs-7">
+                  Attiva l'opzione per informare la tua rete delle principali
+                  modifiche al profilo (ad esempio un nuovo lavoro) e degli
+                  anniversari lavorativi. Gli aggiornamenti possono richiedere
+                  fino a 2 ore. Scopri di più sulla{" "}
+                  <strong className="text-primary">
+                    condivisione delle modifiche del profilo
+                  </strong>
+                  .
+                </p>
+              </Col>
+              <Col md={2}>
+                <Form.Group
+                  className="mb-3 d-inline-flex"
+                  controlId="formSwitch"
+                >
+                  <span className="me-2">Si</span>
+                  <Form.Check type="switch" id="custom-switch" label="" />
+                </Form.Group>
+              </Col>
+            </Row>
 
-                <Form.Check type="switch" id="custom-switch" label="" />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Form>
             <Form.Group className="mb-3" controlId="formRole">
               <Form.Label>Qualifica*</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Esempio: Retail Sales Manager"
+                name="role"
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formCompany">
               <Form.Label>Azienda o organizzazione*</Form.Label>
-              <Form.Control type="text" placeholder="Esempio: Microsoft" />
+              <Form.Control
+                type="text"
+                placeholder="Esempio: Microsoft"
+                name="company"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formStartDate">
               <Form.Label>Data di inizio*</Form.Label>
-              <Form.Control type="month" />
+              <Form.Control type="month" name="startDate" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formEndDate">
               <Form.Label>Data di fine*</Form.Label>
-              <Form.Control type="month" />
+              <Form.Control type="month" name="endDate" />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formarea">
               <Form.Label>Località</Form.Label>
-              <Form.Control type="text" placeholder="Esempio: Milano, Italia" />
+              <Form.Control
+                type="text"
+                placeholder="Esempio: Milano, Italia"
+                name="location"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formDescription">
@@ -87,6 +111,7 @@ function FormExperiences() {
                 rows={3}
                 maxLength={2000}
                 placeholder=""
+                name="description"
               />
             </Form.Group>
 
@@ -103,19 +128,25 @@ function FormExperiences() {
                 .
               </p>
               <div className="d-flex align-items-center">
-                <Button variant="outline-primary rounded-pill py-0">
-                  + Aggiungi media
-                </Button>
+                <Form.Group controlId="formFile" className="mb-3">
+                  <Form.Label
+                    className="btn btn-outline-primary rounded-pill py-0"
+                    style={{ cursor: "pointer" }}
+                  >
+                    + Aggiungi media
+                  </Form.Label>
+                  <Form.Control type="file" name="media" hidden />
+                </Form.Group>
               </div>
             </Form.Group>
-          </Form>
-        </Modal.Body>
+          </Modal.Body>
 
-        <Modal.Footer>
-          <Button variant="primary rounded-pill py-0" type="submit">
-            Salva
-          </Button>
-        </Modal.Footer>
+          <Modal.Footer>
+            <Button variant="primary rounded-pill py-0" type="submit">
+              Salva
+            </Button>
+          </Modal.Footer>
+        </Form>
       </Modal>
     </>
   )

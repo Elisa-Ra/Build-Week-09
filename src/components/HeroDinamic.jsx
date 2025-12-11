@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchMyProfile } from "../redux/actions/profilesAction"
+import { fetchMyProfile } from "../redux/actions/MyProfileAction"
 
 const HeroDinamic = () => {
   const profile = useSelector((state) => {
@@ -75,6 +75,7 @@ const HeroDinamic = () => {
                   href="#"
                   className="text-decoration-none text-primary fw-bold"
                 >
+                  {" "}
                   Informazioni di contatto
                 </a>
               </p>

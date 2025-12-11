@@ -11,8 +11,12 @@ import Interests from './Interests';
 import Information from './Information';
 import RightAside from './RightAside';
 import MyFooter from './MyFooter';
+import { useParams } from 'react-router-dom';
+
+
 
 const ProfileSections = () => {
+   const params = useParams()
   return (
     <>
       <Container className="ps-0" fluid>
@@ -23,7 +27,7 @@ const ProfileSections = () => {
             <Information />
             <SezioneAttivita />
             <SezioneLingue />
-            <ExperienceSection />
+            <ExperienceSection ID={params.userId}/>
             <EducationSection />
             <SkillsSection />
             <LicensesSection />

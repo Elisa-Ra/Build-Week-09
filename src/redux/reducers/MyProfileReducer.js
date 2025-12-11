@@ -2,7 +2,7 @@ import {
   PROFILE_LOADING,
   PROFILE_ERROR,
   PROFILE_SUCCESS,
-} from "../actions/profilesAction"
+} from "../actions/MyProfileAction"
 
 const initialState = {
   data: null,
@@ -10,7 +10,7 @@ const initialState = {
   error: null,
 }
 
-const profileReducer = (state = initialState, action) => {
+const MyProfileReducer = (state = initialState, action) => {
   switch (action.type) {
     case PROFILE_LOADING:
       return { ...state, loading: true, error: null }
@@ -23,4 +23,4 @@ const profileReducer = (state = initialState, action) => {
       return state
   }
 }
-export default profileReducer
+export default MyProfileReducer
