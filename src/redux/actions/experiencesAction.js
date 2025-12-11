@@ -30,7 +30,7 @@ export const getExpAction = (userId) => {
       .then((res) => {
         if (res.ok) {
           return res.json()
-        } else throw new Error("Errore Fetch Profilo", res.status)
+        } else throw new Error("Errore Fetch Profilo" + res.status)
       })
       .then((data) => {
         dispatch({ type: GET_EXP_SUCCESS, payload: data })
@@ -61,7 +61,7 @@ export const putExpAction = (userId, expId, exp) => {
       .then((res) => {
         if (res.ok) {
           return res.json()
-        } else throw new Error("Errore Fetch Profilo", res.status)
+        } else throw new Error("Errore Fetch Profilo" + res.status)
       })
       .then((modifiedData) => {
         dispatch({ type: PUT_EXP_SUCCESS, payload: modifiedData })
@@ -111,7 +111,7 @@ export const postExpAction = (userId, exp) => {
 
 // DELETE
 
-export const deleteExpAction = (userId, expId, exp) => {
+export const deleteExpAction = (userId, expId) => {
   return (dispatch) => {
     dispatch({ type: DELETE_EXP_REQUEST })
     fetch(`${API_USER}${userId}/experiences/${expId}`, {
@@ -120,12 +120,11 @@ export const deleteExpAction = (userId, expId, exp) => {
         Authorization: TOKEN,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(exp),
     })
       .then((res) => {
         if (res.ok) {
           return res.json()
-        } else throw new Error("Errore Fetch Profilo", res.status)
+        } else throw new Error("Errore Fetch Profilo" + res.status)
       })
       .then((deletedData) => {
         dispatch({ type: DELETE_EXP_SUCCESS, payload: deletedData })
