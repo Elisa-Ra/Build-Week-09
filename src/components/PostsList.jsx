@@ -30,6 +30,11 @@ const PostsList = () => {
       )}
 
       {error && <Alert>Errore nel caricamento dei post</Alert>}
+
+      {!loading &&
+        !error &&
+        data(data.map((post) => <PostCard key={post._id} post={post} />))}
     </>
   )
 }
+export default PostsList
