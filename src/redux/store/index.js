@@ -11,7 +11,9 @@ const store = configureStore({
     users: usersReducer,
     experiences: experienceReducer,
     posts: postReducer,
-    singleUser: singleUserReducer
+    singleUser: singleUserReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ immutableCheck: false }),
 })
 export default store

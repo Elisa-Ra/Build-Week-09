@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getPostAction } from "../redux/actions/postAction"
 import { Alert, Spinner } from "react-bootstrap"
 import PostCard from "./PostCard"
+import { fetchUser } from "../redux/actions/usersAction"
 
 const PostsList = () => {
   const dispatch = useDispatch()
@@ -16,9 +17,11 @@ const PostsList = () => {
   const error = useSelector((state) => {
     return state.posts.error
   })
+  const users = useSelector((state) => state.users.users)
 
   useEffect(() => {
     dispatch(getPostAction())
+    dispatch(fetchUser())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

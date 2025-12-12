@@ -3,8 +3,16 @@ import { useState } from "react"
 
 // importare i dati del post
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, users }) => {
   const [active, setActive] = useState(false)
+
+  const author = users.find((user) => user.username === post.username)
+  console.log("POST USERNAME:", post.username)
+  console.log("USERS:", users)
+  console.log(
+    "FOUND AUTHOR:",
+    users.find((user) => user.username === post.username)
+  )
 
   return (
     <Container className="p-2 mb-3 bg-white rounded border border-1 border-secondary-subtle">
@@ -16,7 +24,7 @@ const PostCard = ({ post }) => {
           <Image
             fluid
             // src={props.img}
-            src="https://placecats.com/48/48"
+            src={author?.image || "https://placecats.com/48/48"}
             className=" overflow-hidden border bg-light"
             style={{ width: "48px", height: "48px" }}
           ></Image>
@@ -26,7 +34,9 @@ const PostCard = ({ post }) => {
           <Col>
             {/* Aggiungere nome */}
             <p className="my-0">
-              <strong>{post.username}</strong>
+              <strong>
+                {author ? `${author.name} ${author.surname}` : post.username}{" "}
+              </strong>
             </p>
           </Col>
           <Col>
