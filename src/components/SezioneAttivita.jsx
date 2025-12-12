@@ -16,8 +16,8 @@ const SezioneAttivita = () => {
 
   const myId = profile._id
 
-  const myPosts = posts.filter((post) => post.username === users?.username)
-  console.log('attività', myPosts)
+  const myPosts = posts.filter((post) => post.username === profile?.username)
+  console.log("attività", myPosts)
 
   const [showModal, setShowModal] = useState(false)
   return (
@@ -52,7 +52,9 @@ const SezioneAttivita = () => {
             <p className="text-muted small">I post appariranno qui</p>
           </div>
         ) : (
-          myPosts.map((post) => <PostCard key={post._id} post={post} />)
+          myPosts.map((post) => (
+            <PostCard key={post._id} post={post} users={users} />
+          ))
         )}
 
         <div className="text-center text-md-start mt-4">

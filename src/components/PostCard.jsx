@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 // importare i dati del post
 
-const PostCard = ({ post, users }) => {
+const PostCard = ({ post, users = [] }) => {
   const [active, setActive] = useState(false)
   const navigate = useNavigate()
 
