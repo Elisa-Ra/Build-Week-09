@@ -18,7 +18,7 @@ const API = "https://striveschool-api.herokuapp.com/api/posts/"
 const TOKEN =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZGIwN2QzMjJmNTAwMTUxMDc2YTAiLCJpYXQiOjE3NjUyNjgyMzEsImV4cCI6MTc2NjQ3NzgzMX0.xpmE3XKHeFyn9woNxPxv0Fs_cK7s5T7gtcpLwDMBGII"
 
-export const fetchPosts = () => {
+export const getPostAction = () => {
   return (dispatch) => {
     dispatch({ type: GET_POST_REQUEST })
 
@@ -49,32 +49,32 @@ export const fetchPosts = () => {
 }
 
 // PUT
-export const putExpAction = (ID, expId, editExp) => {
+export const putPostAction = (postId, editPost) => {
   return (dispatch) => {
     dispatch({ type: PUT_POST_REQUEST })
-    fetch(`${API_USER}${ID}/experiences/${expId}`, {
+    fetch(`${API}${postId}`, {
       method: "PUT",
       headers: {
         Authorization: TOKEN,
         "Content-type": "application/json",
       },
-      body: JSON.stringify(editExp),
+      body: JSON.stringify(editPost),
     })
       .then((res) => {
         if (res.ok) {
           return res.json()
         } else throw new Error("Errore Fetch Profilo" + res.status)
       })
-      .then((modifiedData) => {
-        dispatch({ type: PUT_POST_SUCCESS, payload: modifiedData })
-        dispatch(getExpAction(ID))
-        console.log(modifiedData)
+      .then((editedData) => {
+        dispatch({ type: PUT_POST_SUCCESS, payload: editedData })
+        dispatch(getPostAction())
+        console.log(editedData)
       })
       .catch((err) => {
         console.log("Errore nel fetch" + typeof err)
         dispatch({
           type: PUT_POST_ERROR,
-          payload: JSON.stringify(err, Object.getOwnPropertyNames(err)),
+          payload: err.message,
         })
       })
   }
@@ -82,16 +82,16 @@ export const putExpAction = (ID, expId, editExp) => {
 
 // POST
 
-export const postExpAction = (ID, exp) => {
+export const postPostAction = (newPost) => {
   return (dispatch) => {
     dispatch({ type: POST_POST_REQUEST })
-    fetch(`${API_USER}${ID}/experiences`, {
+    fetch(API, {
       method: "POST",
       headers: {
         Authorization: TOKEN,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(exp),
+      body: JSON.stringify(newPost),
     })
       .then((res) => {
         if (res.ok) {
@@ -100,14 +100,14 @@ export const postExpAction = (ID, exp) => {
       })
       .then((postedData) => {
         dispatch({ type: POST_POST_SUCCESS, payload: postedData })
-        dispatch(getExpAction(ID))
+        dispatch(getPostAction())
         console.log(postedData)
       })
       .catch((err) => {
         console.log("Errore nel fetch" + typeof err)
         dispatch({
           type: POST_POST_ERROR,
-          payload: JSON.stringify(err, Object.getOwnPropertyNames(err)),
+          payload: err.message,
         })
       })
   }
@@ -115,10 +115,10 @@ export const postExpAction = (ID, exp) => {
 
 // DELETE
 
-export const deleteExpAction = (ID, expId) => {
+export const deletePostAction = (postId) => {
   return (dispatch) => {
     dispatch({ type: DELETE_POST_REQUEST })
-    fetch(`${API_USER}${ID}/experiences/${expId}`, {
+    fetch(`${API}${postId}`, {
       method: "DELETE",
       headers: {
         Authorization: TOKEN,
@@ -128,7 +128,7 @@ export const deleteExpAction = (ID, expId) => {
       .then((res) => {
         if (res.ok) {
           return
-        } else throw new Error("Errore Fetch Profilo" + res.status)
+        } else throw new Error("Errore Fetch Post" + res.status)
       })
       .then((deletedData) => {
         dispatch({ type: DELETE_POST_SUCCESS, payload: deletedData })
