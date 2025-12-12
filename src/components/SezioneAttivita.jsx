@@ -1,18 +1,23 @@
-import React, { useState } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap-icons/font/bootstrap-icons.css"
-import { Container } from "react-bootstrap"
-import AddPostModal from "./AddPostModal"
-import { useSelector } from "react-redux"
-import PostCard from "./PostCard"
+import React, { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import { Container } from 'react-bootstrap'
+import AddPostModal from './AddPostModal'
+import { useSelector } from 'react-redux'
+import PostCard from './PostCard'
+import { useParams } from 'react-router-dom'
 
 const SezioneAttivita = () => {
   const profile = useSelector((state) => state.profile.data)
   const users = useSelector((state) => state.users.data)
   const posts = useSelector((state) => state.posts.data)
+  const params = useParams
+  const thisID = params.userId
+
+  const myId = profile._id
 
   const myPosts = posts.filter((post) => post.username === users?.username)
-  console.log("attività", myPosts)
+  console.log('attività', myPosts)
 
   const [showModal, setShowModal] = useState(false)
   return (
@@ -21,17 +26,20 @@ const SezioneAttivita = () => {
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="fs-5 fw-bold mb-0">Attività</h2>
 
-          <div className="d-flex align-items-center">
-            {" "}
-            <button
-              type="button"
-              className="btn btn-outline-primary rounded-pill me-2 py-1 px-3"
-              onClick={() => setShowModal(true)}
-            >
-              Crea un post
-            </button>
-            <i className="bi bi-pencil fs-5 text-muted"></i>{" "}
-          </div>
+          {thisID === myId ? (
+            <div className="d-flex align-items-center">
+              <button
+                type="button"
+                className="btn btn-outline-primary rounded-pill me-2 py-1 px-3"
+                onClick={() => setShowModal(true)}
+              >
+                Crea un post
+              </button>
+              <i className="bi bi-pencil fs-5 text-muted"></i>{' '}
+            </div>
+          ) : (
+            <div className="d-flex align-items-center"> </div>
+          )}
         </div>
 
         <p className="text-muted fw-bold mb-3">
