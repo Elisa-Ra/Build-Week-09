@@ -132,6 +132,7 @@ export const deletePostAction = (postId) => {
       })
       .then((deletedData) => {
         dispatch({ type: DELETE_POST_SUCCESS, payload: deletedData })
+        dispatch(getPostAction())
       })
       .catch((err) => {
         console.log("Errore nel fetch" + typeof err)
