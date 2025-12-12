@@ -167,7 +167,7 @@ const SuperiorNavBar = () => {
                       className="img-fluid mini-img"
                     />
                   }
-                  align="end"
+                  align="start"
                   className="fs-7 d-lg-none"
                 >
                   <NavDropdown.Item>
@@ -224,17 +224,17 @@ const SuperiorNavBar = () => {
               <Col className="d-flex flex-column justify-content-center align-items-center text-center">
                 {/* aziende desktop */}
 
-                <TfiLayoutGrid3Alt />
+                <TfiLayoutGrid3Alt className="d-none d-lg-flex" />
                 <NavDropdown
                   title="Per le aziende"
                   align="end"
-                  className="fs-7 d-none d-lg-flex"
+                  className="d-none d-lg-flex fs-7"
                 >
                   <NavDropdown.Item href="#action1">
                     <AziendeDropdownDetails />
                   </NavDropdown.Item>
                 </NavDropdown>
-
+                {/* aziende mobile */}
                 <NavDropdown
                   title={<TfiLayoutGrid3Alt />}
                   align="end"
@@ -246,7 +246,7 @@ const SuperiorNavBar = () => {
                 </NavDropdown>
               </Col>
               <Col xs={6}>
-                   {/* link per riattivazione premium */}
+                {/* link per riattivazione premium */}
                 <Nav.Link>
                   <p className="premium-link w-100 fs-7 text-decoration-underline mb-0">
                     Riattiva Premium con il 50% di sconto
@@ -255,7 +255,6 @@ const SuperiorNavBar = () => {
               </Col>
             </Row>
           </Nav>
-     
         </Navbar.Collapse>
       </Container>
     </Navbar>
