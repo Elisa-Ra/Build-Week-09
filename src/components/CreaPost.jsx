@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 const CreaPost = () => {
   const profile = useSelector((state) => state.profile.data)
   return (
-    <div className="card p-3 mb-3" style={{ maxWidth: "600px" }}>
+    <div className="card p-3 mb-3">
       <div className="d-flex align-items-center mb-3">
         <img
           src={profile?.image || "https://placebear.com/100/100"}
