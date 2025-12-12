@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import { Button, Form, Modal, Row, Col } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
-import MiniHero from './MiniHero'
+import { useState } from "react"
+import { Button, Form, Modal, Row, Col } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import MiniHero from "./MiniHero"
+import { postPostAction } from "../redux/actions/postAction"
 
 function AddPostModal(props) {
   const [show, setShow] = useState(false)
@@ -13,12 +14,12 @@ function AddPostModal(props) {
 
   function getPost(formData) {
     const newPost = {
-      text: formData.get('text') || ''
+      text: formData.get("text") || "",
     }
 
     dispatch(postPostAction(props.ID, newPost))
 
-    console.log('Post da inviare:', newPost)
+    console.log("Post da inviare:", newPost)
 
     handleClose()
   }

@@ -1,13 +1,17 @@
 import React from "react"
+import AddPostModal from "./AddPostModal"
+import { useSelector } from "react-redux"
 
 const CreaPost = () => {
+  const profile = useSelector((state) => state.profile.data)
   return (
     <div className="card p-3 mb-3" style={{ maxWidth: "600px" }}>
       <div className="d-flex align-items-center mb-3">
-        <div
+        <img
+          src={profile?.image || "https://placebear.com/100/100"}
           className="bg-secondary rounded-circle me-3"
           style={{ width: "45px", height: "40px" }}
-        ></div>
+        ></img>
 
         <input
           type="text"
