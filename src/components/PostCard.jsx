@@ -40,8 +40,13 @@ const PostCard = () => {
           </Col>
         </Col>
         {/* Colonna destra superiore */}
-        <Col xs={2}>
-          <i className="bi bi-three-dots"></i> <i className="bi bi-x-lg"></i>
+        <Col xs={2} className="ps-4">
+          <Button className="bg-transparent p-0 border-0 pe-2" variant="light">
+            <i className="bi bi-three-dots"></i>
+          </Button>{" "}
+          <Button className="bg-transparent p-0 border-0" variant="light">
+            <i className="bi bi-x-lg"></i>
+          </Button>{" "}
         </Col>
       </Row>
       {/* Row con il TESTO dell'utente */}
@@ -75,31 +80,19 @@ const PostCard = () => {
           </Button>{" "}
         </Col>
         <Col xs={3} className="px-0">
-          <Button
-            className="bg-transparent p-0 border-0"
-            variant="light"
-            onClick={() => setActive(!active)}
-          >
+          <Button className="bg-transparent p-0 border-0" variant="light">
             <i className="bi bi-chat-text"></i>{" "}
             <p className="d-inline">Commenta</p>
           </Button>{" "}
         </Col>
         <Col xs={3} className="px-0">
-          <Button
-            className="bg-transparent p-0 border-0"
-            variant="light"
-            onClick={() => setActive(!active)}
-          >
+          <Button className="bg-transparent p-0 border-0" variant="light">
             <i className="bi bi-arrow-repeat "></i>Diffondi il post
           </Button>{" "}
         </Col>
 
         <Col xs={3} className="pe-0">
-          <Button
-            className="bg-transparent p-0 border-0"
-            variant="light"
-            onClick={() => setActive(!active)}
-          >
+          <Button className="bg-transparent p-0 border-0" variant="light">
             <i className="bi bi-send-fill"></i>{" "}
             <p className="d-inline">Invia</p>
           </Button>{" "}
