@@ -27,7 +27,7 @@ const ProfileSections = () => {
             <HeroDinamic />
             <SezioneAnalisi />
             <Information />
-            <SezioneAttivita />
+            <SezioneAttivita ID={params.userId} />
             <SezioneLingue />
             <ExperienceSection ID={params.userId}/>
             <EducationSection />

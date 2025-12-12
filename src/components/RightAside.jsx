@@ -59,7 +59,7 @@ const RightAside = () => {
                       <Image
                         src={user.image}
                         alt={`${user.name} ${user.surname}`}
-                        className="me-3 rounded-circle"
+                        className="me-3 rounded-circle cursor-pointer"
                         style={{ height: '48px', width: '48px' }}
                         onClick={() => {
                           navigate(`/profile/${user._id}`)

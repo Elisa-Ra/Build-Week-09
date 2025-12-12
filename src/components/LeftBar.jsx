@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react"
-import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap"
+import { useEffect, useState } from 'react'
+import { Container, Row, Col, Image, Button, Spinner } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 const LeftBar = () => {
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+  const navigate = useNavigate()
 
-  const API = "https://striveschool-api.herokuapp.com/api/profile/me"
+  const API = 'https://striveschool-api.herokuapp.com/api/profile/me'
   useEffect(() => {
     fetch(API, {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZGIwN2QzMjJmNTAwMTUxMDc2YTAiLCJpYXQiOjE3NjUyNjgyMzEsImV4cCI6MTc2NjQ3NzgzMX0.xpmE3XKHeFyn9woNxPxv0Fs_cK7s5T7gtcpLwDMBGII`,
-      },
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZGIwN2QzMjJmNTAwMTUxMDc2YTAiLCJpYXQiOjE3NjUyNjgyMzEsImV4cCI6MTc2NjQ3NzgzMX0.xpmE3XKHeFyn9woNxPxv0Fs_cK7s5T7gtcpLwDMBGII`
+      }
     })
       .then((res) => {
         if (res.ok) {
           return res.json()
-        } else throw new Error("Errore Fetch Profilo", res.status)
+        } else throw new Error('Errore Fetch Profilo', res.status)
       })
       .then((data) => {
         setProfile(data)
@@ -24,7 +26,7 @@ const LeftBar = () => {
         console.log(data)
       })
       .catch((err) => {
-        console.log("Errore nel fetch", err)
+        console.log('Errore nel fetch', err)
         setLoading(false)
         setError(err.message)
       })
@@ -60,14 +62,17 @@ const LeftBar = () => {
               <Col xs={12} className="d-flex justify-content-start ms-3">
                 <div
                   className="position-absolute"
-                  style={{ transform: "translateY(-30px)" }}
+                  style={{ transform: 'translateY(-30px)' }}
                 >
                   <Image
                     src={profile.image}
                     alt="Profile"
                     roundedCircle
-                    className="border border-3 border-white img-profile"
-                    style={{ height: "70px", width: "70px" }}
+                    className="border border-3 border-white img-profile cursor-pointer"
+                    style={{ height: '70px', width: '70px' }}
+                    onClick={() => {
+                      navigate(`/profile/${profile._id}`)
+                    }}
                   />
                 </div>
               </Col>
@@ -80,9 +85,9 @@ const LeftBar = () => {
                 <h3 className="fs-4 mb-0">
                   {profile.name} {profile.surname}
                 </h3>
-                <p className="fs-5 mb-0 ">{profile.title || ""}</p>
+                <p className="fs-5 mb-0 ">{profile.title || ''}</p>
                 <p className="fs-6 text-secondary">
-                  {profile.area || "Località"}
+                  {profile.area || 'Località'}
                 </p>
               </Col>
             </Row>
@@ -111,7 +116,7 @@ const LeftBar = () => {
                   Raggiungi i tuoi obiettivi di carriera
                 </p>
                 <p className="fs-6 mb-0 ">
-                  {" "}
+                  {' '}
                   <i className="bi bi-slash-square-fill text-warning"></i> Da
                   non perdere: Premium per 0 EUR
                 </p>
@@ -166,14 +171,14 @@ const LeftBar = () => {
               <Col xs={12} className="d-flex justify-content-start ms-3">
                 <div
                   className="position-absolute"
-                  style={{ transform: "translateY(-30px)" }}
+                  style={{ transform: 'translateY(-30px)' }}
                 >
                   <Image
                     src={profile.image}
                     alt="Profile"
                     roundedCircle
                     className="border border-3 border-white img-profile"
-                    style={{ height: "70px", width: "70px" }}
+                    style={{ height: '70px', width: '70px' }}
                   />
                 </div>
               </Col>
@@ -186,9 +191,9 @@ const LeftBar = () => {
                 <h3 className="fs-4 mb-0">
                   {profile.name} {profile.surname}
                 </h3>
-                <p className="fs-5 mb-0 ">{profile.title || ""}</p>
+                <p className="fs-5 mb-0 ">{profile.title || ''}</p>
                 <p className="fs-6 text-secondary">
-                  {profile.area || "Località"}
+                  {profile.area || 'Località'}
                 </p>
               </Col>
             </Row>
