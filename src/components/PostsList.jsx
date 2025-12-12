@@ -39,6 +39,7 @@ const PostsList = () => {
       {!loading &&
         !error &&
         data
+          .reverse()
           .slice(50, 100)
           .map((post) => <PostCard key={post._id} post={post} users={users} />)}
     </>
