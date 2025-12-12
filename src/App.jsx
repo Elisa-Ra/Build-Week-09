@@ -1,18 +1,16 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
-import SuperiorNavBar from './components/SuperiorNavBar';
-import SezioneMessaggistica from './components/SezioneMessaggistica';
-import ProfileSections from './components/ProfileSections';
-import Home from './components/Home';
-import { Provider } from 'react-redux';
-import store from './redux/store';
-
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./App.css"
+import "bootstrap-icons/font/bootstrap-icons.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Container } from "react-bootstrap"
+import SuperiorNavBar from "./components/SuperiorNavBar"
+import SezioneMessaggistica from "./components/SezioneMessaggistica"
+import ProfileSections from "./components/ProfileSections"
+import Home from "./components/Home"
+import { Provider } from "react-redux"
+import store from "./redux/store"
 
 function App() {
-
   return (
     <>
       <Provider store={store}>
@@ -28,7 +26,7 @@ function App() {
         </BrowserRouter>
       </Provider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
