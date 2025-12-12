@@ -65,10 +65,10 @@ const ExperienceSection = (props) => {
             ) : (
               <>
                 <h3 className="fs-5 fw-bold mb-1">
-                  Non hai ancora inserito esperienze
+                  Non ci sono ancora esperienze
                 </h3>
                 <p className="text-muted small">
-                  Le esperienze che condividi appariranno qui
+                  Le esperienze appariranno qui
                 </p>
               </>
             )}
