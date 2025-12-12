@@ -27,7 +27,7 @@ const PostCard = ({ post, users = [] }) => {
             fluid
             // src={props.img}
             src={author?.image || 'https://placecats.com/48/48'}
-            className=" overflow-hidden border bg-light"
+            className=" overflow-hidden border bg-light cursor-pointer"
             style={{ width: '48px', height: '48px' }}
             onClick={() => {
               navigate(`/profile/${author._id}`)

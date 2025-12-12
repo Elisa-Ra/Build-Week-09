@@ -5,19 +5,16 @@ import { Container } from 'react-bootstrap'
 import AddPostModal from './AddPostModal'
 import { useSelector } from 'react-redux'
 import PostCard from './PostCard'
-import { useParams } from 'react-router-dom'
 
-const SezioneAttivita = () => {
+const SezioneAttivita = (props) => {
   const profile = useSelector((state) => state.profile.data)
   const users = useSelector((state) => state.users.data)
   const posts = useSelector((state) => state.posts.data)
-  const params = useParams
-  const thisID = params.userId
 
   const myId = profile._id
 
   const myPosts = posts.filter((post) => post.username === profile?.username)
-  console.log("attività", myPosts)
+  console.log('attività', myPosts)
 
   const [showModal, setShowModal] = useState(false)
   return (
@@ -26,7 +23,7 @@ const SezioneAttivita = () => {
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="fs-5 fw-bold mb-0">Attività</h2>
 
-          {thisID === myId ? (
+          {props.ID === myId ? (
             <div className="d-flex align-items-center">
               <button
                 type="button"
