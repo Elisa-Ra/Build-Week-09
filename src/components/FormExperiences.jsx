@@ -125,7 +125,6 @@ function FormExperiences(props) {
                 type="text"
                 placeholder="Esempio: Milano, Italia"
                 name="area"
-                required
               />
             </Form.Group>
 
@@ -137,7 +136,6 @@ function FormExperiences(props) {
                 maxLength={2000}
                 placeholder=""
                 name="description"
-                required
               />
             </Form.Group>
 

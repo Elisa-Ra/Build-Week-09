@@ -8,7 +8,7 @@ import { Container, Card, Row, Col, Spinner } from "react-bootstrap"
 import FormExperiences from "./FormExperiences"
 
 const ExperienceSection = (props) => {
-  console.log("id passato da profilesection: ", props.ID)
+  console.log("id passato da profileSection: ", props.ID)
   const dispatch = useDispatch()
   const data = useSelector((state) => {
     return state.experiences.data
