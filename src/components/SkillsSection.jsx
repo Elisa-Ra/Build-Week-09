@@ -4,7 +4,7 @@ import SkillCard from "./SkillCard"
 const SkillsSection = () => {
   return (
     <Container className=" mx-2 mb-5 mt-0 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle">
-      <Card className="p-3 mb-3 border-0 shadow-sm rounded-3">
+      <Card className="p-3 mb-3 border-0 rounded-3">
         <h4 className="fw-bold">Competenze</h4>
 
         <SkillCard />
