@@ -3,8 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import { Container } from "react-bootstrap"
 import AddPostModal from "./AddPostModal"
+import { useSelector } from "react-redux"
 
 const SezioneAttivita = () => {
+  const profile = useSelector((state) => state.profile.data)
+  const posts = useSelector((state) => state.posts.data)
+
+  const myPosts = posts.filter((post) => post.username === profile?.username)
+
   const [showModal, setShowModal] = useState(false)
   return (
     <Container className=" mx-2 mb-5 mt-0 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle">
