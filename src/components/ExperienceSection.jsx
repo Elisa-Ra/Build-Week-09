@@ -1,20 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import ExperienceCard from "./ExperienceCard"
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
-import { getExpAction } from "../redux/actions/experiencesAction"
-import { Container, Card, Row, Col, Spinner } from "react-bootstrap"
+import ExperienceCard from './ExperienceCard'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { getExpAction } from '../redux/actions/experiencesAction'
+import { Container, Card, Row, Col, Spinner } from 'react-bootstrap'
 
-import FormExperiences from "./FormExperiences"
+import FormExperiences from './FormExperiences'
 
 const ExperienceSection = (props) => {
-  console.log("id passato da profileSection: ", props.ID)
+  console.log('id passato da profileSection: ', props.ID)
   const dispatch = useDispatch()
   const data = useSelector((state) => {
     return state.experiences.data
   })
   const loading = useSelector((state) => {
     return state.experiences.loading
+  })
+  const myId = useSelector((state) => {
+    return state.profile.data._id
   })
   useEffect(() => {
     dispatch(getExpAction(props.ID))
@@ -26,9 +29,13 @@ const ExperienceSection = (props) => {
           <Col xs={12} md={8}>
             <h4 className="fw-bold">Esperienza</h4>
           </Col>
-          <Col xs={12} md={4}>
-            <FormExperiences ID={props.ID} />
-          </Col>
+          {props.ID === myId ? (
+            <Col xs={12} md={4}>
+              <FormExperiences ID={props.ID} />
+            </Col>
+          ) : (
+            <Col xs={12} md={8}></Col>
+          )}
         </Row>
         <Row>
           <Col>
