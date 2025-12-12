@@ -13,12 +13,12 @@ function FormExperiences(props) {
 
   function getForm(formData) {
     const newExp = {
-      role: formData.get('role'),
-      company: formData.get('company'),
-      endDate: formData.get('endDate'),
-      startDate: formData.get('startDate'),
-      area: formData.get('location'),
-      description: formData.get('description')
+      role: formData.get('role') || '',
+      company: formData.get('company') || '',
+      endDate: formData.get('endDate') || '',
+      startDate: formData.get('startDate') || '',
+      area: formData.get('location') || '',
+      description: formData.get('description') || ''
     };
 
     //  "role": "Full Stack Web Developer",
@@ -125,6 +125,7 @@ function FormExperiences(props) {
                 type="text"
                 placeholder="Esempio: Milano, Italia"
                 name="area"
+                required
               />
             </Form.Group>
 
@@ -136,6 +137,7 @@ function FormExperiences(props) {
                 maxLength={2000}
                 placeholder=""
                 name="description"
+                required
               />
             </Form.Group>
 

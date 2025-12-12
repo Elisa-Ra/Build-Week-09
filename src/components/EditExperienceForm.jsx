@@ -135,7 +135,6 @@ function EditExperienceForm(props) {
                 type="date"
                 name="endDate"
                 value={values.endD}
-                required
                 onChange={(e) => {
                   setValues({ ...values, [e.target.name]: e.target.value });
                 }}
