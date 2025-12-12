@@ -1,34 +1,65 @@
-export const PROFILE_LOADING = "PROFILE_LOADING"
-export const PROFILE_SUCCESS = "PROFILE_SUCCESS"
-export const PROFILE_ERROR = "PROFILE_ERROR"
+export const PROFILE_LOADING = 'PROFILE_LOADING'
+export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
+export const PROFILE_ERROR = 'PROFILE_ERROR'
+export const OTHER_USER_LOADING = 'OTHER_USER_LOADING'
+export const OTHER_USER_SUCCESS = 'OTHER_USER_SUCCESS'
+export const OTHER_USER_ERROR = 'OTHER_USER_ERROR'
 
 // PER IL NOSTRO PROFILO
-const API_ME = "https://striveschool-api.herokuapp.com/api/profile/me"
+const API_ME = 'https://striveschool-api.herokuapp.com/api/profile/me'
 const TOKEN =
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZGIwN2QzMjJmNTAwMTUxMDc2YTAiLCJpYXQiOjE3NjUyNjgyMzEsImV4cCI6MTc2NjQ3NzgzMX0.xpmE3XKHeFyn9woNxPxv0Fs_cK7s5T7gtcpLwDMBGII"
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZGIwN2QzMjJmNTAwMTUxMDc2YTAiLCJpYXQiOjE3NjUyNjgyMzEsImV4cCI6MTc2NjQ3NzgzMX0.xpmE3XKHeFyn9woNxPxv0Fs_cK7s5T7gtcpLwDMBGII'
 
 export const fetchMyProfile = () => {
   return (dispatch) => {
     dispatch({ type: PROFILE_LOADING })
     fetch(API_ME, {
       headers: {
-        Authorization: TOKEN,
-      },
+        Authorization: TOKEN
+      }
     })
       .then((res) => {
         if (res.ok) {
           return res.json()
-        } else throw new Error("Errore Fetch Profilo" + res.status)
+        } else throw new Error('Errore Fetch Profilo' + res.status)
       })
       .then((data) => {
         dispatch({ type: PROFILE_SUCCESS, payload: data })
         console.log(data)
       })
       .catch((err) => {
-        console.log("Errore nel fetch" + typeof err)
+        console.log('Errore nel fetch' + typeof err)
         dispatch({
           type: PROFILE_ERROR,
-          payload: err.message,
+          payload: err.message
+        })
+      })
+  }
+}
+// PER UN ALTRO PROFILO
+const APIOther = 'https://striveschool-api.herokuapp.com/api/profile/'
+export const fetchOtherProfile = (userId) => {
+  return (dispatch) => {
+    dispatch({ type: OTHER_USER_LOADING })
+    fetch(APIOther + userId, {
+      headers: {
+        Authorization: TOKEN
+      }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        } else throw new Error('Errore Fetch Profilo' + res.status)
+      })
+      .then((data) => {
+        dispatch({ type: OTHER_USER_SUCCESS, payload: data })
+        console.log(data)
+      })
+      .catch((err) => {
+        console.log('Errore nel fetch' + typeof err)
+        dispatch({
+          type: OTHER_USER_ERROR,
+          payload: err.message
         })
       })
   }

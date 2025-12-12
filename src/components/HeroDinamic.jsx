@@ -1,23 +1,51 @@
-import { useEffect } from "react"
-import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchMyProfile } from "../redux/actions/MyProfileAction"
+import { useEffect } from 'react'
+import { Container, Row, Col, Image, Button, Spinner } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  fetchMyProfile,
+  fetchOtherProfile
+} from '../redux/actions/MyProfileAction'
+import { useParams } from 'react-router-dom'
 
 const HeroDinamic = () => {
+  const dispatch = useDispatch()
+  const params = useParams()
+  const userId = params.userId
+
+  const myId = useSelector((state) => {
+    return state.profile.data._id
+  })
+
   const profile = useSelector((state) => {
-    return state.profile.data
+    if (userId === myId) {
+      return state.profile.data
+    } else {
+      return state.singleUser.data
+    }
   })
   const loading = useSelector((state) => {
-    return state.profile.loading
+    if (userId === myId) {
+      return state.profile.loading
+    } else {
+      return state.singleUser.loading
+    }
   })
   const error = useSelector((state) => {
-    return state.profile.error
+    if (userId === myId) {
+      return state.profile.error
+    } else {
+      return state.singleUser.error
+    }
   })
-  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchMyProfile())
-  }, [])
+    if (userId === myId) {
+      dispatch(fetchMyProfile())
+    } else {
+      dispatch(fetchOtherProfile(userId))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId])
   return (
     <>
       {/* loading */}
@@ -47,14 +75,14 @@ const HeroDinamic = () => {
             <Col xs={12} className="d-flex justify-content-start ms-3">
               <div
                 className="position-absolute"
-                style={{ transform: "translateY(-60px)" }}
+                style={{ transform: 'translateY(-60px)' }}
               >
                 <Image
                   src={profile.image}
                   alt="Profile"
                   roundedCircle
                   className="border border-3 border-white img-profile"
-                  style={{ height: "100px", width: "100px" }}
+                  style={{ height: '100px', width: '100px' }}
                 />
               </div>
             </Col>
@@ -67,15 +95,15 @@ const HeroDinamic = () => {
               <h3 className="fs-4">
                 {profile.name} {profile.surname}
               </h3>
-              <p className="fs-5 mb-0">{profile.title || ""}</p>
+              <p className="fs-5 mb-0">{profile.title || ''}</p>
               <p className="fs-6 mb-0">Formazione</p>
               <p className="fs-6 text-secondary">
-                {profile.area || "Località"} ·
+                {profile.area || 'Località'} ·
                 <a
                   href="#"
                   className="text-decoration-none text-primary fw-bold"
                 >
-                  {" "}
+                  {' '}
                   Informazioni di contatto
                 </a>
               </p>
@@ -95,7 +123,7 @@ const HeroDinamic = () => {
               className="d-none d-md-flex justify-content-end align-items-start pe-4 mt-4"
             >
               <div className="rounded p-3 ">
-                <p className="mb-0">{profile.bio || "Formazione"}</p>
+                <p className="mb-0">{profile.bio || 'Formazione'}</p>
               </div>
             </Col>
           </Row>

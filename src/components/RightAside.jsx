@@ -1,7 +1,8 @@
-import { useEffect } from "react"
-import { Button, Card, Col, Image, Row, Spinner } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchUser } from "../redux/actions/usersAction"
+import { useEffect } from 'react'
+import { Button, Card, Col, Image, Row, Spinner } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchUser } from '../redux/actions/usersAction'
+import { useNavigate } from 'react-router-dom'
 
 const RightAside = () => {
   const users = useSelector((state) => state.users.users || [])
@@ -9,6 +10,7 @@ const RightAside = () => {
   // const error = useSelector((state) => state.user.error)
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(fetchUser())
@@ -58,7 +60,10 @@ const RightAside = () => {
                         src={user.image}
                         alt={`${user.name} ${user.surname}`}
                         className="me-3 rounded-circle"
-                        style={{ height: "48px", width: "48px" }}
+                        style={{ height: '48px', width: '48px' }}
+                        onClick={() => {
+                          navigate(`/profile/${user._id}`)
+                        }}
                       />
                     </Col>
                     <Col className="d-flex flex-column" md={8}>
@@ -66,8 +71,9 @@ const RightAside = () => {
                         {user.name} {user.surname}
                       </div>
                       <div className="text-muted">
-                        {user.title || "Professionista"}
+                        {user.title || 'Professionista'}
                       </div>
+
                       <Button
                         variant="outline-secondary"
                         size="sm"
