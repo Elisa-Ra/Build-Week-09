@@ -3,7 +3,7 @@ import { useState } from "react"
 
 // importare i dati del post
 
-const PostCard = ({ post, users }) => {
+const PostCard = ({ post, users = [] }) => {
   const [active, setActive] = useState(false)
 
   const author = users.find((user) => user.username === post.username)
