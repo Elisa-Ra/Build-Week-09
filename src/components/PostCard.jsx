@@ -75,8 +75,14 @@ const PostCard = () => {
           </Button>{" "}
         </Col>
         <Col xs={3} className="px-0">
-          <i className="bi bi-chat-text"></i>{" "}
-          <p className="d-inline">Commenta</p>
+          <Button
+            className="bg-transparent p-0 border-0"
+            variant="light"
+            onClick={() => setActive(!active)}
+          >
+            <i className="bi bi-chat-text"></i>{" "}
+            <p className="d-inline">Commenta</p>
+          </Button>{" "}
         </Col>
         <Col xs={3} className="px-0">
           <Button
@@ -89,7 +95,14 @@ const PostCard = () => {
         </Col>
 
         <Col xs={3} className="pe-0">
-          <i className="bi bi-send-fill"></i> <p className="d-inline">Invia</p>
+          <Button
+            className="bg-transparent p-0 border-0"
+            variant="light"
+            onClick={() => setActive(!active)}
+          >
+            <i className="bi bi-send-fill"></i>{" "}
+            <p className="d-inline">Invia</p>
+          </Button>{" "}
         </Col>
       </Row>
     </Container>
