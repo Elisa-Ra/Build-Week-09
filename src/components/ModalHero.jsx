@@ -1,0 +1,56 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Container, Row, Col, Image, Button } from "react-bootstrap"
+import { HiOutlineShieldCheck } from "react-icons/hi"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import { fetchMyProfile } from "../redux/actions/MyProfileAction"
+import { useEffect } from "react"
+
+const ModalHero = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchMyProfile())
+  }, [])
+
+  const profile = useSelector((state) => {
+    return state.profile.data
+  })
+  return (
+    <>
+      {/* Sezione ModalHero, serve per il menu a tendina della navbar */}
+      <Container className="bg-white w-100 p-0 flex-column" fluid>
+        <Row className="flex-nowrap align-items-center justify-content-center py-1 ms-1">
+          <Col xs={4}>
+            <Image
+              src={profile?.image}
+              alt="Profile"
+              roundedCircle
+              className="img-fluid"
+            />
+          </Col>
+          <Col xs={8} className="px-0">
+            <Row className="w-100 text-start align-items-center">
+              <Col xs={12}>
+                <Row className="flex-column">
+                  <Col xs={12}>
+                    <h6 className="fs-7 m-0">
+                      {profile?.name} {profile?.surname}
+                      <strong>
+                        <HiOutlineShieldCheck className="ps-1 fs-6" />
+                      </strong>
+                    </h6>
+                  </Col>
+                  <Col xs={12}>
+                    <p className="fs-7 m-0">{profile?.title}</p>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  )
+}
+
+export default ModalHero

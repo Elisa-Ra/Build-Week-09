@@ -1,23 +1,22 @@
-import { useState } from "react"
 import { Button, Form, Modal, Row, Col } from "react-bootstrap"
 import { useDispatch } from "react-redux"
-import MiniHero from "./MiniHero"
+
 import { postPostAction } from "../redux/actions/postAction"
+import ModalHero from "./ModalHero"
 
-function AddPostModal(props) {
-  const [show, setShow] = useState(false)
-
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
-
+function AddPostModal({ show, handleClose }) {
   const dispatch = useDispatch()
+  // const [show, setShow] = useState(false)
+
+  // const handleClose = () => setShow(false)
+  // const handleShow = () => setShow(true)
 
   function getPost(formData) {
     const newPost = {
       text: formData.get("text") || "",
     }
 
-    dispatch(postPostAction(props.ID, newPost))
+    dispatch(postPostAction(newPost))
 
     console.log("Post da inviare:", newPost)
 
@@ -26,10 +25,10 @@ function AddPostModal(props) {
 
   return (
     <>
-      {/* Bottone per aprire il modal */}
+      {/* Bottone per aprire il modal
       <Button variant="outline-primary rounded-pill" onClick={handleShow}>
         Aggiungi esperienza
-      </Button>
+      </Button> */}
 
       {/* Modal vero e proprio */}
       <Modal show={show} onHide={handleClose}>
@@ -45,16 +44,13 @@ function AddPostModal(props) {
           }}
         >
           <Modal.Body>
-            <MiniHero />
+            <ModalHero />
             <Row>
               <Col md={2}>
                 <Form.Group
                   className="mb-3 d-inline-flex"
                   controlId="formSwitch"
-                >
-                  <span className="me-2">Si</span>
-                  <Form.Check type="switch" id="custom-switch" label="" />
-                </Form.Group>
+                ></Form.Group>
               </Col>
             </Row>
             <Form.Group className="mb-3" controlId="formDescription">
