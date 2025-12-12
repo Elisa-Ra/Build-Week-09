@@ -1,24 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import ExperienceCard from './ExperienceCard';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getExpAction } from '../redux/actions/experiencesAction';
-import { Container, Card, Button, Row, Col, Spinner } from 'react-bootstrap';
+import ExperienceCard from "./ExperienceCard"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { getExpAction } from "../redux/actions/experiencesAction"
+import { Container, Card, Row, Col, Spinner } from "react-bootstrap"
 
-import FormExperiences from './FormExperiences';
+import FormExperiences from "./FormExperiences"
 
 const ExperienceSection = (props) => {
-  console.log('id passato da profilesection: ', props.ID);
-  const dispatch = useDispatch();
+  console.log("id passato da profilesection: ", props.ID)
+  const dispatch = useDispatch()
   const data = useSelector((state) => {
-    return state.experiences.data;
-  });
+    return state.experiences.data
+  })
   const loading = useSelector((state) => {
-    return state.experiences.loading;
-  });
+    return state.experiences.loading
+  })
   useEffect(() => {
-    dispatch(getExpAction(props.ID));
-  }, [props.ID]);
+    dispatch(getExpAction(props.ID))
+  }, [props.ID])
   return (
     <Container className=" mx-2 mb-5 mt-0 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle">
       <Card className="p-3 mb-3 border-0  rounded-3">
@@ -72,7 +72,7 @@ const ExperienceSection = (props) => {
         {}
       </Card>
     </Container>
-  );
-};
+  )
+}
 
-export default ExperienceSection;
+export default ExperienceSection

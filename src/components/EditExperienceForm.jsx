@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { Button, Form, Modal, Row, Col } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useState } from "react"
+import { Button, Form, Modal, Row, Col } from "react-bootstrap"
+import { useDispatch } from "react-redux"
 import {
   deleteExpAction,
   getExpAction,
-  putExpAction
-} from '../redux/actions/experiencesAction';
+  putExpAction,
+} from "../redux/actions/experiencesAction"
 
 function EditExperienceForm(props) {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
-  const expID = props.expID;
-  const dispatch = useDispatch();
+  const expID = props.expID
+  const dispatch = useDispatch()
 
   const [values, setValues] = useState({
     role: props.role || null,
@@ -21,24 +21,24 @@ function EditExperienceForm(props) {
     endDate: props.endD || null,
     startDate: props.startD || null,
     area: props.area || null,
-    description: props.description || null
-  });
+    description: props.description || null,
+  })
 
   function editForm(formData) {
     const editExp = {
-      role: formData.get('role'),
-      company: formData.get('company'),
-      endDate: formData.get('endDate'),
-      startDate: formData.get('startDate'),
-      area: formData.get('area'),
-      description: formData.get('description')
-    };
+      role: formData.get("role"),
+      company: formData.get("company"),
+      endDate: formData.get("endDate"),
+      startDate: formData.get("startDate"),
+      area: formData.get("area"),
+      description: formData.get("description"),
+    }
 
-    console.log('Form da inviare:', editExp);
+    console.log("Form da inviare:", editExp)
 
-    dispatch(putExpAction(props.ID, expID, editExp));
+    dispatch(putExpAction(props.ID, expID, editExp))
 
-    handleClose();
+    handleClose()
   }
 
   return (
@@ -56,9 +56,9 @@ function EditExperienceForm(props) {
 
         <Form
           onSubmit={(e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            editForm(formData);
+            e.preventDefault()
+            const formData = new FormData(e.target)
+            editForm(formData)
           }}
         >
           <Modal.Body>
@@ -69,7 +69,7 @@ function EditExperienceForm(props) {
                   Attiva l'opzione per informare la tua rete delle principali
                   modifiche al profilo (ad esempio un nuovo lavoro) e degli
                   anniversari lavorativi. Gli aggiornamenti possono richiedere
-                  fino a 2 ore. Scopri di più sulla{' '}
+                  fino a 2 ore. Scopri di più sulla{" "}
                   <strong className="text-primary">
                     condivisione delle modifiche del profilo
                   </strong>
@@ -96,7 +96,7 @@ function EditExperienceForm(props) {
                 value={values.role}
                 required
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value });
+                  setValues({ ...values, [e.target.name]: e.target.value })
                 }}
               />
             </Form.Group>
@@ -110,7 +110,7 @@ function EditExperienceForm(props) {
                 value={values.company}
                 required
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value });
+                  setValues({ ...values, [e.target.name]: e.target.value })
                 }}
               />
             </Form.Group>
@@ -123,7 +123,7 @@ function EditExperienceForm(props) {
                 value={values.startD}
                 required
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value });
+                  setValues({ ...values, [e.target.name]: e.target.value })
                 }}
               />
             </Form.Group>
@@ -135,20 +135,20 @@ function EditExperienceForm(props) {
                 name="endDate"
                 value={values.endD}
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value });
+                  setValues({ ...values, [e.target.name]: e.target.value })
                 }}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formarea">
+            <Form.Group className="mb-3" controlId="formArea">
               <Form.Label>Località</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Esempio: Milano, Italia"
-                name="location"
+                name="area"
                 value={values.area}
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value });
+                  setValues({ ...values, [e.target.name]: e.target.value })
                 }}
               />
             </Form.Group>
@@ -163,7 +163,7 @@ function EditExperienceForm(props) {
                 name="description"
                 value={values.description}
                 onChange={(e) => {
-                  setValues({ ...values, [e.target.name]: e.target.value });
+                  setValues({ ...values, [e.target.name]: e.target.value })
                 }}
               />
             </Form.Group>
@@ -174,7 +174,7 @@ function EditExperienceForm(props) {
               </p>
               <p className="text-muted fs-7">
                 Aggiungi contenuti multimediali come immagini, documenti, siti o
-                presentazioni. Scopri di più sui{' '}
+                presentazioni. Scopri di più sui{" "}
                 <strong className="text-primary">
                   tipi di file multimediali supportati
                 </strong>
@@ -189,9 +189,9 @@ function EditExperienceForm(props) {
               variant=" rounded-pill py-0 bg-danger text-white"
               type="button"
               onClick={() => {
-                dispatch(deleteExpAction(props.ID, expID));
-                console.log('esperianza cancellata');
-                dispatch(getExpAction(props.ID));
+                dispatch(deleteExpAction(props.ID, expID))
+                console.log("esperianza cancellata")
+                dispatch(getExpAction(props.ID))
               }}
             >
               <i className="bi bi-x-octagon text-white"></i> Elimina esperienza
@@ -208,7 +208,7 @@ function EditExperienceForm(props) {
         </Form>
       </Modal>
     </>
-  );
+  )
 }
 
-export default EditExperienceForm;
+export default EditExperienceForm
