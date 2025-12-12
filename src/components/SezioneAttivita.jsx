@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import { Container } from 'react-bootstrap'
-import AddPostModal from './AddPostModal'
-import { useSelector } from 'react-redux'
-import PostCard from './PostCard'
+import React, { useState } from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap-icons/font/bootstrap-icons.css"
+import { Container } from "react-bootstrap"
+import AddPostModal from "./AddPostModal"
+import { useSelector } from "react-redux"
+import PostCard from "./PostCard"
 
 const SezioneAttivita = (props) => {
   const profile = useSelector((state) => state.profile.data)
-  const users = useSelector((state) => state.users.data)
+  const users = useSelector((state) => state.users.data) || []
   const posts = useSelector((state) => state.posts.data)
 
-  const myId = profile._id
+  const myId = profile?._id
+  const isItMe = props.ID === myId
 
-  const myPosts = posts.filter((post) => post.username === profile?.username)
-  console.log('attività', myPosts)
+  const user = isItMe ? profile : users.find((user) => user._id === props.ID)
+
+  const userPosts = isItMe
+    ? posts.filter((post) => post.username === profile?.username)
+    : posts.filter((post) => post.user?._id === props.ID)
+  console.log("attività", userPosts)
 
   const [showModal, setShowModal] = useState(false)
   return (
@@ -32,7 +37,7 @@ const SezioneAttivita = (props) => {
               >
                 Crea un post
               </button>
-              <i className="bi bi-pencil fs-5 text-muted"></i>{' '}
+              <i className="bi bi-pencil fs-5 text-muted"></i>{" "}
             </div>
           ) : (
             <div className="d-flex align-items-center"> </div>
@@ -43,13 +48,13 @@ const SezioneAttivita = (props) => {
           0 <span className="fw-normal">follower</span>
         </p>
 
-        {myPosts.length === 0 ? (
+        {userPosts.length === 0 ? (
           <div className="my-5 text-center text-md-start">
             <h3 className="fs-5 fw-bold mb-1">Non ci sono ancora posts</h3>
             <p className="text-muted small">I post appariranno qui</p>
           </div>
         ) : (
-          myPosts.map((post) => (
+          userPosts.map((post) => (
             <PostCard key={post._id} post={post} users={users} />
           ))
         )}

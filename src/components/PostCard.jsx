@@ -1,6 +1,6 @@
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Container, Row, Col, Image, Button } from "react-bootstrap"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 // importare i dati del post
 
@@ -9,10 +9,10 @@ const PostCard = ({ post, users = [] }) => {
   const navigate = useNavigate()
 
   const author = users.find((user) => user.username === post.username)
-  console.log('POST USERNAME:', post.username)
-  console.log('USERS:', users)
+  console.log("POST USERNAME:", post.username)
+  console.log("USERS:", users)
   console.log(
-    'FOUND AUTHOR:',
+    "FOUND AUTHOR:",
     users.find((user) => user.username === post.username)
   )
 
@@ -26,9 +26,9 @@ const PostCard = ({ post, users = [] }) => {
           <Image
             fluid
             // src={props.img}
-            src={author?.image || 'https://placecats.com/48/48'}
+            src={author?.image || "https://placecats.com/48/48"}
             className=" overflow-hidden border bg-light cursor-pointer"
-            style={{ width: '48px', height: '48px' }}
+            style={{ width: "48px", height: "48px" }}
             onClick={() => {
               navigate(`/profile/${author._id}`)
             }}
@@ -40,7 +40,7 @@ const PostCard = ({ post, users = [] }) => {
             {/* Aggiungere nome */}
             <p className="my-0">
               <strong>
-                {author ? `${author.name} ${author.surname}` : post.username}{' '}
+                {author ? `${author.name} ${author.surname}` : post.username}{" "}
               </strong>
             </p>
           </Col>
@@ -50,11 +50,11 @@ const PostCard = ({ post, users = [] }) => {
           {/* Aggiungere createdAt */}
           <Col>
             <p className="fs-7 text-secondary">
-              {new Date(post.createdAt).toLocaleDateString('it-IT', {
-                day: '2-digit',
-                month: 'short',
-                year: 'numeric'
-              })}{' '}
+              {new Date(post.createdAt).toLocaleDateString("it-IT", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}{" "}
               • <i className="bi bi-globe-americas"></i>
             </p>
           </Col>
@@ -63,10 +63,10 @@ const PostCard = ({ post, users = [] }) => {
         <Col xs={2} className="ps-4">
           <Button className="bg-transparent p-0 border-0 pe-2" variant="light">
             <i className="bi bi-three-dots"></i>
-          </Button>{' '}
+          </Button>{" "}
           <Button className="bg-transparent p-0 border-0" variant="light">
             <i className="bi bi-x-lg"></i>
-          </Button>{' '}
+          </Button>{" "}
         </Col>
       </Row>
       {/* Row con il TESTO dell'utente */}
@@ -84,38 +84,38 @@ const PostCard = ({ post, users = [] }) => {
             className=" overflow-hidden border bg-light"
             style={{ width: "48px", height: "48px" }}
           ></Image> */}
-        </Col>{' '}
+        </Col>{" "}
       </Row>
       {/* Row di pulsanti */}
       <Row>
         <Col xs={3} className="pe-0">
           <Button
             className={`bg-transparent p-0 border-0 ${
-              active ? 'text-primary' : ''
+              active ? "text-primary" : ""
             }`}
             variant="light"
             onClick={() => setActive(!active)}
           >
             <i className="bi bi-hand-thumbs-up"></i>Consiglia
-          </Button>{' '}
+          </Button>{" "}
         </Col>
         <Col xs={3} className="px-0">
           <Button className="bg-transparent p-0 border-0" variant="light">
-            <i className="bi bi-chat-text"></i>{' '}
+            <i className="bi bi-chat-text"></i>{" "}
             <p className="d-inline">Commenta</p>
-          </Button>{' '}
+          </Button>{" "}
         </Col>
         <Col xs={3} className="px-0">
           <Button className="bg-transparent p-0 border-0" variant="light">
             <i className="bi bi-arrow-repeat "></i>Diffondi il post
-          </Button>{' '}
+          </Button>{" "}
         </Col>
 
         <Col xs={3} className="pe-0">
           <Button className="bg-transparent p-0 border-0" variant="light">
-            <i className="bi bi-send-fill"></i>{' '}
+            <i className="bi bi-send-fill"></i>{" "}
             <p className="d-inline">Invia</p>
-          </Button>{' '}
+          </Button>{" "}
         </Col>
       </Row>
     </Container>
