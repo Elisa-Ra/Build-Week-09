@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
-import { Container, Row, Col, Image, Button, Spinner } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from "react"
+import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
 import {
   fetchMyProfile,
-  fetchOtherProfile
-} from '../redux/actions/MyProfileAction'
-import { useNavigate, useParams } from 'react-router-dom'
+  fetchOtherProfile,
+} from "../redux/actions/MyProfileAction"
+import { useNavigate, useParams } from "react-router-dom"
 
 const HeroDinamic = () => {
   const dispatch = useDispatch()
@@ -76,16 +76,16 @@ const HeroDinamic = () => {
             <Col xs={12} className="d-flex justify-content-start ms-3">
               <div
                 className="position-absolute"
-                style={{ transform: 'translateY(-60px)' }}
+                style={{ transform: "translateY(-60px)" }}
               >
                 <Image
-                  src={profile.image}
+                  src={profile?.image}
                   alt="Profile"
                   roundedCircle
                   className="border border-3 border-white img-profile cursor-pointer"
-                  style={{ height: '100px', width: '100px' }}
+                  style={{ height: "100px", width: "100px" }}
                   onClick={() => {
-                    navigate(`/profile/${profile._id}`)
+                    navigate(`/profile/${profile?._id}`)
                   }}
                 />
               </div>
@@ -97,17 +97,17 @@ const HeroDinamic = () => {
             {/* Colonna sinistra */}
             <Col md={8}>
               <h3 className="fs-4">
-                {profile.name} {profile.surname}
+                {profile?.name} {profile?.surname}
               </h3>
-              <p className="fs-5 mb-0">{profile.title || ''}</p>
+              <p className="fs-5 mb-0">{profile?.title || ""}</p>
               <p className="fs-6 mb-0">Formazione</p>
               <p className="fs-6 text-secondary">
-                {profile.area || 'Località'} ·
+                {profile?.area || "Località"} ·
                 <a
                   href="#"
                   className="text-decoration-none text-primary fw-bold"
                 >
-                  {' '}
+                  {" "}
                   Informazioni di contatto
                 </a>
               </p>
@@ -127,7 +127,7 @@ const HeroDinamic = () => {
               className="d-none d-md-flex justify-content-end align-items-start pe-4 mt-4"
             >
               <div className="rounded p-3 ">
-                <p className="mb-0">{profile.bio || 'Formazione'}</p>
+                <p className="mb-0">{profile?.bio || "Formazione"}</p>
               </div>
             </Col>
           </Row>

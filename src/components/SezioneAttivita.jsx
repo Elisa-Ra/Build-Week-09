@@ -4,12 +4,15 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 import { Container } from "react-bootstrap"
 import AddPostModal from "./AddPostModal"
 import { useSelector } from "react-redux"
+import PostCard from "./PostCard"
 
 const SezioneAttivita = () => {
   const profile = useSelector((state) => state.profile.data)
+  const users = useSelector((state) => state.users.data)
   const posts = useSelector((state) => state.posts.data)
 
-  const myPosts = posts.filter((post) => post.username === profile?.username)
+  const myPosts = posts.filter((post) => post.username === users?.username)
+  console.log("attività", myPosts)
 
   const [showModal, setShowModal] = useState(false)
   return (
@@ -18,31 +21,31 @@ const SezioneAttivita = () => {
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="fs-5 fw-bold mb-0">Attività</h2>
 
-          {props.ID === myId ? (
-            <div className="d-flex align-items-center">
-              {" "}
-              <button
-                type="button"
-                className="btn btn-outline-primary rounded-pill me-2 py-1 px-3"
-                onClick={() => setShowModal(true)}
-              >
-                Crea un post
-              </button>
-              <i className="bi bi-pencil fs-5 text-muted"></i>{" "}
-            </div>
-          ) : (
-            <div className="d-flex justify-content-between align-items-center mb-4"></div>
-          )}
+          <div className="d-flex align-items-center">
+            {" "}
+            <button
+              type="button"
+              className="btn btn-outline-primary rounded-pill me-2 py-1 px-3"
+              onClick={() => setShowModal(true)}
+            >
+              Crea un post
+            </button>
+            <i className="bi bi-pencil fs-5 text-muted"></i>{" "}
+          </div>
         </div>
 
         <p className="text-muted fw-bold mb-3">
           0 <span className="fw-normal">follower</span>
         </p>
 
-        <div className="my-5 text-center text-md-start">
-          <h3 className="fs-5 fw-bold mb-1">Non ci sono ancora posts</h3>
-          <p className="text-muted small">I post appariranno qui</p>
-        </div>
+        {myPosts.length === 0 ? (
+          <div className="my-5 text-center text-md-start">
+            <h3 className="fs-5 fw-bold mb-1">Non ci sono ancora posts</h3>
+            <p className="text-muted small">I post appariranno qui</p>
+          </div>
+        ) : (
+          myPosts.map((post) => <PostCard key={post._id} post={post} />)
+        )}
 
         <div className="text-center text-md-start mt-4">
           <a href="#attivita" className="text-decoration-none fw-bold">
