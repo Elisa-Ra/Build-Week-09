@@ -1,7 +1,11 @@
-import { Container, Row, Col, Image } from "react-bootstrap"
+import { Container, Row, Col, Image, Button } from "react-bootstrap"
+import { useState } from "react"
+
 // importare i dati del post
 
 const PostCard = () => {
+  const [active, setActive] = useState(false)
+
   return (
     <Container className="p-2 mb-3 bg-white rounded border border-1 border-secondary-subtle">
       {/* Row con il mini hero dell'utente */}
@@ -36,8 +40,13 @@ const PostCard = () => {
           </Col>
         </Col>
         {/* Colonna destra superiore */}
-        <Col xs={2}>
-          <i className="bi bi-three-dots"></i> <i className="bi bi-x-lg"></i>
+        <Col xs={2} className="ps-4">
+          <Button className="bg-transparent p-0 border-0 pe-2" variant="light">
+            <i className="bi bi-three-dots"></i>
+          </Button>{" "}
+          <Button className="bg-transparent p-0 border-0" variant="light">
+            <i className="bi bi-x-lg"></i>
+          </Button>{" "}
         </Col>
       </Row>
       {/* Row con il TESTO dell'utente */}
@@ -60,19 +69,33 @@ const PostCard = () => {
       {/* Row di pulsanti */}
       <Row>
         <Col xs={3} className="pe-0">
-          <i className="bi bi-hand-thumbs-up"></i>
-          <p className="d-inline fs-6">Consiglia</p>
+          <Button
+            className={`bg-transparent p-0 border-0 ${
+              active ? "text-primary" : ""
+            }`}
+            variant="light"
+            onClick={() => setActive(!active)}
+          >
+            <i className="bi bi-hand-thumbs-up"></i>Consiglia
+          </Button>{" "}
         </Col>
         <Col xs={3} className="px-0">
-          <i className="bi bi-chat-text"></i>{" "}
-          <p className="d-inline">Commenta</p>
+          <Button className="bg-transparent p-0 border-0" variant="light">
+            <i className="bi bi-chat-text"></i>{" "}
+            <p className="d-inline">Commenta</p>
+          </Button>{" "}
         </Col>
         <Col xs={3} className="px-0">
-          <i className="bi bi-arrow-repeat"></i>{" "}
-          <p className="d-inline">Diffondi il post</p>
+          <Button className="bg-transparent p-0 border-0" variant="light">
+            <i className="bi bi-arrow-repeat "></i>Diffondi il post
+          </Button>{" "}
         </Col>
+
         <Col xs={3} className="pe-0">
-          <i className="bi bi-send-fill"></i> <p className="d-inline">Invia</p>
+          <Button className="bg-transparent p-0 border-0" variant="light">
+            <i className="bi bi-send-fill"></i>{" "}
+            <p className="d-inline">Invia</p>
+          </Button>{" "}
         </Col>
       </Row>
     </Container>
