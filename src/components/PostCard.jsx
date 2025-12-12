@@ -3,7 +3,7 @@ import { useState } from "react"
 
 // importare i dati del post
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
   const [active, setActive] = useState(false)
 
   return (
@@ -16,7 +16,7 @@ const PostCard = () => {
           <Image
             fluid
             // src={props.img}
-            src="https://placecats.com/50/50"
+            src="https://placecats.com/48/48"
             className=" overflow-hidden border bg-light"
             style={{ width: "48px", height: "48px" }}
           ></Image>
@@ -26,7 +26,7 @@ const PostCard = () => {
           <Col>
             {/* Aggiungere nome */}
             <p className="my-0">
-              <strong>Nome</strong>
+              <strong>{post.username}</strong>
             </p>
           </Col>
           <Col>
@@ -35,7 +35,12 @@ const PostCard = () => {
           {/* Aggiungere createdAt */}
           <Col>
             <p className="fs-7 text-secondary">
-              createdAt • <i className="bi bi-globe-americas"></i>
+              {new Date(post.createdAt).toLocaleDateString("it-IT", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}{" "}
+              • <i className="bi bi-globe-americas"></i>
             </p>
           </Col>
         </Col>
@@ -52,7 +57,7 @@ const PostCard = () => {
       {/* Row con il TESTO dell'utente */}
       <Row>
         <Col>
-          <p>aggiungere testo utente</p>
+          <p>{post.text}</p>
         </Col>
       </Row>
       {/* La row qua sotto serve per l'immagine se è presente! */}

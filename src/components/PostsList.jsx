@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchPosts } from "../redux/actions/postAction"
+import { getPostAction } from "../redux/actions/postAction"
 import { Alert, Spinner } from "react-bootstrap"
+import PostCard from "./PostCard"
 
 const PostsList = () => {
   const dispatch = useDispatch()
@@ -17,7 +18,7 @@ const PostsList = () => {
   })
 
   useEffect(() => {
-    dispatch(fetchPosts())
+    dispatch(getPostAction())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -34,7 +35,9 @@ const PostsList = () => {
 
       {!loading &&
         !error &&
-        data(data.map((post) => <PostCard key={post._id} post={post} />))}
+        data
+          .slice(0, 100)
+          .map((post) => <PostCard key={post._id} post={post} />)}
     </>
   )
 }
