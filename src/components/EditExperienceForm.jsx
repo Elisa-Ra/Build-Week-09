@@ -37,7 +37,6 @@ function EditExperienceForm(props) {
     console.log('Form da inviare:', editExp);
 
     dispatch(putExpAction(props.ID, expID, editExp));
-    dispatch(getExpAction(props.ID));
 
     handleClose();
   }

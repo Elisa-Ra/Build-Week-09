@@ -2,20 +2,13 @@ import { Row, Col, Image } from 'react-bootstrap';
 import EditExperienceForm from './EditExperienceForm';
 
 const ExperienceCard = (props) => {
-
-
   const startDConverted = props.startD
     .slice(0, 10)
     .split('-')
     .reverse()
     .join('/');
 
-  const endDConverted = props.startD
-    .slice(0, 10)
-    .split('-')
-    .reverse()
-    .join('/');
-
+  const endDConverted = props.endD.slice(0, 10).split('-').reverse().join('/');
 
   return (
     <div className="p-2 mb-3">
@@ -45,8 +38,8 @@ const ExperienceCard = (props) => {
             img={props.image}
             role={props.role}
             company={props.company}
-            startD={props.startDate}
-            endD={props.endDate}
+            startD={props.startD}
+            endD={props.endD}
             area={props.area}
             description={props.description}
             expID={props.expID}

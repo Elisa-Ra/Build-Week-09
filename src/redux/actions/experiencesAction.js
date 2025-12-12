@@ -65,6 +65,7 @@ export const putExpAction = (ID, expId, editExp) => {
       })
       .then((modifiedData) => {
         dispatch({ type: PUT_EXP_SUCCESS, payload: modifiedData });
+        dispatch(getExpAction(ID))
         console.log(modifiedData);
       })
       .catch((err) => {
