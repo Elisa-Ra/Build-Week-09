@@ -10,6 +10,7 @@ const PostCard = () => {
         {/* Colonna sinistra superiore */}
         <Col xs={2}>
           <Image
+            fluid
             // src={props.img}
             src="https://placecats.com/50/50"
             className=" overflow-hidden border bg-light"
@@ -36,7 +37,7 @@ const PostCard = () => {
         </Col>
         {/* Colonna destra superiore */}
         <Col xs={2}>
-          <i className="bi bi-three-dots"></i> <i class="bi bi-x-lg"></i>
+          <i className="bi bi-three-dots"></i> <i className="bi bi-x-lg"></i>
         </Col>
       </Row>
       {/* Row con il TESTO dell'utente */}
