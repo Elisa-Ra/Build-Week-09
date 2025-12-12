@@ -5,10 +5,11 @@ import {
   fetchMyProfile,
   fetchOtherProfile
 } from '../redux/actions/MyProfileAction'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const HeroDinamic = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const params = useParams()
   const userId = params.userId
 
@@ -81,8 +82,11 @@ const HeroDinamic = () => {
                   src={profile.image}
                   alt="Profile"
                   roundedCircle
-                  className="border border-3 border-white img-profile"
+                  className="border border-3 border-white img-profile cursor-pointer"
                   style={{ height: '100px', width: '100px' }}
+                  onClick={() => {
+                    navigate(`/profile/${profile._id}`)
+                  }}
                 />
               </div>
             </Col>

@@ -9,29 +9,33 @@ import {
   Col,
   Row,
   Nav
-} from 'react-bootstrap';
-import { MdArrowForwardIos } from 'react-icons/md';
-import { TbDots } from 'react-icons/tb';
-import { FaSquare } from 'react-icons/fa6';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { CaretDownFill } from 'react-bootstrap-icons';
-import React from 'react';
+} from 'react-bootstrap'
+import { MdArrowForwardIos } from 'react-icons/md'
+import { TbDots } from 'react-icons/tb'
+import { FaSquare } from 'react-icons/fa6'
+import Dropdown from 'react-bootstrap/Dropdown'
+import { CaretDownFill } from 'react-bootstrap-icons'
+import { useSelector } from 'react-redux'
 
 const AsideNotizieDx = () => {
+  const profile = useSelector((state) => {
+    return state.profile.data
+  })
+
   const arrayNotizie = [
     'Netflix compra Warner Bros.',
     'In malattia con la televisita',
     'Mediaset acquisisce Radio Norba',
     'La Bei finanzia Scalapay',
     "Com'è andato alla fine il Black Friday"
-  ];
+  ]
   const arrayDate = [
     '1 giorno fa',
     '17 ore fa',
     '17 ore fa',
     '3 ore fa',
     '23 ore fa'
-  ];
+  ]
 
   return (
     <>
@@ -54,7 +58,7 @@ const AsideNotizieDx = () => {
                       {arrayDate[index]}
                     </Card.Text>
                   </div>
-                );
+                )
               })}
               <DropdownButton size="sm" title="Mostra altro" variant="light">
                 <DropdownItem>Ti piacerebbe!!</DropdownItem>
@@ -167,13 +171,14 @@ const AsideNotizieDx = () => {
             <TbDots className="ms-2" />
           </Card.Text>
           <Card.Text className="text-muted fs-7 mb-2">
-            {'nome utente'}, enjoy 50% off 2 months of Linkedin Premium
+            {profile?.name || 'Caro utente'}, enjoy 50% off 2 months of Linkedin
+            Premium
           </Card.Text>
           <Container>
             <Row className="flex-nowrap justify-content-center align-items-center">
               <Col className="d-flex justify-content-end">
                 <Image
-                  src="https://placebear.com/100/100"
+                  src={profile?.image || 'https://placebear.com/100/100'}
                   className="p-0 w-75"
                   roundedCircle
                   fluid="true"
@@ -194,12 +199,12 @@ const AsideNotizieDx = () => {
         <Card.Body>
           <Container fluid>
             <Row className="justify-content-between align-items-center">
-              <Col xs={4} className="me-1">
+              <Col xs={4}>
                 <Button className="badge-oro text-black" disabled>
                   <strong>SUGGERIMENTO</strong>
                 </Button>
               </Col>
-              <Col xs={7}>
+              <Col xs={6}>
                 <Card.Text className="fw-muted fs-7">
                   Prova Linkedin sull'app per Windows
                 </Card.Text>
@@ -306,7 +311,7 @@ const AsideNotizieDx = () => {
         </Row>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default AsideNotizieDx;
+export default AsideNotizieDx
