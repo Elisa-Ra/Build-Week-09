@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import { Container } from "react-bootstrap"
+import AddPostModal from "./AddPostModal"
 
 const SezioneAttivita = () => {
+  const [showModal, setShowModal] = useState(false)
   return (
     <Container className=" mx-2 mb-5 mt-0 rounded bg-white p-0 w-100 w-lg-50 border border-1 border-secondary-subtle">
       <div className="col-12 border rounded bg-white p-3">
@@ -13,6 +15,7 @@ const SezioneAttivita = () => {
             <button
               type="button"
               className="btn btn-outline-primary rounded-pill me-2 py-1 px-3"
+              onClick={() => setShowModal(true)}
             >
               Crea un post
             </button>
@@ -37,6 +40,7 @@ const SezioneAttivita = () => {
           </a>
         </div>
       </div>
+      <AddPostModal show={showModal} handleClose={() => setShowModal(false)} />
     </Container>
   )
 }

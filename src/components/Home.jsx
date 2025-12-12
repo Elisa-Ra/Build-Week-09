@@ -4,6 +4,7 @@ import CreaPost from "./CreaPost"
 import Consigliati from "./Consigliati"
 import AsideNotizieDx from "./AsideNotizieDx"
 import PostCard from "./PostCard"
+import PostsList from "./PostsList"
 
 const Home = () => {
   return (
@@ -18,7 +19,8 @@ const Home = () => {
         {/* Centro */}
         <Col xs={12} md={6}>
           <CreaPost />
-          <PostCard />
+
+          <PostsList />
           <Consigliati />
         </Col>
 
