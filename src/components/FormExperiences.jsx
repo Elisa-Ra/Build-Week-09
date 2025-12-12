@@ -15,7 +15,7 @@ function FormExperiences(props) {
     const newExp = {
       role: formData.get("role") || "",
       company: formData.get("company") || "",
-      endDate: formData.get("endDate") || null,
+      endDate: formData.get("endDate") || "",
       startDate: formData.get("startDate") || "",
       area: formData.get("area") || "",
       description: formData.get("description") || "",
