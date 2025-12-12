@@ -16,12 +16,12 @@ function EditExperienceForm(props) {
   const dispatch = useDispatch()
 
   const [values, setValues] = useState({
-    role: props.role || null,
-    company: props.company || null,
+    role: props.role || "",
+    company: props.company || "",
     endDate: props.endD || null,
-    startDate: props.startD || null,
-    area: props.area || null,
-    description: props.description || null,
+    startDate: props.startD || "",
+    area: props.area || "",
+    description: props.description || "",
   })
 
   function editForm(formData) {
@@ -129,7 +129,7 @@ function EditExperienceForm(props) {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formEndDate">
-              <Form.Label>Data di fine*</Form.Label>
+              <Form.Label>Data di fine</Form.Label>
               <Form.Control
                 type="date"
                 name="endDate"
@@ -190,7 +190,7 @@ function EditExperienceForm(props) {
               type="button"
               onClick={() => {
                 dispatch(deleteExpAction(props.ID, expID))
-                console.log("esperianza cancellata")
+                console.log("esperienza cancellata")
                 dispatch(getExpAction(props.ID))
               }}
             >

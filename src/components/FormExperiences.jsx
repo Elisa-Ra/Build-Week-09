@@ -115,8 +115,8 @@ function FormExperiences(props) {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formEndDate">
-              <Form.Label>Data di fine*</Form.Label>
-              <Form.Control type="date" name="endDate" required />
+              <Form.Label>Data di fine</Form.Label>
+              <Form.Control type="date" name="endDate" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formArea">

@@ -1,14 +1,14 @@
-import { Row, Col, Image } from 'react-bootstrap';
-import EditExperienceForm from './EditExperienceForm';
+import { Row, Col, Image } from "react-bootstrap"
+import EditExperienceForm from "./EditExperienceForm"
 
 const ExperienceCard = (props) => {
   const startDConverted = props.startD
-    .slice(0, 10)
-    .split('-')
-    .reverse()
-    .join('/');
+    ? props.startD.slice(0, 10).split("-").reverse().join("/")
+    : null
 
-  const endDConverted = props.endD.slice(0, 10).split('-').reverse().join('/');
+  const endDConverted = props.endD
+    ? props.endD.slice(0, 10).split("-").reverse().join("/")
+    : null
 
   return (
     <div className="p-2 mb-3">
@@ -18,7 +18,7 @@ const ExperienceCard = (props) => {
           <Image
             src={props.img}
             className="rounded overflow-hidden border bg-light"
-            style={{ width: '48px', height: '48px' }}
+            style={{ width: "48px", height: "48px" }}
           ></Image>
         </Col>
 
@@ -26,7 +26,7 @@ const ExperienceCard = (props) => {
           <h6 className="fw-bold mb-0">{props.role}</h6>
           <p className="mb-0  text-muted">{props.company}</p>
           <p className="mb-0 small text-muted">
-            {startDConverted} - {endDConverted ? endDConverted : 'Presente'}
+            {startDConverted} - {endDConverted ? endDConverted : "Presente"}
             {/* · 2 anni 3 mesi */}
           </p>
           <p className="mb-2 small text-muted">{props.area}</p>
@@ -48,7 +48,7 @@ const ExperienceCard = (props) => {
         </Col>
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default ExperienceCard;
+export default ExperienceCard
