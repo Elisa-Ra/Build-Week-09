@@ -69,7 +69,7 @@ const Consigliati = () => {
       <div className="d-flex align-items-center py-3">
         <img src={IMAGE_URL} alt="logo" style={styles.img} className="me-3" />
 
-        <div>
+        <div className="flex-grow-1">
           <div className="fw-bold">Tango Brook</div>
           <div className="text-secondary small">
             Harnessing technology <br />
